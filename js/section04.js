@@ -68,7 +68,7 @@ function mouseUp(event, index) {
 
     if (state.current_point < 35) {
         console.log('ok entrei')
-        let interator = 5;
+        let interator = -state.current_point;
         
         function animaTransition() {
             
