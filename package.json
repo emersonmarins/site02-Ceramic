@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "parcel": "^2.8.3"
+  },
+  "name": "site-02-porcelanato",
+  "version": "1.0.0",
+  "description": "Site de Utensílios em Porcelanato",
+  "main": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "start": "npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
