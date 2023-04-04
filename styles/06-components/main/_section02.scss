@@ -18,8 +18,10 @@ $section02-products: 'section02';
     display: grid;
     grid-template-columns: 0.3fr 6fr 0.3fr;
     grid-template-areas: "contentleft    contentleft    contentleft"
-                         ".              contentright   .";
+                         "          .    contentright   .";
     gap: 4.5vw;
+    // justify-content: center;
+    justify-items: center;
     
   }
 

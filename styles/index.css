@@ -294,8 +294,9 @@ h4 {
   .section02 {
     display: grid;
     grid-template-columns: 0.3fr 6fr 0.3fr;
-    grid-template-areas: "contentleft    contentleft    contentleft" ".              contentright   .";
+    grid-template-areas: "contentleft    contentleft    contentleft" "          .    contentright   .";
     gap: 4.5vw;
+    justify-items: center;
   }
   .section02__left {
     grid-area: contentleft;
@@ -368,6 +369,8 @@ h4 {
 .section03 {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.116);
+  padding-bottom: 5vw;
 }
 .section03__content {
   padding: 7px 0;
@@ -389,6 +392,13 @@ h4 {
   flex-direction: column;
   flex-wrap: wrap;
   flex-grow: 1;
+}
+.section03__title {
+  font-weight: bolder;
+}
+.section03__text {
+  font-weight: 300;
+  font-size: 0.9rem;
 }
 @media screen and (max-width: 930px) {
   .section03__content {
@@ -424,29 +434,36 @@ h4 {
   width: 100%;
   height: 100%;
 }
+.section04__product-img:hover {
+  cursor: grabbing;
+}
 .section04__content {
-  display: grid;
-  grid-template-columns: minmax(190px, 1fr) minmax(190px, 1fr) minmax(190px, 1fr) minmax(190px, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 2%;
   margin-top: 15px;
 }
 .section04__content .bi {
   font-size: 12px;
 }
+.section04__content .section04__product-content {
+  width: 19.5833333333vw;
+  height: 25vw;
+  position: relative;
+}
 @media screen and (max-width: 900px) {
   .section04__content {
     display: flex;
     flex-direction: row;
-    overflow: auto;
   }
   .section04__content .section04__product-content {
-    width: 26.5333333333vw;
+    width: 26.6666666667vw;
     height: 30.8583333333vw;
   }
 }
 @media screen and (max-width: 700px) {
   .section04__content .section04__product-content {
-    width: 29.6333333333vw;
+    width: 29.8666666667vw;
     height: 34.0783333333vw;
   }
 }
@@ -723,6 +740,6 @@ body {
 }
 @media screen and (max-width: 700px) {
   body {
-    grid-template-columns: 0.2fr 5fr 0.2fr;
+    grid-template-columns: 0.2fr 5.6fr 0.2fr;
   }
 }/*# sourceMappingURL=index.css.map */

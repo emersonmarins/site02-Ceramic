@@ -1,6 +1,6 @@
 $section04-wrapper: 'section04';
 
-.#{$section04-wrapper} {
+.#{$section04-wrapper} {  
 
   &__title {
     font-size: calc(var(--font-step-0) * 1.2);
@@ -10,30 +10,39 @@ $section04-wrapper: 'section04';
   &__product-img {
   width: 100%;
   height: 100%;
+
+  &:hover {
+    cursor: grabbing;
+  }
   } 
 
   &__content {
     
-    display: grid;
-    grid-template-columns: minmax(190px, 1fr) minmax(190px, 1fr) minmax(190px, 1fr) minmax(190px, 1fr);
+    display: flex;
+    flex-direction: row;
     gap: 2%;
     margin-top: 15px;
 
 
     & .bi {
       font-size: 12px;
+    
     }
-
+    .section04__product-content {
+      width: calc((((100vw / 6) * 5 ) * 0.94 ) / 4); 
+      height: calc((((100vw / 6) * 5) * 1.2) / 4);
+      position: relative;
+      // transform: translateX(- calc((100vw / 3) - 6.2vw));
+    } 
 
     @media screen and (max-width: 900px) {
 
-      $width-translate: -((100vw / 3) - 6.2vw);
+      $width-translate: -(((100vw / 6) * 5 ) / 3);
       display: flex;
       flex-direction: row;
-      overflow: auto;
         
       .section04__product-content {
-        width: calc((100vw / 3) - 6.8vw); 
+        width: calc((((100vw / 6) * 5 ) * 0.96 ) / 3); 
         height: calc(((100vw / 3) - 6.5vw) * 1.15);
         // transform: translateX(- calc((100vw / 3) - 6.2vw));
       }  
@@ -41,7 +50,7 @@ $section04-wrapper: 'section04';
 
     @media screen and (max-width: 700px) {
       .section04__product-content {
-        width: calc((100vw / 3) - 3.7vw);
+        width: calc((((100vw / 6) * 5.6 ) / 3) * 0.96);
         height: calc(((100vw / 3) - 3.7vw) * 1.15);
       }
     }

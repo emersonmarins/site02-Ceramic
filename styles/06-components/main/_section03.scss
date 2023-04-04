@@ -4,6 +4,8 @@ $section03-wrapper: 'section03';
 
   display: grid;
   grid-template-columns: auto auto auto auto;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.116);
+  padding-bottom: 5vw;
 
 
   &__content {
@@ -32,6 +34,14 @@ $section03-wrapper: 'section03';
     flex-grow: 1;
   }
 
+  &__title {
+    font-weight: bolder;
+  }
+  
+  &__text {
+    font-weight: 300;
+    font-size: 0.9rem;
+  }
   @media screen and (max-width: 930px) {
 
     &__content {
