@@ -1,0 +1,48 @@
+.wrapper{
+  max-width: 1270px;
+  width: 90vw;
+  display: grid;
+  /* background-color: aqua; */
+  margin: auto;
+  grid-template-areas: 
+        "filter products"
+  ;
+  grid-template-columns: 230px  auto;
+  gap: 35px;
+
+}
+.wrapperFilter{
+  height: 400px;
+  background-color: rgb(237, 237, 237);
+  grid-area: filter;
+}
+.wrapperProducts{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  grid-area: products;
+
+}
+
+/* Container Product */
+.containerProduct{
+  width: 300px;
+  
+}
+.containerProduct__img {
+  width: inherit;
+  height: 320px;
+  background-color: rgb(241, 241, 241);
+}
+.containerProduct__img > img{
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
+  
+}
+
+.containerProduct__info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

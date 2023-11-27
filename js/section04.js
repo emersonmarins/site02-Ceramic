@@ -1,135 +1,185 @@
 "use strict"
-//-------Select Elements---------//
-const listCarousel = document.querySelector('.section04__content');
-let productContent = document.querySelectorAll('.section04__product-content');
-const productList = document.querySelectorAll('.section04__product-list')
 
-//-------Object initializer--------//
-const state = {
-    starting_point: 0,
-    current_point: 0,
-    movement_point: 0,
-    salved_position: 0,
-    current_slide_index: 0,
-    interator: 0,
-    current_id: 0,
-    widthWindow: 0
-}
-/**
- * calculates the width of each image by the width of the viewport
- * 6 = fraction that will be divided by the viewport width
- * 5.6 = fraction of the width of the content
- * 1.02 = gap percentage
- * 3 = number of elements that received the available space equally
- */
-function calcWidthViewPort() {
+export function startCarousel() {
 
-    if (window.innerWidth < 700) {
-        console.log('lagura menor que 700px')
-        state.widthWindow = window.innerWidth
-        console.log(state.widthWindow);
-        state.widthWindow = ((((state.widthWindow / 6) * 5.6) * 1.02) / 3);
-        console.log(state.widthWindow);
+    const carouselWrapper = document.querySelector('.section04');
+    const listCarousel = document.querySelector('.section04__content');
+    let productContent = document.querySelectorAll('.section04__product-content');
+    const productList = document.querySelectorAll('.section04__product-list');
 
-    } else {
-        
-        state.widthWindow = window.innerWidth
-        console.log(state.widthWindow);
-        state.widthWindow = ((((state.widthWindow / 6) * 5) * 1.02) / 3);
-        console.log(state.widthWindow);
+    const state = {
+        starting_point: 0,
+        current_point: 0,
+        movement_point: 0,
+        salved_position: 0,
+        current_slide_index: 0,
+        widthWindow: 0
     }
-};
-calcWidthViewPort();
 
-//-------viewport width capture event-------//
-window.addEventListener('resize', () => {
+    function translateX(position, salve = true) {
+        listCarousel.style.transform = `translateX(${position}px)`;
 
-    calcWidthViewPort();
-})
+        if (salve) {
+            state.salved_position = position;
+        }
+    }
 
+    function calcWidthViewPort() {
 
-//-------Functions-------//
-function createClone() {
-    let firstProduct = productList[0].cloneNode(true);
-    firstProduct.childNodes[1].children[0].setAttribute('data-id', `${productList.length +1}`);
-    let secondProduct = productList[1].cloneNode(true);
-    secondProduct.childNodes[1].children[0].setAttribute('data-id', `${productList.length +2}`);
-    let thirdProduct = productList[2].cloneNode(true);
-    thirdProduct.childNodes[1].children[0].setAttribute('data-id', `${productList.length +3}`);
+        let position = productList[0].offsetLeft;
+        state.salved_position = -position;
+        translateX(-position);
+    }
 
 
-    let lastProduct = productList[productList.length -1].cloneNode(true);
-    lastProduct.childNodes[1].children[0].setAttribute('data-id', '0');
-    let penultimateProduct = productList[productList.length -2].cloneNode(true);
-    penultimateProduct.childNodes[1].children[0].setAttribute('data-id', '-1');
-    let antepenultimateProduct = productList[productList.length -3].cloneNode(true);
-    antepenultimateProduct.childNodes[1].children[0].setAttribute('data-id', '-2');
-
-
-    listCarousel.prepend(lastProduct);
-    listCarousel.prepend(penultimateProduct);
-    listCarousel.prepend(antepenultimateProduct);
-
-    listCarousel.append(firstProduct);
-    listCarousel.append(secondProduct);
-    listCarousel.append(thirdProduct);
-
-    productContent = document.querySelectorAll('.section04__product-content');
-}
-
-function mouseDown(event, index) {
-    state.starting_point = event.clientX;
-    state.current_id = event.target.dataset.id;
-    console.log(state.current_id);
-    const slide_item = event.currentTarget;
-    slide_item.addEventListener("mousemove", mouseMove);
-
-}
-
-function mouseMove(event) {
-
-    state.current_point = event.clientX - state.starting_point;  
-    state.movement_point = state.current_point + state.salved_position;
-    listCarousel.style.transition = `none`;
-    listCarousel.style.transform = `translateX(${state.movement_point}px)`;
-
-}
-
-function mouseUp(event, index) {
-    // save breakpoint
-    const slide_item = event.currentTarget;
-    slide_item.removeEventListener("mousemove", mouseMove);
+    function setVisibleSlide(position) {
+        if (position > 0 || -(position) >= (productList[0].offsetWidth) * (productList.length - 3)) {
+            position = state.salved_position;
+        }
     
-    if (state.current_point < 35) {
-
-    
-        listCarousel.style.transition = `transform 0.35s`;
-        console.log(state.salved_position)
-        state.movement_point = 0;
-        state.movement_point += -state.widthWindow;
-        listCarousel.style.transform = `translateX(${(-state.widthWindow + state.salved_position)}px)`;
-        state.salved_position += state.movement_point;
-
-        
-      
-    } else if (state.current_point > 2) {
 
         listCarousel.style.transition = `transform 0.35s`;
-        console.log(state.salved_position)
-        state.movement_point = 0;
-        listCarousel.style.transform = `translateX(${(state.widthWindow + state.salved_position)}px)`;
-        state.salved_position += state.widthWindow;
-
-        
+        translateX(position);
     }
+
+    function nextSlide(index) {
+
+        setVisibleSlide(-((productList[1].offsetWidth * index) - (state.salved_position)));
+    }
+
+    function previouSlide(index) {
+
+        setVisibleSlide((productList[1].offsetWidth * index) + (state.salved_position));
+    }
+
+    function removeEvents(event) {
+        const slide_item = event.currentTarget;
+        slide_item.removeEventListener("mousemove", mouseMove);
+        slide_item.removeEventListener("mousemove", touchMove);
+
+        productContent.forEach(element => {
+            element.removeEventListener("mousemove", mouseMove);
+            element.removeEventListener("touchmove", touchMove);
+        });
+    }
+
+    function mouseMove(event) {
+        state.movement_point = event.clientX - state.starting_point;
+        state.position = state.movement_point + state.current_point;
+        listCarousel.style.transition = `none`;
+        translateX(state.position, false);
+    }
+
+    function mouseDown(event, index) {
+
+        const slide_item = event.currentTarget;
+        state.starting_point = event.clientX;
+        state.current_point = state.salved_position;
+        state.current_slide_index = index;
+
+
+        slide_item.addEventListener("mousemove", mouseMove);
+        slide_item.addEventListener("touchmove", touchMove);
+    }
+
+    function mouseUp(event) {
+
+        removeEvents(event);
+        let mvp = -(state.movement_point); // mvp = moviment point positive
+        let mvn = state.movement_point; // mvp = moviment point negative
+        let width = productList[0].offsetWidth; // product item width
+
+        if (mvp <= width && mvn < -40) {
+            nextSlide(1)
+
+        } else if (mvp <= (width * 2) && mvn < -40) {
+            nextSlide(2)
+
+        } else if (mvp <= (width * 3) && mvn < -40) {
+            nextSlide(3)
+
+        } else if (mvn <= width && mvn > 40) {
+            previouSlide(1)
+
+        } else if (mvn <= (width * 2) && mvn > 40) {
+            previouSlide(2)
+
+        } else if (mvn <= (width * 3) && mvn > 40) {
+            previouSlide(3)
+            
+        } else {
+
+            setVisibleSlide(state.salved_position);
+
+        }
+    }
+
+    function touchStart(event, index) {
+        event.clientX = event.touches[0].clientX;
+        mouseDown(event, index);
+    }
+
+    function touchMove(event) {
+        event.clientX = event.touches[0].clientX;
+        mouseMove(event);
+    }
+
+    function touchEnd(event) {
+        mouseUp(event);
+    }
+
+    function setListeners(params) {
+        listCarousel.addEventListener("dragstart", e => e.preventDefault());
+
+        productContent.forEach((slide_item, index) => {
+
+            slide_item.addEventListener("dragstart", e => e.preventDefault());
+            slide_item.addEventListener("mousedown", event => mouseDown(event, index));
+            slide_item.addEventListener("mouseup", event => mouseUp(event));
+
+            slide_item.addEventListener("touchstart", event => touchStart(event, index));
+            slide_item.addEventListener("touchend", event => touchEnd(event));
+
+        });
+
+        window.addEventListener('resize', calcWidthViewPort);
+        translateX(-(productList[1].offsetWidth * 0));
+
+
+    }
+    setListeners();
+
+    /*------- Efects Hover -------*/
+    let img = document.querySelectorAll('.section04__product-img');
+    let imageWrapper = document.querySelectorAll('.section04__wrapper-image');
+
+
+
+    function setListenersAnimate() {
+        imageWrapper.forEach((element, index) => {
+            element.addEventListener('mouseover', (divImage) => {
+                element.children[1].style.cssText = ` 
+                    transition: 1s;
+                    animation: animate 1s ease-in-out both;
+                    filter: brightness(1.1) opacity(1);
+                    cursor: point;
+                    `;
+            });
+            element.addEventListener('mouseleave', (divImage) => {
+                divImage.target.style.transition = `transform 2s`;
+                divImage.target.children[1].style.cssText = `
+                    animation: animate-out 1s ease-in-out both;
+                    filter: brightness(1.1) opacity(1);
+                `;
+
+            });
+        });
+    }
+
+    function callListenersAnimate() {
+        setListenersAnimate();
+    };
+    callListenersAnimate();
+
+
 }
-
-createClone();
-//-------Events-------//
-productContent.forEach((slide_item, index) => {
-
-    slide_item.addEventListener("dragstart", e => e.preventDefault());
-    slide_item.addEventListener("mousedown", event => mouseDown(event, index));
-    slide_item.addEventListener("mouseup", mouseUp);
-
-});

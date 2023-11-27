@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Carrinho</title>
+    <link rel="stylesheet" href="styles/06-components/product/index.css">
+</head>
+<body>
+    <div class="cart-wrapper">
+        <h1 class="cart-wrapper__title">Carrinho de compras</h1>
+        <table class="cart">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Entrega</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cart__info">
+                        <img src="img/products/imagem03.jpg" width="80" alt="" srcset="">
+                        <div>
+                            <h5>Conjunto de Chícara</h5>
+                            <p>Produto fornecido pela Artezanal</p>
+                        </div>
+                    </td>
+                    <td><p>a calcular</p></td>
+                    <td><p>R$68,00</p></td>
+                    <td>
+                        <div class="cart__product__quantity">
+                            <span class="cart__product__minus">-</span>
+                            <input class="cart__product__value" type="text" value="1">
+                            <span class="cart__product__plus">+</span>
+                        </div>
+                    </td>
+                    <td><p>R$68,00</p></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="cart-wrapper__summary">
+            <div class="cart-wrapper__frete">
+                <h3>Entrega</h3>
+                <p>Veja as opções de entrega para seus itens, com todos os prazos e valores.</p>
+                <button class="btn" type="submit">CALCULAR</button>
+            </div>
+            <div class="cart-wrapper__total">
+                <label  for="codigo">Cupom de desconto</label>
+                <div>
+                    <input class="cart-wrapper__input" type="text" id="codigo" placeholder="Código">
+                    <button class="cart-wrapper__button" >ADICIONAR</button>
+                </div>
+                <table>
+                    <tr>
+                        <td><p>Subtotal</p></td>
+                        <td><p>R$ 68,00</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Total</p></td>
+                        <td><p>R$ 68,00</p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="cart-wrapper__links">
+            <a class="btn-product" href="#">Escolher mais produtos</a>
+            <a class="btn-finalize-order" href="#">Finalizar Pedido</a>
+        </div> 
+
+    </div>
+</body>
+</html>

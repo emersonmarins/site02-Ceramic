@@ -22,27 +22,21 @@ $nav-top: 'nav-top';
             .nav-top__item {
                 color: var(--color-font05); 
                 font-weight: 300;
+                padding: 0 7px;
+
             }
 
             .nav-top__item:not(:last-child)::after {
                 content: " ";
-                border-right: 1px solid rgba(255, 255, 255, 0.165);
-                padding-right: var(--space-s);
+                border-right: 1px solid rgba(165, 165, 165, 0.747);
+                padding: 0 7px;
                 font-size: 9px;
 
 
             }
         
     }
-    @media screen and (max-width:600px) {
-        &__left {
-            flex-grow: 1;
-            text-align: center;
-        }
-        &__right {
-            display: none;
-        }
-    }
+
 }
 
 

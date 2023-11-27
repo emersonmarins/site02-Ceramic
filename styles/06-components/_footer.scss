@@ -1,29 +1,88 @@
-// :root {
-//     --color01: rgb(228, 100, 104);
-//     --color02: rgb(100, 228, 202);
-//     --color03: rgb(102, 228, 100);
-//     --color04: rgb(205, 199, 32);
-//     --color05: rgb(229, 146, 200);
-//     --color-font01:rgb(74, 74, 74);
-//     --color-font02:rgb(148, 148, 148);
-//     --color-font03:rgb(58, 58, 58);
-//     --color-font04:rgb(115, 115, 115);
-//     --color-background01:rgb(246, 238, 223);
-// }
-.container-footer {
+$footer-wrapper: 'footer-wrapper';
+$footer: 'footer';
+$footer-end: 'footer__end';
+
+.#{$footer-wrapper}{
     grid-area: footer;
-    // height: 60px;
-    // width: 100%;
-    // background-color: var(--color-font03);
+    display: block;
+    width: 100vw;
+    // height: 700px;
+    background: radial-gradient( rgb(255, 255, 255), rgb(255, 255, 255));
+    box-shadow: 0 -0px 1px 1px rgba(59, 59, 59, 0.123);
+
+}
+.#{$footer}{
+    max-width: 1080px;
+    height: auto;
+    padding: 20px 40px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    text-transform: capitalize;
+    color: rgb(0, 0, 0);   
+
+    span,
+    li,
+    a {
+        font-size: var(--step--1);
+    }
+
+    &__logo {
+        padding: 21px 0 21px;
+    }
+    
+    &__column {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 2px;
+        flex-grow: 1;
+        
+        
+    }
+    &__title {
+        display: block;
+        font-weight: 900;
+        padding: 19px 0;
+        color: rgb(42, 41, 41);
+        font-size: var(--step-2);
+    }
+    &__text {
+        color: rgb(64, 64, 64);
+    }
+    &__text:hover {
+        color: rgb(0, 0, 0);
+    }
+    &__icon {
+        font-size: var(--step-4);
+        transition: .7s;
+    }
+    &__icon:hover {
+        transform: scale(1.1);
+        color: rgb(159, 86, 233);
+        cursor: pointer;
+    }
+    &__icon:not(:last-child) {
+        margin-right: 14px;
+    }
 }
 
-// .container-footer p {
-    
-//     color: var(--color02);
-//     text-align: center;
-//     position: relative;
-//     height: 100%;
-//     width: 100%;
-//     top: 26px;
-//     font-size: 14px;
-// }
+.#{$footer-end} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: rgb(170, 170, 170);
+    height: 40px;
+    background-color: rgb(14, 14, 14);
+   
+   
+ .footer__copy {
+        display: inline-block;
+        font-size: 14px;
+        padding-right: 5px ;
+        transform: translateY(1.5px);
+    }
+}
+

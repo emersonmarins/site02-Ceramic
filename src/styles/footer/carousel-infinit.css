@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+.select {
+    color: aqua!important;
+}
+
+@font-face {
+    font-family: 'OpenSauce';
+    src: url('../fonts/Fonts/OpenSauceOne-Light.ttf') format('truetype'), url('fonts/LoveMatch.otf') format('opentype'); 
+    
+}
+
+/* body, html {
+    height: auto;
+    width: 100vw;
+} */
+
+body {
+    background: #f1f1f1;
+    touch-action: none;
+}
+
+.wrapper {
+    padding: 20px 0;
+    max-width: 1470px;
+    width: calc(100vw - 80px);
+    overflow: hidden;
+    margin: auto;
+}
+
+/*-------Não colocar padding nem margin, no container list nem no slide-list-------*/
+.slide__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+}
+
+.slide__list {
+    display: flex;
+}
+
+.slide__item{
+    max-width: calc(1470px / 2);
+    width: calc((100vw - 80px) / 2);
+}
+
+.slide__content {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.slide__image-wrapper {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.slide__image {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 0 0px 1px #00000022;
+    cursor: grabbing;    
+}
+
+.img-clone > img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-radius: 3px;
+    z-index: 1000;
+}
+
+.slide__description {
+    width: 100%;
+    height: 30%;
+    border-radius: 3px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.903), rgba(0, 0, 0, 0.200), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    z-index: 10000;
+}
+
+.slide__description > h3{
+    color: #dfdfdf;
+    font-family: OpenSauce, sans-serif ;
+    font-weight: 600;
+    font-size: 13px; 
+}
+
+.slide__description > p {
+    color: #ababab;
+    font-family: OpenSauce, sans-serif ;
+    font-weight: 400;
+    font-size: 10px; 
+}
+
+
+/* ========== Product Wrapper =========== */
+.slide__product-wrapper {
+    width: 90%;
+    margin: auto;
+    line-height: 1.5;
+
+}
+
+.slide__product-title {
+    font-size: 21px;
+    text-transform: capitalize;
+}
+
+.slide__product-description {
+    font-size: 14px;
+    text-transform: capitalize;
+
+}
+
+.slide__product-stars {
+    color: rgb(255, 170, 0);
+    font-size: 14px;
+    margin: 14px 0;
+
+}
+
+.slide__product-stars .bi:not(:last-child) {
+    margin-right: 7px;
+}
+
+.slide__product-current-price{
+    display: inline-block;
+    color: #454545;
+    text-decoration: line-through;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.slide__product-price{
+    color: #2fc6bd;
+    font-size: 24px;
+}
+
+.slide__product-btn {
+    display: block;
+    background: #e8f7f6;
+    text-transform: uppercase;
+    color: #1FB0A8;
+    padding: 14px 28px;
+    margin: 14px 0;
+    border: 1px solid #1fb0a917;
+    box-shadow: 0px 0px 2px 1px #1fb0a917;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.slide__prev-btn,
+.slide__next-btn
+{
+    background-color: rgba(0, 0, 0, 0.067);
+    border-radius: 35%;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.121);
+    padding: 5px 7px;
+    color: #ffffff;
+    border: none;
+    font-size: 21px;
+    position: absolute;
+    text-shadow: 0px 0px 5px #0b0b0b;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.bi-chevron-right {
+    right: 20px;
+    margin-right: 14px;
+}
+
+.bi-chevron-left {
+    left: 20px;
+    margin-left: 14px;
+}
+
+
+.bi:hover {
+    background-color: #0b0b0b;
+    cursor: pointer;
+}
+
+.slide__controls-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.slide__control-button.fa-solid {
+    background-color: transparent;
+    color: #2c2c2c;
+    font-size: 17px;
+    border: none;
+    margin: 0px 7px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 700px) {
+    .slide-description{
+        padding: 20px;
+    }
+    .slide-description h3{
+        font-size: 1.1em;
+        
+    }
+    .slide-description p{
+        font-size: 0.6em;
+        
+    }
+    .bi {
+        font-size: 21px;
+    }
+
+    .fa-circle {
+
+        font-size: 10px;
+        margin: 0px 7px;
+    
+    }
+}
+
+@keyframes ola {
+    0%{
+        color: red;
+    }
+    100% {
+        color: blue;
+    }
+}
+
+@keyframes animate {
+    0% {
+      opacity: 0.2;
+      transform: rotateY(90deg) scale(1);
+    }
+
+    100% {
+      opacity: 1;
+      transform: rotateY(0deg) scale(1.1);
+    }
+  }
+
+
+  @keyframes animate-out {
+    0% {
+      opacity: 1;
+      transform: rotateY(0deg) scale(1.1);
+    }     
+    100% {
+      opacity: 0.2;
+      transform: rotateY(90deg) scale(1);
+    }
+  }

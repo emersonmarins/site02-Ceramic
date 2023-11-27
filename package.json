@@ -6,6 +6,7 @@
   "version": "1.0.0",
   "description": "Site de Utensílios em Porcelanato",
   "main": "index.html",
+  "type": "module",
   "devDependencies": {},
   "scripts": {
     "start": "npm run dev",

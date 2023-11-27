@@ -1,53 +1,87 @@
-.section07-title {
-  /* text-align: center; */
-  margin-top: 70px;
-}
+$section07: 'section07';
 
-.secton07-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2%;
-  margin-top: 20px;
-  position: relative;
-  /* background-color: blue; */
-}
+.#{$section07} {
+  margin-bottom: 40px;
+  
+  &__title {
+    font-size: var(--step-3);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    
+    h2 {
+      
+      color: var(--color01);
+      text-transform: capitalize;
+    }
+  }
+  
+  &__content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2%;
+  }
 
-.section07-content01, .section07-content02, .section07-content03 {
-  position: relative;
-  background-color: antiquewhite;
-  /* height: 100%; */
-}
+  &__content {
+    position: relative;
+    cursor: pointer;
+    transition: 1.4s ease;
+    overflow: hidden;
+  }
 
-.section07-img {
-  height: 100%;
-  width: 100%;
-}
+  &__content:hover {
+   
+    img{
+      transform: scale(1.1);
+      transition: 1.4s ease;
+    }
+    .section07__info {
+      opacity: 1;
 
-.secton07-content-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    }
 
-.section07-content-infoB > i {
-  background-color: rgb(243, 155, 79);
-  padding: 5px 10px;
-  border-radius: 3px;
-}
+  }
 
-.section07-content-infoA {
-  background-color: aliceblue;
-  width: 200px;
-  border-radius: 3px;
-  padding: 7px 0;
-}
+  &__img{
+    width: 100%;
+    height: auto;
 
-.section07-content-infoA > h4 {
-  color: rgb(243, 155, 79);
-}
+    a,
+    img {
+      width: 100%;
+      height: auto;
+    }
 
-.section07-content-infoB {
-  margin-bottom: 15px;
-}/*# sourceMappingURL=section07.css.map */
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: .7s ease;
+  }
+  
+  &__icon {
+    .bi {
+      background-color: rgb(255, 166, 0);
+      font-size: var(--step-2);
+      padding: 7px;
+      margin-right: 4px;
+    }
+  }
+
+  &__text {
+    padding: 14px;
+    background-color: rgb(245, 245, 245);
+    line-height: 1.4;
+
+   span {
+      color: var(--color01);
+    }
+  }
+}

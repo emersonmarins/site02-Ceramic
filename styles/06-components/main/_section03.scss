@@ -5,7 +5,7 @@ $section03-wrapper: 'section03';
   display: grid;
   grid-template-columns: auto auto auto auto;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.116);
-  padding-bottom: 5vw;
+  padding: 40px 0;
 
 
   &__content {
@@ -19,12 +19,15 @@ $section03-wrapper: 'section03';
       border-right: 1px solid rgba(0, 0, 0, 0.268);
       height: 20px;
       align-self: center;
-      margin: 0 var(--space-2xs);
+      margin: 0 21px;
     }
   }
 
   &__icon {
     flex-grow: 1;
+    font-size: var(--step-3);
+    padding: 0 7px;
+
   }
 
   &__description {
@@ -32,42 +35,18 @@ $section03-wrapper: 'section03';
     flex-direction: column;
     flex-wrap: wrap;
     flex-grow: 1;
+    line-height: 1.6;
   }
 
   &__title {
     font-weight: bolder;
+    font-size: var(--step-0);
+
   }
   
   &__text {
     font-weight: 300;
-    font-size: 0.9rem;
-  }
-  @media screen and (max-width: 930px) {
-
-    &__content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px;
-
-      &:not(:last-child)::after {
-        content: "";
-        border-right: 1px solid transparent;
-      }
-    }
-  }
-
-  @media screen and (max-width: 790px) {
-    display: grid;
-    grid-template-columns: auto auto;
-
-  }
-
-  @media screen and (max-width: 440px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    // font-size: 0.9rem;
   }
 
 }

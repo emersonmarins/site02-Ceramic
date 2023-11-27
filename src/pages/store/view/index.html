@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="wrapperFilter">
+      <h3>Filtros</h3>
+      <ul>
+        <li>Pratos</li>
+        <li>Xícaras</li>
+        <li>Jarros</li>
+        <li>Travessas</li>
+      </ul>
+    </div>
+    <div class="wrapperProducts"></div>
+  </div>
+  <script type="module">
+
+    import { dataBase } from "../model/db_product.js";
+
+    class Products {
+      constructor(className, textCartBtn, textBuyNowBtn) {
+
+        this.wrapperContainer = document.querySelector(`.${className}`);
+        this.title;
+        this.text;
+        this.textCartBtn = textCartBtn;
+        this.textBuyNowBtn = textBuyNowBtn;
+        this.textPrice;
+        this.textPriceCurrent;
+
+      }
+      createProduct() {
+        dataBase.products.forEach(element => {
+          console.log(element)
+
+          // Create Elements
+          let wrapperProduct = document.createElement('div');
+          let containerImg = document.createElement('div');
+          let containerInfo = document.createElement('div');
+
+          let img = document.createElement('img');
+
+          let title = document.createElement('h2');
+          let description = document.createElement('p');
+
+          let price = document.createElement('span');
+          let priceCurrent = document.createElement('span');
+
+          let addCartBtn = document.createElement('button');
+          let buyNowBtn = document.createElement('button');
+
+          //Add Attributes
+          wrapperProduct.classList.add('containerProduct');
+          containerImg.classList.add('containerProduct__img');
+          containerInfo.classList.add('containerProduct__info');
+
+          img.classList.add('img');
+          img.setAttribute('src', `${element.url}`);
+
+          title.classList.add('title');
+          title.textContent = element.title;
+          description.classList.add('description');
+          description.textContent = element.description;
+          price.classList.add('textPrice');
+          price.textContent = element.price;
+          priceCurrent.classList.add('textPriceCurrent');
+          // priceCurrent.textContent = database.priceCurrent;
+
+          addCartBtn.classList.add('addCartBtn');
+          addCartBtn.textContent = this.textCartBtn;
+          buyNowBtn.classList.add('buyNowBtn');
+          buyNowBtn.textContent = this.textBuyNowBtn;
+
+
+          // Append Elements
+          this.wrapperContainer.appendChild(wrapperProduct);
+
+          wrapperProduct.appendChild(containerImg);
+          containerImg.appendChild(img);
+
+          wrapperProduct.appendChild(containerInfo);
+          containerInfo.appendChild(title);
+          containerInfo.appendChild(description);
+          containerInfo.appendChild(price);
+          containerInfo.appendChild(priceCurrent);
+          containerInfo.appendChild(addCartBtn);
+          containerInfo.appendChild(buyNowBtn);
+        });
+
+      };
+
+      callFunctions() {
+        this.createProduct();
+      };
+
+    };
+
+    let className = "wrapperProducts";
+    let addCartBtn = "add carrinho";
+    let buyNowBtn = "comprar agora";
+    let listProducts = new Products(className, addCartBtn, buyNowBtn);
+    listProducts.callFunctions();
+
+  </script>
+</body>
+
+</html>

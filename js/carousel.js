@@ -11,7 +11,13 @@ const state = {
     salved_position: 0,
     current_slide_index: 0
 }
+
+function setVsibleSlide() {
+    
+}
+
 function mouseDown(event, index) {
+
     const slide_item = event.currentTarget;
     state.starting_point = event.clientX;
     state.current_slide_index = index;
@@ -33,9 +39,9 @@ function mouseMove(event) {
 function mouseUp(event) {
     state.salved_position = state.current_point;
     const slide_item = event.currentTarget;
-    slide_item.removeEventListener("mousemove", mouseMove)
+    slide_item.removeEventListener("mousemove", mouseMove);
     const slide_width = (event.target.width * 0.15);
-    console.log(slide_width + " comparação " + state.current_point)
+    console.log(slide_width + " comparação " + state.current_point);
    
     if (state.movement_point < -slide_width) {
         state.current_slide_index++;
