@@ -201,7 +201,7 @@ class RenderCart {
       const tdInfoProduct = document.createElement('td');
       tdInfoProduct.classList.add('cart__info', 'js-cart__info');
       const img = document.createElement('img');
-      img.setAttribute('src', element.url); // Implementar DB
+      img.setAttribute('src', '../../../assets/products/'+/[0-9]+.+/ig.exec(element.url)[0]); // Implementar DB
       const div = document.createElement('div');
       const h5 = document.createElement('h5');
       h5.innerText = element.title; // Implementar DB
