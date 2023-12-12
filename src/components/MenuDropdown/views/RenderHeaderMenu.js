@@ -7,9 +7,12 @@ class RenderHeaderMenu {
   };
   set pathCurrent(pathPage){
     if (pathPage === 'cart-page') {
+      console.log('entrou cart-page')
       this._path = '../../../../';
       
     } else if (pathPage === 'home') {
+      console.log('entrou home')
+
       this._path = './';
 
     }
