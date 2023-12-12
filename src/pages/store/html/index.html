@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="./src/styles/index.css">
-  <link rel="stylesheet" href="./src/components/MenuDropdown/styles/index.css">
-  <link rel="stylesheet" href="./src/components/ShoppingCarts/styles/index.css">
-  <link rel="stylesheet" href="./src/components/footer/styles/index.css">
+  <link rel="stylesheet" href="../../../styles/index.css">
+  <link rel="stylesheet" href="../../../components/MenuDropdown/styles/index.css">
+  <link rel="stylesheet" href="../../../components/ShoppingCarts/styles/index.css">
+  <link rel="stylesheet" href="../../../components/footer/styles/index.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
@@ -135,13 +135,13 @@
 
   </script>
   <script type="module">
-    import { MenuHeaderController } from "./src/components/MenuDropdown/controllers/MenuHeaderController.js";
+    import { MenuHeaderController } from "../../../components/MenuDropdown/controllers/MenuHeaderController.js";
     new MenuHeaderController('.header');
-    import { FooterController } from "./src/components/footer/controller/FooterController.js";
+    import { FooterController } from "../../../components/footer/controller/FooterController.js";
     new FooterController('.footer-wrapper');
   </script>
-  <script type="module" src="./src/components/MenuDropdown/controllers/search/SearchController.js"></script>
-  <script type="module" src="./src/components/buttonScrollToTop/ScrollToTop.js"></script>
+  <script type="module" src="../../../components/MenuDropdown/controllers/search/SearchController.js"></script>
+  <script type="module" src="../../../components/buttonScrollToTop/ScrollToTop.js"></script>
 
 </body>
 
