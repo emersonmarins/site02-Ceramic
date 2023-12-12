@@ -1,10 +1,21 @@
 class CreateFooter {
-  constructor(className) {
+  constructor(className,path) {
     this._divWrapper;
     this.divWrapper = className;
+    this._path;
+    this.pathCurrent = path;
   };
   set divWrapper(className) {
     className ? this._divWrapper = document.querySelector(className) : document.querySelector('body');
+  }
+  set pathCurrent(pathPage){
+    if (pathPage === 'cart-page') {
+      this._path = '../../../';
+      
+    } else if (pathPage === 'home') {
+      this._path = './src/';
+
+    }
   }
   get divWrapper() {
     return this._divWrapper;
@@ -30,7 +41,7 @@ class CreateFooter {
     const logo = document.createElement('div');
     const logoImg = document.createElement('img');
     logoImg.classList.add('footer__logo');
-    logoImg.src = '/src/assets/logo/logo-porcelann.png';
+    logoImg.src = `${this._path}assets/logo/logo-porcelann.png`;
     logoImg.style.width = '150px';
     logo.appendChild(logoImg);
     column1.appendChild(logo);

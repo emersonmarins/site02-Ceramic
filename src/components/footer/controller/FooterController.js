@@ -2,9 +2,9 @@ import { CreateFooter } from "../views/CreateFooter.js";
 import { FooterModel } from "../model/FooterModel.js";
 
 class FooterController {
-  constructor(className){
+  constructor(className, path){
     this._className = className;
-    this.createFooter = new CreateFooter(className);
+    this.createFooter = new CreateFooter(className,path);
     this.startCreateFooter();
     this.initEventListeners();
     this.footerModel = new FooterModel(className);
