@@ -15,11 +15,11 @@
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/src/styles/index.css">
-    <link rel="stylesheet" href="/src/components/MenuDropdown/styles/index.css">
-    <link rel="stylesheet" href="/src/components/ShoppingCarts/styles/index.css">
-    <link rel="stylesheet" href="src/components/Carousel/styles/index.css">
-    <link rel="stylesheet" href="/src/components/footer/styles/index.css">
+    <link rel="stylesheet" href="./src/styles/index.css">
+    <link rel="stylesheet" href="./src/components/MenuDropdown/styles/index.css">
+    <link rel="stylesheet" href="./src/components/ShoppingCarts/styles/index.css">
+    <link rel="stylesheet" href="./src/components/Carousel/styles/index.css">
+    <link rel="stylesheet" href="./src/components/footer/styles/index.css">
 
 </head>
 <body>
@@ -197,17 +197,18 @@
         </main>
         <footer class="footer-wrapper"></footer>
     </div>
+    <span style="display: none;">test</span>
 
     <script type="module">
-        import { MenuHeaderController } from "/src/components/MenuDropdown/controllers/MenuHeaderController.js";
+        import { MenuHeaderController } from "./src/components/MenuDropdown/controllers/MenuHeaderController.js";
         new MenuHeaderController('.header');
-        import { CarouselController } from "/src/components/Carousel/Controller/CarouselController.js";
+        import { CarouselController } from "./src/components/Carousel/Controller/CarouselController.js";
         new CarouselController('container-carousel');
-        import { FooterController } from "/src/components/footer/controller/FooterController.js";
+        import { FooterController } from "./src/components/footer/controller/FooterController.js";
         new FooterController('.footer-wrapper');
     </script>
-    <script type="module" src="/src/components/MenuDropdown/controllers/search/SearchController.js"></script>
-    <script type="module" src="/src/components/buttonScrollToTop/ScrollToTop.js"></script>
+    <script type="module" src="./src/components/MenuDropdown/controllers/search/SearchController.js"></script>
+    <script type="module" src="./src/components/buttonScrollToTop/ScrollToTop.js"></script>
     <noscript>Voçê precisa habilitar o JavaScript para ver todo o site</noscript>
 </body>
 
