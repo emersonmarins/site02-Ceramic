@@ -1,8 +1,19 @@
 class RenderHeaderMenu {
-  constructor(className = 'body') {
+  constructor(className = 'body',path) {
     this.containerWrapper = document.querySelector(`${className}`);
+    this._path;
+    this.pathCurrent = path;
     this.initMenu();
   };
+  set pathCurrent(pathPage){
+    if (pathPage === 'cart-page') {
+      this._path = '../../../../';
+      
+    } else if (pathPage === 'home') {
+      this._path = './';
+
+    }
+  }
   initMenu() {
     this.renderMenu();
   };
@@ -24,7 +35,7 @@ class RenderHeaderMenu {
     this.menu = document.createElement('ul');
     this.menu.setAttribute('class', 'menu state-menu');
     this.menu.innerHTML = `
-      <li><a href="/index.html">HOME</a></li>
+      <li><a href="${this._path}index.html">HOME</a></li>
       <li class="dropdown">
         <a href="../../../pages/store/html/index.html">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
         <ul class="dropdown-menu">

@@ -37,7 +37,7 @@
     <script type="module" src="../../../components/MenuDropdown/controllers/MenuHeaderController.js"></script>
     <script type="module">
         import { MenuHeaderController } from "../../../components/MenuDropdown/controllers/MenuHeaderController.js";
-        new MenuHeaderController('.header', true);
+        new MenuHeaderController('.header', true, 'cart-page');
         import { cartController } from "../controller/CartController.js";
         cartController.renderCart('.mainContent');
         import { FooterController } from "../../../components/footer/controller/FooterController.js";

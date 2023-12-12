@@ -1,7 +1,7 @@
 import { RenderHeaderMenu } from "../views/RenderHeaderMenu.js";
 class MenuHeaderController {
-  constructor(className, hideCartModal) {
-    this.renderHeaderMenu = new RenderHeaderMenu(className);
+  constructor(className, hideCartModal, path) {
+    this.renderHeaderMenu = new RenderHeaderMenu(className,path);
     this.menuToggle = document.querySelector('.menu-toggle');
     this.menu = document.querySelector('.menu');
     this.dropdown = document.querySelector('.dropdown');
