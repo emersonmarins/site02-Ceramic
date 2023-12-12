@@ -1,4 +1,4 @@
-import dataBase from '/src/data/products/db_product.js';
+import dataBase from '../../../data/products/db_product.js';
 import { MoveCarousel } from "../Model/MoveCarousel.js";
 import { Animations } from "../Model/Animations.js";
 import { RenderCarousel } from "../Views/RenderCarousel.js";

@@ -17,7 +17,7 @@ class ScrollToTop {
   addLink() {
     this.linkStyleCss = document.createElement('link');
     this.linkStyleCss.rel = 'stylesheet';
-    this.linkStyleCss.href = '/src/components/buttonScrollToTop/index.css';
+    this.linkStyleCss.href = './src/components/buttonScrollToTop/index.css';
     document.head.appendChild(this.linkStyleCss);
   };
   scrollToTop() {

@@ -30,7 +30,7 @@ class CreateFooter {
     const logo = document.createElement('div');
     const logoImg = document.createElement('img');
     logoImg.classList.add('footer__logo');
-    logoImg.src = '/src/assets/logo/logo-porcelann.png';
+    logoImg.src = './src/assets/logo/logo-porcelann.png';
     logoImg.style.width = '150px';
     logo.appendChild(logoImg);
     column1.appendChild(logo);

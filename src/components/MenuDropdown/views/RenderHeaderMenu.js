@@ -12,7 +12,7 @@ class RenderHeaderMenu {
     this.menuToggle.setAttribute('href', '#');
     this.menuToggle.setAttribute('class', 'menu-toggle state-menu-toggle');
     this.menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    
+
     this.header.appendChild(this.menuToggle);
 
     this.logo = document.createElement('div');
@@ -26,7 +26,7 @@ class RenderHeaderMenu {
     this.menu.innerHTML = `
       <li><a href="/index.html">HOME</a></li>
       <li class="dropdown">
-        <a href="#">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
+        <a href="./src/pages/store/html/index.html">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
         <ul class="dropdown-menu">
           <li><a href="#">PRATOS</a></li>
           <li><a href="#">XÍCARAS</a></li>
