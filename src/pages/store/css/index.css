@@ -1,6 +1,6 @@
-.wrapper{
-  max-width: 1270px;
-  width: 90vw;
+.mainContainer{
+  max-width: 100%;
+  width: 100%;
   display: grid;
   /* background-color: aqua; */
   margin: auto;
@@ -26,7 +26,7 @@
 
 /* Container Product */
 .containerProduct{
-  width: 300px;
+  width: 270px;
   
 }
 .containerProduct__img {

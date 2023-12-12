@@ -15,12 +15,14 @@
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles/index.css">
-    <!-- <link rel="stylesheet" href="footer.css"> -->
+    <link rel="stylesheet" href="/src/styles/index.css">
+    <link rel="stylesheet" href="/src/components/MenuDropdown/styles/index.css">
+    <link rel="stylesheet" href="/src/components/ShoppingCarts/styles/index.css">
+    <link rel="stylesheet" href="src/components/Carousel/styles/index.css">
+    <link rel="stylesheet" href="/src/components/footer/styles/index.css">
 
 </head>
-
-<body onmousedown='return false' onselectstart='return false'>
+<body>
     <section class="nav-top">
         <div class="nav-top__left">
             <p class="nav-top__text">Na compra de um kit ganhe frete GRÁTIS</p>
@@ -30,121 +32,107 @@
             <a href="#" class="nav-top__item">Empresa</a>
         </div>
     </section>
-    <header class="header">
-        <i class="hamburguer-btn bi bi-list"></i>
-        <div class="header__container-logo">
-            <img src="img/Porcelanex.png" alt="logo-porcelann" class="header__logo" href="">
-        </div>
-        <nav class="header__nav-desktop">
-            <ul class="header__links-desktop">
-                <li><a href="#" class="nav-item">Home</a></li>
-                <li><a href="#" class="nav-item">Pratos</a></li>
-                <li><a href="#" class="nav-item">Canecas</a></li>
-                <li><a href="#" class="nav-item">Jarras</a></li>
-            </ul>
-        </nav>
-        <div class="header__account-cart-search">
-            <i href="#" class="header__search bi bi-search"></i>
-            <i href="#" class="header__account bi bi-people"></i>
-            <i href="#" class="header__cart bi bi-basket"></i>
-        </div>
-        <div class="header__nav-mobile is-hidden">
-            <ul class="header__links-mobile">
-                <li class="nav-mobile__item"><a href="#">Pratos</a></li>
-                <li class="nav-mobile__item"><a href="#">Caneca</a></li>
-                <li class="nav-mobile__item"><a href="#">Jarras</a></li>
-                <li class="nav-mobile__item"><a href="#">Nav02</a></li>
-                <li class="nav-mobile__item"><a href="#">Nav02</a></li>
-            </ul>
-        </div>
-    </header>
-    <main class="mainContainer">
-        <div class="mainContent">
-            <section class="section02">
-                <div class="section02__left">
-                    <img src="img/section/imagem23.png" alt="" class="img-left" href="#">
-                    <div class="section02__content">
-                        <p class="section02__left__text">Ofertas Imperdíveis Confira!</p>
-                        <h1 class="section02__left__title">Jogos de Cerâmica</h1>
-                        <span class="section02__left__price">34% de Disconto</span>
-                    </div>
-                </div>
-                <div class="section02__right">
-                    <div class="content-top">
-                        <img src="img/section/imagem24.png" alt="" class="img-right01">
+    <div class="wrapper">
+        <header class="header"></header>
+        <main class="mainContainer">
+            <div class="mainContent">
+                <section class="section02">
+                    <div class="section02__left">
+                        <img src="img/section/imagem23.png" alt="" class="img-left" href="#">
                         <div class="section02__content">
-                            <h5>Itens para Jantar</h3>
-                                <a class="section02__right__btn" href="#">Compre Agora</a>
+                            <p class="section02__left__text">Ofertas Imperdíveis Confira!</p>
+                            <h1 class="section02__left__title">Jogos de Cerâmica</h1>
+                            <span class="section02__left__price">34% de Disconto</span>
                         </div>
                     </div>
-                    <div class="content-bottom">
-                        <img src="img/section/imagem25.png" alt="" class="img-right02">
-                        <div class="section02__content">
-                            <h5>Conjuntos de Porcelana</h3>
-                                <a class="section02__right__btn" href="#">Compre Agora</a>
+                    <div class="section02__right">
+                        <div class="content-top">
+                            <img src="img/section/imagem24.png" alt="" class="img-right01">
+                            <div class="section02__content">
+                                <h5>Itens para Jantar</h3>
+                                    <a class="section02__right__btn" href="#">Compre Agora</a>
+                            </div>
+                        </div>
+                        <div class="content-bottom">
+                            <img src="img/section/imagem25.png" alt="" class="img-right02">
+                            <div class="section02__content">
+                                <h5>Conjuntos de Porcelana</h3>
+                                    <a class="section02__right__btn" href="#">Compre Agora</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section class="section03">
-                <div class="section03__content">
-                    <i class="section03__icon bi bi-rocket-takeoff"></i>
-                    <div class="section03__description">
-                        <span class="section03__title"><strong>Frete Grátis</strong></span>
-                        <p class="section03__text">Nos Pedidos Nacionais</p>
-                    </div>
-                </div>
-                <div class="section03__content">
-                    <i class="section03__icon bi bi-headset"></i>
-                    <div class="section03__description">
-                        <span class="section03__title"><strong>Suport 24h</strong></span>
-                        <p class="section03__text">Entre em contato</p>
-                    </div>
-                </div>
-                <div class="section03__content">
-                    <i class="section03__icon bi bi-truck"></i>
-                    <div class="section03__description">
-                        <span class="section03__title"><strong>Chega em até 14 dias</strong></span>
-                        <p class="section03__text">Consulte Prazos e Entregas</p>
-                    </div>
-                </div>
-                <div class="section03__content">
-                    <i class="section03__icon bi bi-piggy-bank"></i>
-                    <div class="section03__description">
-                        <span class="section03__title"><strong>Polpe 20% se cadastrando</strong></span>
-                        <p class="section03__text">Garanta o seu cupon de desconto</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section04">
-                <span class="section04__title">Novidade Imperdíveis</span>
-                <div class="section04__content">
-                </div>
-            </section>
-
-            <section class="section05">
-                <div class="section05__left">
-                    <div class="left-top is-relative is-scale">
-                        <a href="#" class="section05__logo"><img src="img/section/imagem09.jpg"
-                                alt="imagem porcelana"></a>
-                        <div class="section05__info">
-                            <span>Novidade</span>
-                            <p>Compre Agora</p>
+                </section>
+                <section class="section03">
+                    <div class="section03__content">
+                        <i class="section03__icon bi bi-rocket-takeoff"></i>
+                        <div class="section03__description">
+                            <span class="section03__title"><strong>Frete Grátis</strong></span>
+                            <p class="section03__text">Nos Pedidos Nacionais</p>
                         </div>
                     </div>
-                    <div class="left-bottom is-relative">
-                        <div class="is-relative is-scale">
-                            <a class="section05__logo" href="#"><img src="img/section/imagem07.jpg"
+                    <div class="section03__content">
+                        <i class="section03__icon bi bi-headset"></i>
+                        <div class="section03__description">
+                            <span class="section03__title"><strong>Suport 24h</strong></span>
+                            <p class="section03__text">Entre em contato</p>
+                        </div>
+                    </div>
+                    <div class="section03__content">
+                        <i class="section03__icon bi bi-truck"></i>
+                        <div class="section03__description">
+                            <span class="section03__title"><strong>Chega em até 14 dias</strong></span>
+                            <p class="section03__text">Consulte Prazos e Entregas</p>
+                        </div>
+                    </div>
+                    <div class="section03__content">
+                        <i class="section03__icon bi bi-piggy-bank"></i>
+                        <div class="section03__description">
+                            <span class="section03__title"><strong>Polpe 20% se cadastrando</strong></span>
+                            <p class="section03__text">Garanta o seu cupon de desconto</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="container-carousel">
+                </section>
+                <section class="section05">
+                    <div class="section05__left">
+                        <div class="left-top is-relative is-scale">
+                            <a href="#" class="section05__logo"><img src="img/section/imagem09.jpg"
                                     alt="imagem porcelana"></a>
                             <div class="section05__info">
                                 <span>Novidade</span>
                                 <p>Compre Agora</p>
                             </div>
                         </div>
-                        <div class="is-relative is-scale">
-                            <a class="section05__logo" href=""><img src="img/section/imagem03.jpg"
+                        <div class="left-bottom is-relative">
+                            <div class="is-relative is-scale">
+                                <a class="section05__logo" href="#"><img src="img/section/imagem07.jpg"
+                                        alt="imagem porcelana"></a>
+                                <div class="section05__info">
+                                    <span>Novidade</span>
+                                    <p>Compre Agora</p>
+                                </div>
+                            </div>
+                            <div class="is-relative is-scale">
+                                <a class="section05__logo" href=""><img src="img/section/imagem03.jpg"
+                                        alt="imagem porcelana"></a>
+                                <div class="section05__info">
+                                    <span>Novidade</span>
+                                    <p>Compre Agora</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section05__right">
+                        <div class="section05__right-top is-relative is-scale">
+                            <a href="#" class="section05__logo"><img src="img/section/imagem05.jpg" alt=""></a>
+                            <div class="section05__info">
+                                <span>Novidade</span>
+                                <p>Compre Agora</p>
+                            </div>
+                        </div>
+                        <div class="section05__right-bottom is-relative is-scale">
+                            <a class="section05__logo" href="#"><img src="img/section/imagem06.jpg"
                                     alt="imagem porcelana"></a>
                             <div class="section05__info">
                                 <span>Novidade</span>
@@ -152,157 +140,74 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="section05__right">
-                    <div class="section05__right-top is-relative is-scale">
-                        <a href="#" class="section05__logo"><img src="img/section/imagem05.jpg" alt=""></a>
-                        <div class="section05__info">
-                            <span>Novidade</span>
-                            <p>Compre Agora</p>
-                        </div>
+                </section>
+                <section class="section07">
+                    <div class="section07__title">
+                        <h2>Novidades</h2>
                     </div>
-                    <div class="section05__right-bottom is-relative is-scale">
-                        <a class="section05__logo" href="#"><img src="img/section/imagem06.jpg"
-                                alt="imagem porcelana"></a>
-                        <div class="section05__info">
-                            <span>Novidade</span>
-                            <p>Compre Agora</p>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="section07">
-                <div class="section07__title">
-                    <h2>Novidades</h2>
-                </div>
-                <div class="section07__content-wrapper">
-                    <div class="section07__content">
-                        <div class="section07__img">
-                            <a href="#"><img src="img/section/imagem04.jpg" alt=""></a>
-                        </div>
-                        <div class="section07__info">
-                            <div class="section07__icon">
-                                <i class="bi bi-eye"></i>
-                                <i class="bi bi-search"></i>
+                    <div class="section07__content-wrapper">
+                        <div class="section07__content">
+                            <div class="section07__img">
+                                <a href="#"><img src="img/section/imagem04.jpg" alt=""></a>
                             </div>
-                            <div class="section07__text">
-                                <span>Exclusivo</span>
-                                <p>Sua casa mais clean</p>
+                            <div class="section07__info">
+                                <div class="section07__icon">
+                                    <i class="bi bi-eye"></i>
+                                    <i class="bi bi-search"></i>
+                                </div>
+                                <div class="section07__text">
+                                    <span>Exclusivo</span>
+                                    <p>Sua casa mais clean</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="section07__content">
-                        <div class="section07__img">
-                            <a href="#"><img src="img/section/imagem05.jpg" alt=""></a>
-                        </div>
-                        <div class="section07__info">
-                            <div class="section07__icon">
-                                <i class="bi bi-eye"></i>
-                                <i class="bi bi-search"></i>
+                        <div class="section07__content">
+                            <div class="section07__img">
+                                <a href="#"><img src="img/section/imagem05.jpg" alt=""></a>
                             </div>
-                            <div class="section07__text">
-                                <span>Exclusivo</span>
-                                <p>Sua casa mais clean</p>
+                            <div class="section07__info">
+                                <div class="section07__icon">
+                                    <i class="bi bi-eye"></i>
+                                    <i class="bi bi-search"></i>
+                                </div>
+                                <div class="section07__text">
+                                    <span>Exclusivo</span>
+                                    <p>Sua casa mais clean</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section07__content">
+                            <div class="section07__img">
+                                <a href="#"><img src="img/section/imagem06.jpg" alt=""></a>
+                            </div>
+                            <div class="section07__info">
+                                <div class="section07__icon">
+                                    <i class="bi bi-eye"></i>
+                                    <i class="bi bi-search"></i>
+                                </div>
+                                <div class="section07__text">
+                                    <span>Exclusivo</span>
+                                    <p>Sua casa mais clean</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="section07__content">
-                        <div class="section07__img">
-                            <a href="#"><img src="img/section/imagem06.jpg" alt=""></a>
-                        </div>
-                        <div class="section07__info">
-                            <div class="section07__icon">
-                                <i class="bi bi-eye"></i>
-                                <i class="bi bi-search"></i>
-                            </div>
-                            <div class="section07__text">
-                                <span>Exclusivo</span>
-                                <p>Sua casa mais clean</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-    <footer class="footer-wrapper">
-        <div class="footer">
-            <div class="footer__column">
-                <div><img class="footer__logo" src="img/path14.png" width="150px" alt=""></div>
-                <div><span class="footer__title">atendimento</span></div>
-                <div>
-                    <ul class="footer__list">
-                        <li class="footer__text">seg-sex - 7h30 às 18h30</li>
-                        <li class="footer__text">sab - 7h30 às 12h30</li>
-                        <li class="footer__text">contato@xxxxx.com</li>
-                        <li class="footer__column">
-                            <span class="footer__text">telefone</span>
-                            <span class="footer__text">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                (99)9999-9999
-                            </span>
-                            <span class="footer__text">
-                                <i class="fa-solid fa-phone"></i>
-                                (99)9999-9999
-                            </span>
-                        </li>
-                    </ul>
-                </div>
+                </section>
             </div>
-            <div class="footer__column">
-                <div><span class="footer__title">institucional</span></div>
-                <div>
-                    <ul class="footer__list">
-                        <li><a class="footer__text js-footer__text" data-callclass="aboutUs" href="#">quem somos</a>
-                        </li>
-                        <li><a class="footer__text js-footer__text" data-callclass="orders" href="#">acompanhe seu
-                                pedido</a></li>
-                        <li><a class="footer__text js-footer__text" href="#">trocas e devoluções</a></li>
-                        <li><a class="footer__text js-footer__text" data-callclass="contactUs" href="#">entrar em contato</a></li>
-                        <li><a class="footer__text js-footer__text" data-callclass="cookiePolicy" href="#">políticas de
-                                cookies</a></li>
-                        <li><a class="footer__text js-footer__text" data-callclass="shippingPolicy" href="#">políticas
-                                de frete</a></li>
-                        <li><a class="footer__text js-footer__text" data-callclass="privacyPolicy" href="#">políticas de
-                                privacidade</a></li>
-                        <li><a class="footer__text js-footer__text" data-callclass="refundPolicy" href="#">políticas de
-                                reembolso</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__column">
-                <div><span class="footer__title">meus pedidos</span></div>
-                <div>
-                    <ul class="footer__list">
-                        <li><a class="footer__text" href="#">acompanhe seus pedidos</a></li>
-                        <li><a class="footer__text" href="#">editar cadastro</a></li>
-                    </ul>
-                </div>
-                <div><span class="footer__title">nos siga</span></div>
-                <div class="footer__row">
-                    <i class="fa-brands fa-facebook footer__icon"></i>
-                    <i class="fa-brands fa-square-instagram footer__icon"></i>
-                    <i class="fa-brands fa-youtube footer__icon"></i>
-                </div>
-            </div>
-        </div>
-        <div class="footer__end">
-            <pre><span class="footer__copy">&copy;</span>2023  |  todos os direitos reservados</pre>
-        </div>
-    </footer>
+        </main>
+        <footer class="footer-wrapper"></footer>
+    </div>
 
     <script type="module">
-        import { Footer } from "./src/components/Footer/Footer.js";
-        const footer = new Footer("mainContainer");
-
+        import { MenuHeaderController } from "/src/components/MenuDropdown/controllers/MenuHeaderController.js";
+        new MenuHeaderController('.header');
+        import { CarouselController } from "/src/components/Carousel/Controller/CarouselController.js";
+        new CarouselController('container-carousel');
+        import { FooterController } from "/src/components/footer/controller/FooterController.js";
+        new FooterController('.footer-wrapper');
     </script>
-    <!-- <script>console.log('hello')</script> -->
-    <script type="module" src="js/header.js">
-
-    </script>
-    <script type="module" src="js/carouselcreate.js" defer></script>
+    <script type="module" src="/src/components/MenuDropdown/controllers/search/SearchController.js"></script>
+    <script type="module" src="/src/components/buttonScrollToTop/ScrollToTop.js"></script>
     <noscript>Voçê precisa habilitar o JavaScript para ver todo o site</noscript>
 </body>
 

@@ -1,0 +1,200 @@
+.is-green {
+  font-size: var(--font-step--1);
+  font-weight: bold;
+  color: green;
+}
+
+.cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  padding: 20px 0 70px;
+}
+.cart-wrapper__table {
+  width: inherit;
+  background: rgb(243, 243, 243);
+  border-radius: 7px;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.144);
+}
+.cart-wrapper__table thead {
+  display: flex;
+  width: inherit;
+  padding: 7px 0;
+}
+.cart-wrapper__table thead tr {
+  display: flex;
+  width: inherit;
+}
+.cart-wrapper__table thead tr th {
+  width: 25%;
+}
+.cart-wrapper__table thead tr th:nth-child(1) {
+  display: flex;
+  width: 450px;
+  padding-left: 20px;
+}
+.cart-wrapper__table tbody tr {
+  border-top: 1px solid rgba(0, 0, 0, 0.144);
+  display: flex;
+  padding: 40px 0;
+}
+.cart-wrapper__table tbody tr .cart__info {
+  display: flex;
+  width: 20%;
+  height: auto;
+}
+.cart-wrapper__table tbody tr .cart__info img {
+  width: 70px;
+  height: 70px;
+}
+.cart-wrapper__table tbody tr td {
+  width: 25%;
+  text-align: center;
+}
+.cart-wrapper__table tbody tr td p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.cart-wrapper__table tbody tr td:nth-child(1) {
+  display: flex;
+  width: 450px;
+  padding-left: 20px;
+}
+.cart-wrapper__table tbody tr td:nth-child(1) div {
+  flex-grow: 1;
+  line-height: 1.5;
+  text-align: start;
+  padding-left: 14px;
+}
+.cart-wrapper__table tbody tr td:nth-child(1) div h5 {
+  font-size: 1rem;
+}
+.cart-wrapper__table tbody tr td:nth-child(1) div p {
+  font-size: 0.8rem;
+  color: var(--color-font02);
+}
+.cart-wrapper__table tbody tr .total-price-product {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+.cart-wrapper__table tbody tr .total-price-product__p {
+  padding-left: 20%;
+  padding-right: 20px;
+}
+.cart-wrapper__table tbody tr .total-price-product__del {
+  padding-top: 3px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgba(0, 0, 0, 0.637);
+  cursor: pointer;
+}
+.cart-wrapper__summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cart-wrapper__frete__title {
+  font-family: var(--font-family-poppins);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--color-font01);
+}
+.cart-wrapper__frete__description {
+  font-family: var(--font-family-poppins);
+  padding: 10px 0 20px;
+  width: 70%;
+  font-weight: 300;
+}
+.cart-wrapper__total {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cart-wrapper__total__input {
+  height: 44px;
+  border: none;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.212);
+  border-radius: 7px;
+  padding-left: 3px;
+  margin-right: 20px;
+}
+.cart-wrapper__total__button {
+  box-sizing: border-box;
+}
+.cart-wrapper__total__sub-text {
+  font-size: 18px;
+}
+.cart-wrapper__total__sub-price {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-font01);
+}
+.cart-wrapper__total__text {
+  font-size: 21px;
+}
+.cart-wrapper__total__price {
+  font-size: 21px;
+  font-weight: 600;
+  color: rgb(24, 204, 0);
+}
+.cart-wrapper__links {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-wrapper__links .btn-finalize-order {
+  background: linear-gradient(to top, rgb(60, 129, 3), rgb(72, 226, 1));
+  color: white;
+  font-weight: 500;
+}
+
+.btn {
+  font-family: var(--font-family-poppins);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.07rem;
+  text-transform: uppercase;
+  padding: 7px 21px;
+  border-radius: 4px;
+  border: none;
+  background: linear-gradient(to top, rgb(252, 252, 252), rgb(231, 231, 231));
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.212);
+  cursor: pointer;
+}
+
+.cart__product__quantity {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  width: 90px;
+  margin: auto;
+  height: 41px;
+  position: relative;
+}
+.cart__product__quantity__value {
+  text-align: center;
+  height: 31px;
+  width: 28px;
+  border: none;
+  background: none;
+  color: rgb(49, 49, 49);
+  border: 1px solid rgba(78, 78, 78, 0.534);
+  border-radius: 7px;
+  position: relative;
+  top: 3px;
+}
+.cart__product__quantity__minus {
+  color: rgb(109, 109, 109);
+  position: relative;
+  top: 7px;
+  font-size: 23px;
+  cursor: pointer;
+}
+.cart__product__quantity__plus {
+  color: rgb(109, 109, 109);
+  position: relative;
+  top: 7px;
+  font-size: 23px;
+  cursor: pointer;
+}/*# sourceMappingURL=index.css.map */

@@ -38,7 +38,7 @@ class ContactForm {
     event.preventDefault();
     let formData = new FormData(this.formulario);
     for (let [key, value] of formData.entries()) {
-      console.log(key + ': ' + value);
+      
     }
     // Aqui você pode adicionar a lógica para enviar os dados do formulário para o backend ou fazer outras operações com eles
   }
