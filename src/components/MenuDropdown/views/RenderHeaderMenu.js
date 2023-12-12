@@ -26,7 +26,7 @@ class RenderHeaderMenu {
     this.menu.innerHTML = `
       <li><a href="/index.html">HOME</a></li>
       <li class="dropdown">
-        <a href="./src/pages/store/html/index.html">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
+        <a href="../../../pages/store/html/index.html">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
         <ul class="dropdown-menu">
           <li><a href="#">PRATOS</a></li>
           <li><a href="#">XÍCARAS</a></li>
