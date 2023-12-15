@@ -149,20 +149,6 @@
   font-weight: 500;
 }
 
-.btn {
-  font-family: var(--font-family-poppins);
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.07rem;
-  text-transform: uppercase;
-  padding: 7px 21px;
-  border-radius: 4px;
-  border: none;
-  background: linear-gradient(to top, rgb(252, 252, 252), rgb(231, 231, 231));
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.212);
-  cursor: pointer;
-}
-
 .cart__product__quantity {
   display: flex;
   justify-content: center;

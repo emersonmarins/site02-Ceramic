@@ -37,7 +37,7 @@ class RenderHeaderMenu {
     this.menu.innerHTML = `
       <li><a href="${this._path}index.html">HOME</a></li>
       <li class="dropdown">
-        <a href="../../../pages/store/html/index.html">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
         <ul class="dropdown-menu">
           <li><a href="#">PRATOS</a></li>
           <li><a href="#">XÍCARAS</a></li>
@@ -45,6 +45,7 @@ class RenderHeaderMenu {
           <li><a href="#">TIGELAS</a></li>
         </ul>
       </li>
+      <li><a href="${this._path}src/pages/store/html/index.html">LOJA</a></li>
       <li><a href="#">QUEM SOMOS</a></li>
       <li><a href="#">CONTATO</a></li>
     `;

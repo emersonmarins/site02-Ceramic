@@ -149,3 +149,23 @@ i {
 
 }
 
+.btn {
+  font-family: var(--font-family-poppins);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.07rem;
+  text-transform: uppercase;
+  padding: 7px 21px;
+  border-radius: 4px;
+  border: none;
+  background: linear-gradient(to top, rgb(252, 252, 252), rgb(231, 231, 231));
+  box-shadow: 0 0 2px 1px rgba(21, 21, 21, 0.14);
+  cursor: pointer;
+}
+
+.title--h3 {
+  font-family: var(--font-family-montserrat-alternate);
+  font-size: 21px;
+  font-weight: 600;
+  text-transform: capitalize;
+}

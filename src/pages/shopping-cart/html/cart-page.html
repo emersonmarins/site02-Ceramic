@@ -42,6 +42,8 @@
         cartController.renderCart('.mainContent');
         import { FooterController } from "../../../components/footer/controller/FooterController.js";
         new FooterController('.footer-container', 'cart-page');
+        import { ScrollToTop } from "../../../components/buttonScrollToTop/ScrollToTop.js";
+        new ScrollToTop('generic');
     </script>
     <script type="module" src="../../../components/MenuDropdown/controllers/search/SearchController.js"></script>
  
