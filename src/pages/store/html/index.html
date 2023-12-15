@@ -18,6 +18,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
+  <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -31,118 +32,286 @@
     </div>
   </section>
   <div class="wrapper">
-    <header class="header"></header>
-    <main class="mainContainer">
-      <div class="wrapperFilter">
-        <h3>Filtros</h3>
-        <ul>
-          <li>Pratos</li>
-          <li>Xícaras</li>
-          <li>Jarros</li>
-          <li>Travessas</li>
+    <header class="header">
+      <!-- Conteúdo do cabeçalho aqui -->
+    </header>
+    <main class="main">
+      <div class="main__filter">
+        <h2 class="filter__title title--h3">Filtrar produtos</h2>
+        <ul class="filter__list">
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="all-category" name="category" value="all"
+                class="category__input js-category__input" data-check="all-category">
+              <label for="all-category" class="category__label">Todas as categorias</label>
+            </div>
+            <span class="category__items" data-items="all-category">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="pratos" name="check" value="check" class="category__input js-category__input"
+                data-check="pratos"></input>
+              <label for="pratos" class="category__label">Pratos</label>
+            </div>
+            <span class="category__items" data-items="pratos">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="canecas" name="check" value="check" class="category__input js-category__input"
+                data-check="canecas"></i>
+              <label for="canecas" class="category__label">Canecas</label>
+            </div>
+            <span class="category__items" data-items="canecas">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="vasos" name="check" value="check" class="category__input js-category__input"
+                data-check="vasos"></input>
+              <label for="vasos" class="category__label">Vasos</label>
+            </div>
+            <span class="category__items" data-items="vasos">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="esculturas" name="check" value="check"
+                class="category__input js-category__input" data-check="esculturas"></input>
+              <label for="esculturas" class="category__label">Esculturas</label>
+            </div>
+            <span class="category__items" data-items="esculturas">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="jogos-de-cha" name="check" value="check"
+                class="category__input js-category__input" data-check="jogos-de-cha"></input>
+              <label for="jogos-de-cha" class="category__label">Jogos de chá</label>
+            </div>
+            <span class="category__items" data-items="jogos-de-cha">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="xicaras" name="check" value="check" class="category__input js-category__input"
+                data-check="xicaras"></input>
+              <label for="xicaras" class="category__label">Xícaras</label>
+            </div>
+            <span class="category__items" data-items="xicaras">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="bules-de-cha" name="check" value="check"
+                class="category__input js-category__input" data-check="bules-de-cha"></input>
+              <label for="bules-de-cha" class="category__label">Bules de chá</label>
+            </div>
+            <span class="category__items" data-items="bules-de-cha">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="luminarias" name="check" value="luminarias"
+                class="category__input js-category__input" data-check="luminarias"></input>
+              <label for="luminarias" class="category__label">luminárias</label>
+            </div>
+            <span class="category__items" data-items="luminarias">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="jarras" name="check" value="jarras" class="category__input js-category__input"
+                data-check="jarras"></input>
+              <label for="jarras" class="category__label">jarras</label>
+            </div>
+            <span class="category__items" data-items="jarras">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="pratos-de-sobremesa" name="check" value="pratos-de-sobremesa"
+                class="category__input js-category__input" data-check="pratos-de-sobremesa"></input>
+              <label for="pratos-de-sobremesa" class="category__label">pratos de sobremesa</label>
+            </div>
+            <span class="category__items" data-items="pratos-de-sobremesa">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="pratos-de-jantar" name="check" value="pratos-de-jantar"
+                class="category__input js-category__input" data-check="pratos-de-jantar"></input>
+              <label for="pratos-de-jantar" class="category__label">pratos de jantar</label>
+            </div>
+            <span class="category__items" data-items="pratos-de-jantar">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="tigelas" name="check" value="tigelas"
+                class="category__input js-category__input" data-check="tigelas"></input>
+              <label for="tigelas" class="category__label">tigelas</label>
+            </div>
+            <span class="category__items" data-items="tigelas">(5)</span>
+          </li>
+          <li class="list__item">
+            <div class="item__category">
+              <input type="checkbox" id="conjuntos-de-banheiro" name="check" value="conjuntos-de-banheiro"
+                class="category__input js-category__input" data-check="conjuntos-de-banheiro"></input>
+              <label for="conjuntos-de-banheiro" class="category__label">conjuntos de banheiro</label>
+            </div>
+            <span class="category__items" data-items="conjuntos-de-banheiro">(5)</span>
+          </li>
         </ul>
+        <section class="filter__price">
+          <h3 class="price__title title--h3">Filtrar por preço</h3>
+          <div class="price__range">
+            <output for="priceSlider" class="price__output" id="sliderValue">R$ 50</output>
+            <input type="range" min="50" max="1000" value="525" class="price__slider" id="priceSlider">
+          </div>
+          <button class="btn price__btn-filter">Filtrar</button>
+        </section>
       </div>
-      <div class="wrapperProducts"></div>
+      <div class="main__products">
+        <h2 class="products__title title--h3">Produtos em destaque</h2>
+      </div>
     </main>
     <footer class="footer-wrapper"></footer>
   </div>
+
+
   <script type="module">
 
     import { dataBase } from "../model/db_product.js";
 
-    class Products {
-      constructor(className, textCartBtn, textBuyNowBtn) {
+    class RenderProducts {
+      constructor(dataBase, className, textCartBtn, textBuyNowBtn) {
 
-        this.wrapperContainer = document.querySelector(`.${className}`);
-        this.title;
-        this.text;
+        this.main__products = document.querySelector(`.${className}`);
+        this.products__item;
+        this.item__imgContainer;
+        this.item__img;
+        this.item__info;
+        this.item__title;
+        this.item__description;
+        this.item__price;
+        this.item__priceCurrent;
+        this.item__addCartBtn;
+        this.item__buyNowBtn;
+
         this.textCartBtn = textCartBtn;
         this.textBuyNowBtn = textBuyNowBtn;
-        this.textPrice;
-        this.textPriceCurrent;
+        this.dataBase = dataBase;
+        this.newTitle;
+        this.renderProducts();
 
       }
-      createProduct() {
-        dataBase.products.forEach(element => {
 
-          // Create Elements
-          let wrapperProduct = document.createElement('div');
-          let containerImg = document.createElement('div');
-          let containerInfo = document.createElement('div');
+      reduceNumberCharacters(element){
+          
+          if (element.title.length > 14) {
+            this.regExp = new RegExp('.{14}', 'ig');
+            this.newTitle = this.regExp.exec(element.title)[0];
+            this.newTitle = this.newTitle.replace(this.newTitle, this.newTitle.trim() + '...');
+          } else {
+            this.newTitle = element.title
+          }
+        return this.newTitle;
+      }
 
-          let img = document.createElement('img');
+      createElements(){
+        this.products__item = document.createElement('div');
+        this.item__imgContainer = document.createElement('div');
+        this.item__img = document.createElement('img');
+        this.item__info = document.createElement('div');
+        this.item__title = document.createElement('h3');
+        this.item__description = document.createElement('p');
+        this.item__price = document.createElement('span');
+        this.item__priceCurrent = document.createElement('span');
+        this.item__addCartBtn = document.createElement('button');
+        this.item__buyNowBtn = document.createElement('button');
+      }
+      
+      addAttributes(element) {
+        // ADD CLASS NAME
+        this.products__item.classList.add('products__item');
+        this.item__imgContainer.classList.add('item__img-container');
+        this.item__img.classList.add('item__img');
+        this.item__info.classList.add('item__info');
+        this.item__title.classList.add('item__title');
+        this.item__description.classList.add('item__description');
+        this.item__price.classList.add('item__price');
+        this.item__priceCurrent.classList.add('item__price-current');
+        this.item__addCartBtn.classList.add('item__add-cart-btn', 'btn');
+        this.item__buyNowBtn.classList.add('item__buy-now-btn', 'btn');
 
-          let title = document.createElement('h2');
-          let description = document.createElement('p');
+        // ADD ATTRIBUTES
 
-          let price = document.createElement('span');
-          let priceCurrent = document.createElement('span');
-
-          let addCartBtn = document.createElement('button');
-          let buyNowBtn = document.createElement('button');
-
-          //Add Attributes
-          wrapperProduct.classList.add('containerProduct');
-          containerImg.classList.add('containerProduct__img');
-          containerInfo.classList.add('containerProduct__info');
-
-          img.classList.add('img');
-          img.setAttribute('src', `${element.url}`);
-
-          title.classList.add('title');
-          title.textContent = element.title;
-          description.classList.add('description');
-          description.textContent = element.description;
-          price.classList.add('textPrice');
-          price.textContent = element.price;
-          priceCurrent.classList.add('textPriceCurrent');
-          // priceCurrent.textContent = database.priceCurrent;
-
-          addCartBtn.classList.add('addCartBtn');
-          addCartBtn.textContent = this.textCartBtn;
-          buyNowBtn.classList.add('buyNowBtn');
-          buyNowBtn.textContent = this.textBuyNowBtn;
+        this.item__img.setAttribute('src', `${element.url}`);
+        this.item__img.setAttribute('alt', `${element.title}`);
 
 
-          // Append Elements
-          this.wrapperContainer.appendChild(wrapperProduct);
+      }
 
-          wrapperProduct.appendChild(containerImg);
-          containerImg.appendChild(img);
+      addText(element) {
+        this.item__title.innerText = `${this.reduceNumberCharacters(element)}`;
+        this.item__description.innerText = `${element.description ? element.description : ''}`;
+        this.item__price.innerText = `R$ ${element.price}`;
+        // this.item__priceCurrent.innerText = `R$ ${element.currentPrice}`;
+        this.item__addCartBtn.innerText = `${this.textCartBtn}`;
+        this.item__buyNowBtn.innerText = `${this.textBuyNowBtn}`;
+      }
 
-          wrapperProduct.appendChild(containerInfo);
-          containerInfo.appendChild(title);
-          containerInfo.appendChild(description);
-          containerInfo.appendChild(price);
-          containerInfo.appendChild(priceCurrent);
-          containerInfo.appendChild(addCartBtn);
-          containerInfo.appendChild(buyNowBtn);
+      appendChildren() {
+
+        this.main__products.appendChild(this.products__item);
+
+        this.products__item.appendChild(this.item__imgContainer);
+        this.item__imgContainer.appendChild(this.item__img);
+
+        this.products__item.appendChild(this.item__info);
+        this.item__info.appendChild(this.item__title);
+        this.item__info.appendChild(this.item__description);
+        this.item__info.appendChild(this.item__price);
+        this.item__info.appendChild(this.item__priceCurrent);
+        this.item__info.appendChild(this.item__addCartBtn);
+        this.item__info.appendChild(this.item__buyNowBtn);
+
+      }
+
+      renderProducts() {
+        this.dataBase.products.forEach(element => {
+          this.createElements();
+          this.addAttributes(element);
+          this.addText(element);
+          this.appendChildren();
         });
-
-      };
-
-      callFunctions() {
-        this.createProduct();
-      };
+      }
 
     };
 
-    let className = "wrapperProducts";
+    let className = "main__products";
     let addCartBtn = "add carrinho";
     let buyNowBtn = "comprar agora";
-    let listProducts = new Products(className, addCartBtn, buyNowBtn);
-    listProducts.callFunctions();
+    const listProducts = new RenderProducts(dataBase, className, addCartBtn, buyNowBtn);
 
   </script>
   <script type="module">
     import { MenuHeaderController } from "../../../components/MenuDropdown/controllers/MenuHeaderController.js";
-    new MenuHeaderController('.header', false, 'home');
+    new MenuHeaderController('.header', false, 'cart-page');
     import { FooterController } from "../../../components/footer/controller/FooterController.js";
-    new FooterController('.footer-wrapper');
+    new FooterController('.footer-wrapper', 'cart-page');
+    import { ScrollToTop } from "../../../components/buttonScrollToTop/ScrollToTop.js";
+    new ScrollToTop('generic');
   </script>
   <script type="module" src="../../../components/MenuDropdown/controllers/search/SearchController.js"></script>
-  <script type="module" src="../../../components/buttonScrollToTop/ScrollToTop.js"></script>
+  <script>
+    const priceSlider = document.getElementById("priceSlider");
+    const sliderValue = document.getElementById("sliderValue");
 
+    const setRangeValue = function () {
+      this.value = priceSlider.value;
+      this.min = priceSlider.min;
+      this.max = priceSlider.max;
+      this.style = priceSlider.style;
+
+      const value = (this.value - this.min) / (this.max - this.min) * 100;
+      this.style.background = `linear-gradient(to left,rgb(100, 228, 202) ${100 - value}%, #d3d3d3 0%)`;
+      sliderValue.innerHTML = "R$ " + this.value;
+    }
+    priceSlider.oninput = setRangeValue
+    window.addEventListener('DOMContentLoaded', e => setRangeValue());
+
+  </script>
 </body>
 
 </html>

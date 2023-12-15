@@ -1,9 +1,35 @@
 class ScrollToTop {
-  constructor() {
-    this.createButton();
-    this.addLink();
-    this.addEventListener();
+  constructor(pageType) {
+    this._pageType;
+    this.pageType = pageType;
+    this.initButton(pageType);
   };
+  set pageType(pageType){
+    if (pageType === 'generic') {
+      this._pageType = '../../../components/';
+    } else if (pageType === 'main') {
+      this._pageType = './src/components/';
+    } else if(typeof(pageType) === 'string'){
+      this._pageType = 'Error reading page type!. Insert generic or main';
+    } else if(typeof(pageType) === 'undefined'){
+      this._pageType = 'Error no property inserted when instantiating the class!. Insert generic or main';
+    } else if(pageType === null || typeof(pageType) === 'number'){
+      this._pageType = 'Invalid property type error!. Enter a string called generic or main';
+    }
+  }
+  get pageType(){
+    return this._pageType;
+  }
+  initButton(pageType){
+    if (pageType === 'generic' || pageType === 'main') {
+      this.createButton();
+      this.addLink();
+      this.addEventListener();
+    } else {
+      console.log(`%c${this._pageType}`,"color:#d00;");
+      return
+    }
+  }
   createButton() {
     this.divWrapper = document.createElement('div');
     this.divWrapper.classList.add('btn__scroll-to-top', 'js-btn__scroll-to-top');
@@ -17,7 +43,7 @@ class ScrollToTop {
   addLink() {
     this.linkStyleCss = document.createElement('link');
     this.linkStyleCss.rel = 'stylesheet';
-    this.linkStyleCss.href = './src/components/buttonScrollToTop/index.css';
+    this.linkStyleCss.href = `${this._pageType}buttonScrollToTop/index.css`;
     document.head.appendChild(this.linkStyleCss);
   };
   scrollToTop() {
@@ -51,5 +77,4 @@ class ScrollToTop {
   };
 };
 
-const scrollToTop = new ScrollToTop();
-export { scrollToTop };
+export { ScrollToTop };
