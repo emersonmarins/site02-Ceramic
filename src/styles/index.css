@@ -9,7 +9,10 @@
   --color05: rgb(156, 83, 225);
   --color-background: rgb(247, 247, 247);
   --color-background-dark01: linear-gradient(to top,rgb(20, 20, 20), rgb(97, 97, 97) );
+  --color-background-dark02: linear-gradient(to top,rgb(37, 37, 37), rgb(97, 97, 97) );
   --color-background-linear02: linear-gradient(to top,rgb(83, 161, 146), rgb(119, 247, 221) );
+  --color-background-btn-cart:#99cd78;
+  --color-background-btn-cart-hover:#bbff36;
   --color-font01:rgb(74, 74, 74);
   --color-font02:rgb(148, 148, 148);
   --color-font03:rgb(58, 58, 58);
@@ -20,15 +23,16 @@
   --color-background01:rgb(246, 238, 223);
 }
 
-/* @link https://utopia.fyi/type/calculator?c=640,18,1.2,1440,24,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+/* @link https://utopia.fyi/type/calculator?c=900,13,1.1,1280,17,1.1,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
-  --step--2: clamp(0.52rem, calc(0.43rem + 0.29vw), 0.69rem);
-  --step--1: clamp(0.63rem, calc(0.52rem + 0.35vw), 0.83rem);
-  --step-0: clamp(0.75rem, calc(0.63rem + 0.42vw), 1.00rem);
-  --step-1: clamp(0.90rem, calc(0.75rem + 0.50vw), 1.20rem);
-  --step-2: clamp(1.08rem, calc(0.90rem + 0.60vw), 1.44rem);
-  --step-3: clamp(1.30rem, calc(1.08rem + 0.72vw), 1.73rem);
-  --step-4: clamp(1.56rem, calc(1.30rem + 0.86vw), 2.07rem);
+  --step--2: clamp(0.6713rem, 0.1813rem + 0.8711vw, 0.8781rem);
+  --step--1: clamp(0.7388rem, 0.2014rem + 0.9553vw, 0.9656rem);
+  --step-0: clamp(0.8125rem, 0.2204rem + 1.0526vw, 1.0625rem);
+  --step-1: clamp(0.8938rem, 0.2424rem + 1.1579vw, 1.1688rem);
+  --step-2: clamp(0.9831rem, 0.2667rem + 1.2737vw, 1.2856rem);
+  --step-3: clamp(1.0813rem, 0.2923rem + 1.4026vw, 1.4144rem);
+  --step-4: clamp(1.1894rem, 0.3219rem + 1.5421vw, 1.5556rem);
+  --step-5: clamp(1.3088rem, 0.3555rem + 1.6947vw, 1.7113rem);
   --font-family-oswald: oswald, var(--font-family-sans-serif);
   --font-family-alkatra: "Alkatra", cursive;
   --font-family-lobster-two: "Lobster Two", cursive;
@@ -44,6 +48,40 @@
   --font-family-raleway: "Raleway", sans-serif;
   --font-family-roboto: "Roboto Mono", monospace;
   --font-family-source-sans: "Source Sans 3", sans-serif;
+}
+
+:root {
+  --page-width: 95vw;
+  --page-max-width: 1280px;
+  --page-min-width: 350px;
+  --product-card-min-width: 300px;
+  --product-card-width: 300px;
+  --product-card-max-width: 400px;
+  /* @link https://utopia.fyi/space/calculator?c=900,31,1.1,1280,71,1.1,5,2,&s=0.75|0.5|0.25,1.25|1.5|1.75|2|3,s-l&g=s,l,xl,12 */
+  --space-3xs: clamp(0.5rem, -0.9803rem + 2.6316vw, 1.125rem);
+  --space-2xs: clamp(1rem, -1.9605rem + 5.2632vw, 2.25rem);
+  --space-xs: clamp(1.4375rem, -3.0033rem + 7.8947vw, 3.3125rem);
+  --space-s: clamp(1.9375rem, -3.9836rem + 10.5263vw, 4.4375rem);
+  --space-m: clamp(2.4375rem, -4.9638rem + 13.1579vw, 5.5625rem);
+  --space-l: clamp(2.9375rem, -5.9441rem + 15.7895vw, 6.6875rem);
+  --space-xl: clamp(3.375rem, -6.9868rem + 18.4211vw, 7.75rem);
+  --space-2xl: clamp(3.875rem, -7.9671rem + 21.0526vw, 8.875rem);
+  --space-3xl: clamp(5.8125rem, -11.9507rem + 31.5789vw, 13.3125rem);
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.5rem, -3.6447rem + 7.3684vw, 2.25rem);
+  --space-2xs-xs: clamp(1rem, -4.477rem + 9.7368vw, 3.3125rem);
+  --space-xs-s: clamp(1.4375rem, -5.6678rem + 12.6316vw, 4.4375rem);
+  --space-s-m: clamp(1.9375rem, -6.648rem + 15.2632vw, 5.5625rem);
+  --space-m-l: clamp(2.4375rem, -7.6283rem + 17.8947vw, 6.6875rem);
+  --space-l-xl: clamp(2.9375rem, -8.4605rem + 20.2632vw, 7.75rem);
+  --space-xl-2xl: clamp(3.375rem, -9.6513rem + 23.1579vw, 8.875rem);
+  --space-2xl-3xl: clamp(3.875rem, -18.477rem + 39.7368vw, 13.3125rem);
+  /* Custom pairs */
+  --space-s-l: clamp(1.9375rem, -9.3125rem + 20vw, 6.6875rem);
+  /* Space check*/
+  --space-check: clamp(1.3125rem, 0.2763rem + 1.8421vw, 1.75rem);
+  /* Width filter*/
+  --width-filter: clamp(15rem, 3.1579rem + 21.0526vw, 20rem);
 }
 
 img {
@@ -89,24 +127,27 @@ body {
 }
 
 .wrapper {
-  width: 100%;
+  width: var(--page-width);
+  max-width: var(--page-max-width);
+  min-width: var(--page-min-width);
   height: inherit;
   overflow-x: hidden;
-  background-color: var(--color-background);
   display: grid;
   font-family: var(--font-family-montserrat-alternate);
   font-size: var(--font-size-default);
-  grid-template-columns: 0.5fr 5fr 0.5fr;
-  grid-template-areas: ".        header     ." ".         main      ." ".        footer     .";
-  grid-template-rows: 150px auto auto;
+  grid-template-columns: auto;
+  grid-template-areas: "        header     " "         main      " "        footer     ";
+  grid-template-rows: 100px auto auto;
   justify-content: center;
   align-content: space-between;
   line-height: 2.1em;
+  padding: 0 21px;
+  margin: auto;
 }
 
 header {
   grid-area: header;
-  padding-top: 50px;
+  margin: 0 7px;
 }
 
 main {
@@ -135,7 +176,7 @@ span {
 }
 
 a {
-  font-size: var(--step-0);
+  font-size: var(--step--2);
   color: var(--color-font03);
 }
 
@@ -163,7 +204,7 @@ h6 {
 }
 
 i {
-  font-size: 19px;
+  font-size: var(--step-1);
 }
 
 .hide {
@@ -222,24 +263,34 @@ i {
 }
 
 .title--h3 {
-  font-family: var(--font-family-montserrat-alternate);
-  font-size: 21px;
+  font-family: var(--font-family-montserrat);
+  font-size: var(--step-3);
   font-weight: 600;
   text-transform: capitalize;
 }
 
 .nav-top {
-  width: 100%;
+  width: var(--page-width);
+  max-width: var(--page-max-width);
+  margin: auto;
   height: 49px;
-  padding: 0 8.3333333333vw;
   grid-area: nav-top;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-font03);
+  padding: 0 7px;
+}
+.nav-top::before {
+  content: "";
   position: absolute;
   top: 0;
+  left: 0;
+  height: 49px;
+  width: 100vw;
+  background-color: var(--color-font03);
+  z-index: -1;
 }
 .nav-top__text {
   color: var(--color02);
@@ -264,6 +315,11 @@ i {
   font-size: 12px;
 }
 
+@media (max-width: 780px) {
+  section.nav-top {
+    display: none !important;
+  }
+}
 .section02 {
   display: grid;
   grid-template-columns: 2fr 0.733fr;
