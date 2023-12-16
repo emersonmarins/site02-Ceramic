@@ -1,17 +1,28 @@
 $nav-top: 'nav-top';
 
 .#{$nav-top} {
-    width: 100%;
+    width: var(--page-width);
+    max-width: var(--page-max-width);
+    margin: auto;
     height: 49px;
-    padding: 0 calc((100vw / 6) * 0.5);
     grid-area: nav-top;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-font03);
-    position: absolute;
-    top: 0;
+    padding: 0 7px;
+    
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 49px;
+        width: 100vw;
+        background-color: var(--color-font03);
+        z-index: -1;
+    }
     
     &__text {
         color: var(--color02);
@@ -45,7 +56,11 @@ $nav-top: 'nav-top';
     }
 
 }
-
+@media (max-width:780px) {
+    section.nav-top{
+      display: none !important;
+    }
+}
 
 
 
