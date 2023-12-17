@@ -6,6 +6,10 @@
 /* @link https://utopia.fyi/type/calculator?c=900,13,1.1,1280,17,1.1,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 :root {
   // Font-Size
+  --step--6: clamp(0.4588rem, 0.3945rem + 0.2568vw, 0.6rem);
+  --step--5: clamp(0.5044rem, 0.4336rem + 0.283vw, 0.66rem);
+  --step--4: clamp(0.555rem, 0.4774rem + 0.3102vw, 0.7256rem);
+  --step--3: clamp(0.6106rem, 0.5254rem + 0.3409vw, 0.7981rem);
   --step--2: clamp(0.6713rem, 0.1813rem + 0.8711vw, 0.8781rem);
   --step--1: clamp(0.7388rem, 0.2014rem + 0.9553vw, 0.9656rem);
   --step-0: clamp(0.8125rem, 0.2204rem + 1.0526vw, 1.0625rem);
