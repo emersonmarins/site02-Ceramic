@@ -104,7 +104,6 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  scrollbar-color: black;
 }
 
 /* Estilização da barra de rolagem */
@@ -131,23 +130,17 @@ body {
   max-width: var(--page-max-width);
   min-width: var(--page-min-width);
   height: inherit;
-  overflow-x: hidden;
   display: grid;
   font-family: var(--font-family-montserrat-alternate);
   font-size: var(--font-size-default);
-  grid-template-columns: auto;
+  grid-template-columns: 100%;
   grid-template-areas: "        header     " "         main      " "        footer     ";
   grid-template-rows: 100px auto auto;
-  justify-content: center;
-  align-content: space-between;
-  line-height: 2.1em;
-  padding: 0 21px;
   margin: auto;
 }
 
 header {
   grid-area: header;
-  margin: 0 7px;
 }
 
 main {
@@ -155,7 +148,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
-  overflow: hidden;
 }
 
 footer {

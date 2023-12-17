@@ -22,8 +22,6 @@ class CreateFooter {
   }
   createFooter() {
 
-    // const footer = document.createElement('footer');
-    // footer.classList.add('footer-wrapper');
     const footerEnd = document.createElement('div');
     footerEnd.classList.add('footer__end');
 
@@ -41,9 +39,9 @@ class CreateFooter {
     const logo = document.createElement('div');
     const logoImg = document.createElement('img');
     logoImg.classList.add('footer__logo');
-    logoImg.src = `${this._path}assets/logo/logo-porcelann.png`;
+    // logoImg.src = `${this._path}assets/logo/logo-porcelann.png`;
     logoImg.style.width = '150px';
-    logo.appendChild(logoImg);
+    // logo.appendChild(logoImg);
     column1.appendChild(logo);
 
     const title1 = document.createElement('div');
