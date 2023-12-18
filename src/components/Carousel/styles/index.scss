@@ -5,11 +5,10 @@ $section04-wrapper: 'container-carousel';
   overflow: hidden;
 
   &__title {
-    font-size: var(--step-2);
+    font-size: var(--step-4);
     color: rgb(221, 112, 72);
-  }
 
-
+  };
   &__content {
 
     display: flex;
@@ -17,15 +16,22 @@ $section04-wrapper: 'container-carousel';
     margin-top: 15px;
 
     & .bi {
-      font-size: 12px;
+      font-size: 14px;
 
     }
 
+    .container-carousel__product-list {        
+      width: var(--width-4-items);       
+    }
     .container-carousel__product-content {
-      width: calc(((((100vw / 6) * 5) / 4) - 30px) + (30px / 4));
-      height: calc((((100vw / 6) * 5) * 1.2) / 4);
       position: relative;
-      margin-right: 30px;
+      height: calc((var(--section-container-width) / 4) * 1.2);
+      width: inherit;
+      padding-right: 21px;
+
+    }
+    .container-carousel-nav{
+      padding-right: 21px;
     }
 
     @keyframes animate {
@@ -40,7 +46,6 @@ $section04-wrapper: 'container-carousel';
       }
     }
 
-
     @keyframes animate-out {
       0% {
         opacity: 1;
@@ -52,42 +57,65 @@ $section04-wrapper: 'container-carousel';
       }
     }
 
-
     @media screen and (max-width: 900px) {
 
       display: flex;
       flex-direction: row;
-
+      .container-carousel__product-list {        
+        width: var(--width-3-items);       
+      }
       .container-carousel__product-content {
-        width: calc(((((100vw / 6) * 5) / 3) - 30px) + (30px / 3));
-        height: calc(((100vw / 3) - 6.5vw) * 1.15);
+        height: calc((var(--section-container-width) / 3) * 1.2);
+        width: inherit;
+        padding-right: 21px;
+
+      }
+      .container-carousel-nav{
+        padding-right: 21px;
       }
     }
 
     @media screen and (max-width: 700px) {
+      .container-carousel__product-list {        
+        width: var(--width-2-items);       
+      }
       .container-carousel__product-content {
-        width: calc(((((100vw / 6) * 5) / 2) - 30px) + (30px / 2));
-        height: calc(((100vw / 2) - 3.7vw) * 1.15);
+        height: calc((var(--section-container-width) / 2) * 1.2);
+        width: inherit;
+        padding-right: 21px;
+
+      }
+      .container-carousel-nav{
+        padding-right: 21px;
       }
     }
-  }
-
+  };
   @media screen and (max-width:500px) {
-    .container-carousel__product-content {
-      width: calc(((((100vw / 6) * 5) / 1) - 30px) + (30px / 2));
-      height: calc(((100vw / 1) - 3.7vw) * 1.15);
+    .container-carousel__product-list {        
+      width: var(--section-container-width);       
     }
-  }
+    .container-carousel__product-content {
+      height: calc(var(--section-container-width) * .9);
+      width: inherit;
+      padding-right: 70px;
 
+    }
+    .container-carousel-nav{
+      padding-right: 70px;
+    }
+  };
   &__wrapper-image {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
     border-radius: 2px;
-  }
-
-
+      img{
+        height: inherit;
+        width: inherit;
+        object-fit: cover;
+      }
+  };
   &__product-img, &__product-img-clone {
     position: absolute;
     width: 100%;
@@ -98,12 +126,10 @@ $section04-wrapper: 'container-carousel';
     &:hover {
       cursor: grabbing;
     }
-  }
-
+  };
   &__product-content {
     text-align: center;
-  }
-
+  };
   &__product-title{
     font-size: var(--step-0);
     font-weight: bold;
@@ -111,19 +137,20 @@ $section04-wrapper: 'container-carousel';
     color: var(--color-font03-dark);
     // line-height: 1;
 
-  }
-
+  };
   &__info-wrapper {
     display: flex;
     flex-direction: column;
     gap: 2px;
     line-height: 1.4;
     span {
-      color: var(--color-font03-black);
-      font-size: var(--step-1);
+      color: var(--color01);
+      font-size: var(--step-3);
+      font-weight: 700;
+      width: 120px;
+      padding: 7px 0;
     }
-  }
-
+  };
   &__info-stars {
 
     .bi-star-fill,
@@ -134,13 +161,11 @@ $section04-wrapper: 'container-carousel';
       
     }
 
-  }
+  };
 };
-
 .container-carousel-product-content {
   position: relative;
 };
-
 .container-carousel-nav {
   position: absolute;
   display: flex;
@@ -149,7 +174,6 @@ $section04-wrapper: 'container-carousel';
   top: 7px;
   right: 7px;
 };
-
 .container-carousel-nav>a {
   background-color: rgb(245, 245, 245);
   padding: 5px 9px;
@@ -157,7 +181,6 @@ $section04-wrapper: 'container-carousel';
   color: black;
   cursor: pointer;
 };
-
 @keyframes scale1X {
   0% {
     transform: scale(1);

@@ -4,9 +4,8 @@ class MoveCarousel {
     this.listCarousel = containerWrapper;
     this.productContent = document.querySelectorAll('.container-carousel__product-content');
     this.productList = document.querySelectorAll('.container-carousel__product-list');
-    // this.slide_list = document.querySelector('.js-slide__list');
-    // States
-
+    this.setWidth();
+    this.widthItemCarousel;
     this.starting_point = 0;
     this.current_point = 0;
     this.movement_point = 0;
@@ -14,7 +13,7 @@ class MoveCarousel {
     this.current_slide_index = 0;
     this.widthWindow = 0;
     // Events
-    console.log(this.listCarousel);
+    
     this.handleMouseMove = this.mouseMove.bind(this);
     this.handleTouchMove = this.touchMove.bind(this);
     this.listCarousel.addEventListener('mousedown', this.mouseDown.bind(this));
@@ -23,30 +22,54 @@ class MoveCarousel {
 
   };
 
+  setWidth(){
+    this.widthItemCarousel = this.carouselWrapper.clientWidth;
+    document.documentElement.style.setProperty('--section-container-width', `${this.widthItemCarousel}px`);
+    document.documentElement.style.setProperty('--width-2-items', `${Math.ceil(this.widthItemCarousel / 2)}px`);
+    document.documentElement.style.setProperty('--width-3-items', `${Math.ceil(this.widthItemCarousel / 3)}px`);
+    document.documentElement.style.setProperty('--width-4-items', `${Math.ceil(this.widthItemCarousel / 4)}px`);
+
+  }
   translateX(position, salve = true) {
     this.listCarousel.style.transform = `translateX(${position}px)`;
-
+    
     if (salve) {
       this.salved_position = position;
     }
   } // ok
 
   calcWidthViewPort() {
-
-    let position = this.productList[0].offsetLeft;
-    this.salved_position = -position;
-    this.translateX(-position);
-  } // ok refatorar
-
+    this.translateX(0);
+  }
 
   setVisibleSlide(position) {
-    if (position > 0 || -(position) >= (this.productList[0].offsetWidth) * (this.productList.length - 3)) {
-      position = this.salved_position;
+    this.widthWindow = document.documentElement.clientWidth;
+    
+    if (position > 0) {
+      position = 0
     }
+    if (this.widthWindow <= 500) {
+      if (position < -(this.productList.length - 1) * this.carouselWrapper.clientWidth) {
+        position = -(this.productList.length - 1) * this.carouselWrapper.clientWidth
+      }
+    } else if (this.widthWindow <= 700) {
+      if (position < -(this.productList.length - 2) * (this.carouselWrapper.clientWidth / 2)) {
+        position = -(this.productList.length - 2) * (this.carouselWrapper.clientWidth / 2)
+      }
+    } else if (this.widthWindow <= 900) {
+      if (position < -(this.productList.length - 3) * (this.carouselWrapper.clientWidth / 3)) {
+        position = -(this.productList.length - 3) * (this.carouselWrapper.clientWidth / 3)
+      }
+    } else {
+      if (position < -(this.productList.length - 4) * (this.carouselWrapper.clientWidth / 4)) {
+        position = -(this.productList.length - 4) * (this.carouselWrapper.clientWidth / 4)
 
+      }
+    }
 
     this.listCarousel.style.transition = `transform 0.35s`;
     this.translateX(position);
+
   } // ok
 
   nextSlide(index) {
@@ -64,9 +87,9 @@ class MoveCarousel {
     this.position = this.movement_point + this.current_point;
     this.translateX(this.position, false);
   } // ok
-  
+
   mouseDown(event) {
-   
+
 
     event.preventDefault();
     this.listCarousel.style.transition = `none`;
@@ -148,7 +171,10 @@ class MoveCarousel {
 
     });
 
-    window.addEventListener('resize', e => this.calcWidthViewPort());
+    window.addEventListener('resize', e => {
+      this.setWidth();
+      this.calcWidthViewPort();
+    });
     this.translateX(-(this.productList[1].offsetWidth * 0));
 
 
