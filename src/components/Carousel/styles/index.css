@@ -83,10 +83,17 @@
   .container-carousel .container-carousel__product-content {
     height: calc(var(--section-container-width) * 0.9);
     width: inherit;
-    padding-right: 70px;
+    padding: 0 50px;
+    margin-top: 40px;
   }
   .container-carousel .container-carousel-nav {
-    padding-right: 70px;
+    padding: 0 50px;
+  }
+  .container-carousel .container-carousel__info-wrapper {
+    align-items: center;
+  }
+  .container-carousel .container-carousel__info-wrapper span {
+    text-align: center;
   }
 }
 .container-carousel__wrapper-image {

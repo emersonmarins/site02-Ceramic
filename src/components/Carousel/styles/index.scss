@@ -97,11 +97,19 @@ $section04-wrapper: 'container-carousel';
     .container-carousel__product-content {
       height: calc(var(--section-container-width) * .9);
       width: inherit;
-      padding-right: 70px;
+      padding: 0 50px;
+      margin-top: 40px;
 
     }
     .container-carousel-nav{
-      padding-right: 70px;
+      padding: 0 50px;
+    }
+    .container-carousel__info-wrapper{
+      align-items: center;
+
+      span{
+        text-align: center;
+      }
     }
   };
   &__wrapper-image {

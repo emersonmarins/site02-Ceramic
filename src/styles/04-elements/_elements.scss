@@ -59,6 +59,12 @@ footer {
   grid-area: footer;
 }
 
+@media screen and (max-width:500px) {
+  main{
+    padding: 0 7px;
+  }
+};
+
 h1,
 h2,
 h3,
