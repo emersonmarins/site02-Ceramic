@@ -2,6 +2,7 @@ $section04-wrapper: 'container-carousel';
 
 .#{$section04-wrapper} {
   padding: 40px 0;
+  overflow: hidden;
 
   &__title {
     font-size: var(--step-2);

@@ -203,7 +203,7 @@ i {
   font-size: var(--step-1);
 }
 
-.hide {
+.hidden {
   display: none;
 }
 

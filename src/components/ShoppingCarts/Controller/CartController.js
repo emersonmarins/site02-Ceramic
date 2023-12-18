@@ -1,10 +1,9 @@
-import { RenderCartProducts} from "../views/RenderCartProducts.js";
+import { renderCartProducts} from "../views/RenderCartProducts.js";
 import { DataBaseProductsLocalStorage } from "../Model/DataBaseProductsLocalStorage.js";
 
-// const setContainerClassName = className(false);
 
 class CartController {
-  constructor(className = 'body') {
+  constructor() {
     this.containerCart;
     this.buttonAdd;
     this.buttonDel;
@@ -14,7 +13,7 @@ class CartController {
     this.cartContainer;
     this.cartPurchase;
     
-    this.renderCartProducts = new RenderCartProducts(className);
+    this.renderCartProducts = renderCartProducts;
     this.dataBaseProductsLocalStorage = new DataBaseProductsLocalStorage();
     this.dataBaseLS;
     this.creatCart();
@@ -45,7 +44,7 @@ class CartController {
   };
   initEventListeners() {
     this.buttonClose.addEventListener('click', () => { 
-      setTimeout(() => {this.cart.classList.toggle('hidde');}, 800);
+      setTimeout(() => {this.cart.classList.toggle('hidden');}, 800);
       this.cart.classList.add('hiddenComponents')
       this.cartContainer.classList.remove('showComponents');
 
@@ -66,14 +65,14 @@ class CartController {
       if (this.cartPurchase === null) {
         this.renderCartProducts.reloadCart(null, this.dataBaseProductsLocalStorage.dataBase); // Verifica o que é necessário!!!
         this.updateEventListeners();
-        this.cartContainer.classList.toggle('hidde');
+        this.cartContainer.classList.toggle('hidden');
         this.cartContainer.classList.add('showComponents');
         this.cart.classList.remove('hiddenComponents')
       } else {
   
         this.renderCartProducts.reloadCart('remove',this.dataBaseProductsLocalStorage.dataBase);
         this.updateEventListeners();
-        this.cartContainer.classList.toggle('hidde');
+        this.cartContainer.classList.toggle('hidden');
         this.cartContainer.classList.add('showComponents');
         this.cart.classList.remove('hiddenComponents')
       }
@@ -127,5 +126,4 @@ class CartController {
   };
 };
 
-// const cartController = new CartController();
 export { CartController };

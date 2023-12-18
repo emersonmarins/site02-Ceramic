@@ -5,7 +5,20 @@ import { RenderCarousel } from "../Views/RenderCarousel.js";
 import { CarouselFunctions } from "../Model/CarouselFunctions.js";
 import { effects } from "../Views/effects.js";
 
+/**
+ *        +---------------+
+ *        |  Documentação |
+ *        +---------------+
+ *  1 - Receber no parametro do contrutor a className que será o parentELement que
+ *      cobrirá todo o carrosel.
+ *  2 - Atribuir o banco de ao atributo this.dataBase
+ *  3 - Iniciar o Carousel no constructor
+ *  
+ * 
+ */
+
 class CarouselController {
+
   constructor(className) {
     this.className = className
     this.dataBase = dataBase;
@@ -22,7 +35,6 @@ class CarouselController {
   await this.renderCarousel();
   this.updateAttribute();
   await this.moveCarousel();
-  // this.moveCarouselObject.initEventListeners();
   await this.animationCarousel();
   this.carouselFunctions();
   };

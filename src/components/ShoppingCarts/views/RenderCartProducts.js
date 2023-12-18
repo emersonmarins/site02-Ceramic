@@ -2,7 +2,7 @@
 class RenderCartProducts {
     constructor(containerCart) {
         this.body = document.querySelector(containerCart);
-        this.display = 'hidde'; // Mudar para hidden
+        this.display = 'hidden'; // Mudar para hidden
         this.message = 'SEU CARRINHO ESTÁ VAZIO :(';
 
         this.dataBaseLS;
@@ -95,7 +95,7 @@ class RenderCartProducts {
         cartTitle.innerText = 'MEU CARRINHO';
         iconCloseMenu.classList.add('bi', 'bi-x-circle-fill', 'close-menu-cart');
         emptyCart.classList.add('cart__emptyCart');
-        dataBaseLS.length > 0 ? (emptyCart.classList.add('hidde')) : (emptyCart.innerText = this.message);
+        dataBaseLS.length > 0 ? (emptyCart.classList.add('hidden')) : (emptyCart.innerText = this.message);
         emptyCart.innerText = this.message;
 
 
@@ -221,7 +221,7 @@ class RenderCartProducts {
                     let cartEmpty = document.querySelector('.cart__emptyCart');
                     
                     this.cartPurchase.remove();
-                    cartEmpty.classList.toggle('hidde');
+                    cartEmpty.classList.toggle('hidden');
                     localStorage.removeItem('user');
                 }
                 return
@@ -259,4 +259,6 @@ class RenderCartProducts {
     };
 
 };
-export { RenderCartProducts };
+
+const renderCartProducts = new RenderCartProducts('.header');
+export { renderCartProducts };

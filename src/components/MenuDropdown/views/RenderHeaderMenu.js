@@ -88,6 +88,7 @@ class RenderHeaderMenu {
       menu.classList.add('hidden');
       menuToggle.classList.remove('hidden');
     } else if (window.innerWidth > 800) {
+      
       document.documentElement.style.setProperty('--field-search-width', `600px`);
       menu.classList.remove('hidden');
       menuToggle.classList.add('hidden');

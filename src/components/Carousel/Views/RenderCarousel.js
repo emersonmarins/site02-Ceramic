@@ -16,15 +16,9 @@ class RenderCarousel {
    */
   set dataBase(db) {
     this._dataBase = db;
-    // console.log('entrou aqui')
-    console.log(typeof this._dataBase)
+
   };
-  initCarousel() {
-    this.renderCarouselContainer();
-    this._dataBase.products.map((ele) => {
-      this.renderCarousel(ele.url, ele.title, ele.price, ele.sku);
-    });
-  };
+
 
   renderCarouselContainer(){
     const sectionTitle = document.createElement('span');
@@ -37,11 +31,12 @@ class RenderCarousel {
     this.containerWrapper.appendChild(this.sectionContainer);
   };
   renderCarousel(url, textTitle, valuePrice, sku) {
+    
     const imgUrl = url;
     const productTitle = textTitle;
     const currentPrice = valuePrice;
     const skuNum = sku;
-
+    
     // create elements
 
     const productList = document.createElement('div');
@@ -118,7 +113,14 @@ class RenderCarousel {
     infoStars.appendChild(iconStar5);
     infoWrapper.appendChild(title);
     infoWrapper.appendChild(price);
-  }
+  };
+  initCarousel() {
+    
+    this.renderCarouselContainer();
+    this._dataBase.products.forEach((ele) => {
+      this.renderCarousel(ele.url, ele.title, ele.price, ele.sku);
+    });
+  };
 
 };
 export { RenderCarousel };

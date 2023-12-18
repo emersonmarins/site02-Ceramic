@@ -1,4 +1,4 @@
-import { RenderCartProducts } from '../../ShoppingCarts/views/RenderCartProducts.js';
+import { renderCartProducts } from '../../ShoppingCarts/views/RenderCartProducts.js';
 import { CartController } from "../../ShoppingCarts/Controller/CartController.js";
 import { effects } from "../Views/effects.js";
 
@@ -10,7 +10,7 @@ class CarouselFunctions {
     this.cart;
     this.renderCartProducts;
     this.cartController = new CartController();
-    this.renderCartProducts = new RenderCartProducts();
+    this.renderCartProducts = renderCartProducts;
 
     this.initListener();
   };
@@ -90,7 +90,7 @@ class CarouselFunctions {
     // essa função deve ser passada para o componente ShoppingCart,
     // pois não se trata da competencia do carrosel definir isso.
     const message = document.querySelector('.cart__emptyCart');
-    message.classList.add('hidde');
+    message.classList.add('hidden');
   } // ok
   // Verificar qual comportamento não esperado, pois apresenta um sintoma de loop
   // por ser necessário fazer um this.callFunctionId = false impedindo de entrar no
