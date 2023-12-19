@@ -91,6 +91,11 @@ $section04-wrapper: 'container-carousel';
     }
   };
   @media screen and (max-width:500px) {
+    .#{$section04-wrapper} {
+      &__title{
+        padding-left: 7px;
+      }
+    }
     .container-carousel__product-list {        
       width: var(--section-container-width);       
     }

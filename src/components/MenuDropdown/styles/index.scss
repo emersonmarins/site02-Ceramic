@@ -17,6 +17,7 @@
   position: absolute;
   height: 39px;
   margin: auto;
+  z-index: 10;
 
 }
 .search-container {
@@ -127,7 +128,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 21px;
   }
   .logo {
     flex: 1;
@@ -148,7 +149,6 @@
   }
   .menu-toggle {
     display: block;
-    padding: 10px;
     color: #333;
     text-decoration: none;
   }
@@ -204,11 +204,6 @@
     display: none;
   }
 }
-
-.hidden {
-  display: none;
-}
-
 
 /* KEYFRAMES */
 @keyframes showSearchInput {

@@ -72,7 +72,7 @@
 
 @media screen and (max-width: 540px) {
   .footer {
-    padding: 14px 0 40px;
+    padding: 14px 0 40px 7px;
     display: flex;
     flex-direction: column;
   }
@@ -101,11 +101,19 @@
   text-transform: uppercase;
   height: 40px;
   position: relative;
+  width: 100%;
+}
+.footer__end::before {
+  content: "";
+  width: 100vw;
+  position: absolute;
+  height: 100%;
+  background-color: rgb(14, 14, 14);
 }
 .footer__end .footer__copy {
   height: 100%;
   background-color: rgb(14, 14, 14);
-  width: 100vw;
+  width: 100%;
   color: rgb(170, 170, 170);
   display: inline-block;
   font-size: var(--step--6);

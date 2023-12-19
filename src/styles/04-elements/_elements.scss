@@ -1,7 +1,8 @@
 body {
-  width: 100vw;
+  width: var(--page-width);
   min-height: 100vh;
   overflow-x: hidden;
+
 }
 
 /* Estilização da barra de rolagem */
@@ -59,12 +60,6 @@ footer {
   grid-area: footer;
 }
 
-@media screen and (max-width:500px) {
-  main{
-    padding: 0 7px;
-  }
-};
-
 h1,
 h2,
 h3,
@@ -111,7 +106,7 @@ i {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 .hiddenPageMain {
   animation: fadeOut 2s forwards;

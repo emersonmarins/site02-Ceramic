@@ -6,16 +6,19 @@
 
         &__right {
             grid-area: contentright;
+            display: flex;
+            flex-direction: row;
+            gap: 4.5vw;
         }
 
         display: grid;
-        grid-template-columns: 0.3fr 6fr 0.3fr;
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "contentleft    contentleft    contentleft"
-            "          .    contentright   .          ";
+            "contentleft"
+            "contentright";
         gap: 4.5vw;
-        // justify-content: center;
-        justify-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
 

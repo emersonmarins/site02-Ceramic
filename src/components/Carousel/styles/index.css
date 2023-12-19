@@ -77,6 +77,9 @@
   }
 }
 @media screen and (max-width: 500px) {
+  .container-carousel .container-carousel__title {
+    padding-left: 7px;
+  }
   .container-carousel .container-carousel__product-list {
     width: var(--section-container-width);
   }
