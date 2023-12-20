@@ -34,4 +34,6 @@
   --space-check: clamp(1.3125rem, 0.2763rem + 1.8421vw, 1.75rem);
   /* Width filter*/
   --width-filter: clamp(15rem, 3.1579rem + 21.0526vw, 20rem);
+  /* Width line filter 580px */
+  --width-line-filter: clamp(0rem, -10.3125rem + 75vw, 16.875rem);
 }

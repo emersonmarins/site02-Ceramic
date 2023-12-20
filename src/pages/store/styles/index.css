@@ -17,6 +17,9 @@
 .main__filter .filter__title {
   position: relative;
 }
+.main__filter .filter__title .fa-solid.fa-chevron-down {
+  display: none;
+}
 .main__filter .filter__title::after {
   content: "";
   border-bottom: 1px solid rgba(0, 0, 0, 0.212);
@@ -273,6 +276,28 @@
     border-top: none;
     margin: 0;
     padding: 0;
+  }
+  .main__filter .filter__title {
+    position: relative;
+    padding: 7px;
+    border-radius: 3px;
+    width: -moz-fit-content;
+    width: fit-content;
+    border: 1px solid rgba(112, 112, 112, 0.3098039216);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  .main__filter .filter__title .fa-solid.fa-chevron-down {
+    display: inline-block;
+  }
+  .main__filter .filter__title::after {
+    content: "";
+    border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+    width: var(--width-line-filter);
+    position: absolute;
+    top: 50%;
+    left: 105%;
   }
   .main__products .products__item {
     width: 100%;

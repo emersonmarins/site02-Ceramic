@@ -90,8 +90,6 @@ class MoveCarousel {
 
   mouseDown(event) {
 
-
-    event.preventDefault();
     this.listCarousel.style.transition = `none`;
     this.current_point = this.salved_position;
     this.starting_point = event.clientX;

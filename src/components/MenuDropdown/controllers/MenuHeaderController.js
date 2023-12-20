@@ -32,8 +32,10 @@ class MenuHeaderController {
     window.addEventListener('DOMContentLoaded', () => {
       this.changeVisibility();
     });
-    this.dropdown.addEventListener('click', () => {
-      this.dropdown.dataset.statemenu === "close" ? this.openDropdown() : this.closeDropdown();
+    this.dropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 800) {
+        this.dropdown.dataset.statemenu === "close" ? this.openDropdown() : this.closeDropdown(); 
+      }
     });
   };
   toggleMenu() {
