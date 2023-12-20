@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../../../styles/index.css">
   <link rel="stylesheet" href="../../../components/MenuDropdown/styles/index.css">
   <link rel="stylesheet" href="../../../components/ShoppingCarts/styles/index.css">
-  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../styles/index.css">
   <link rel="stylesheet" href="../../../components/footer/styles/index.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
@@ -18,7 +18,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
-  
+
 </head>
 
 <body>
@@ -37,8 +37,10 @@
     </header>
     <main class="main">
       <div class="main__filter">
-        <h2 class="filter__title title--h3">Filtrar produtos</h2>
-        <ul class="filter__list">
+        <h2 class="filter__title title--h3">Filtrar produtos
+          <i class="fa-solid fa-chevron-down"></i>
+        </h2>
+        <ul class="filter__list hidden">
           <li class="list__item">
             <div class="item__category">
               <input type="checkbox" id="all-category" name="category" value="all"
@@ -89,11 +91,11 @@
           </li>
           <li class="list__item">
             <div class="item__category">
-              <input type="checkbox" id="xicaras" name="check" value="check" class="category__input js-category__input"
-                data-check="xicaras"></input>
-              <label for="xicaras" class="category__label">Xícaras</label>
+              <input type="checkbox" id="xicara" name="check" value="check" class="category__input js-category__input"
+                data-check="xicara"></input>
+              <label for="xicara" class="category__label">Xícaras</label>
             </div>
-            <span class="category__items" data-items="xicaras">(5)</span>
+            <span class="category__items" data-items="xicara">(5)</span>
           </li>
           <li class="list__item">
             <div class="item__category">
@@ -152,7 +154,7 @@
             <span class="category__items" data-items="conjuntos-de-banheiro">(5)</span>
           </li>
         </ul>
-        <section class="filter__price">
+        <section class="filter__price hidden">
           <h3 class="price__title title--h3">Filtrar por preço</h3>
           <div class="price__range">
             <output for="priceSlider" class="price__output" id="sliderValue">R$ 50</output>
@@ -168,123 +170,6 @@
     <footer class="footer-wrapper"></footer>
   </div>
 
-
-  <script type="module">
-
-    import { dataBase } from "../model/db_product.js";
-
-    class RenderProducts {
-      constructor(dataBase, className, textCartBtn, textBuyNowBtn) {
-
-        this.main__products = document.querySelector(`.${className}`);
-        this.products__item;
-        this.item__imgContainer;
-        this.item__img;
-        this.item__info;
-        this.item__title;
-        this.item__description;
-        this.item__price;
-        this.item__priceCurrent;
-        this.item__addCartBtn;
-        this.item__buyNowBtn;
-
-        this.textCartBtn = textCartBtn;
-        this.textBuyNowBtn = textBuyNowBtn;
-        this.dataBase = dataBase;
-        this.newTitle;
-        this.renderProducts();
-
-      }
-
-      reduceNumberCharacters(element){
-          
-          if (element.title.length > 14) {
-            this.regExp = new RegExp('.{14}', 'ig');
-            this.newTitle = this.regExp.exec(element.title)[0];
-            this.newTitle = this.newTitle.replace(this.newTitle, this.newTitle.trim() + '...');
-          } else {
-            this.newTitle = element.title
-          }
-        return this.newTitle;
-      }
-
-      createElements(){
-        this.products__item = document.createElement('div');
-        this.item__imgContainer = document.createElement('div');
-        this.item__img = document.createElement('img');
-        this.item__info = document.createElement('div');
-        this.item__title = document.createElement('h3');
-        this.item__description = document.createElement('p');
-        this.item__price = document.createElement('span');
-        this.item__priceCurrent = document.createElement('span');
-        this.item__addCartBtn = document.createElement('button');
-        this.item__buyNowBtn = document.createElement('button');
-      }
-      
-      addAttributes(element) {
-        // ADD CLASS NAME
-        this.products__item.classList.add('products__item');
-        this.item__imgContainer.classList.add('item__img-container');
-        this.item__img.classList.add('item__img');
-        this.item__info.classList.add('item__info');
-        this.item__title.classList.add('item__title');
-        this.item__description.classList.add('item__description');
-        this.item__price.classList.add('item__price');
-        this.item__priceCurrent.classList.add('item__price-current');
-        this.item__addCartBtn.classList.add('item__add-cart-btn', 'btn');
-        this.item__buyNowBtn.classList.add('item__buy-now-btn', 'btn');
-
-        // ADD ATTRIBUTES
-
-        this.item__img.setAttribute('src', `${element.url}`);
-        this.item__img.setAttribute('alt', `${element.title}`);
-
-
-      }
-
-      addText(element) {
-        this.item__title.innerText = `${this.reduceNumberCharacters(element)}`;
-        this.item__description.innerText = `${element.description ? element.description : ''}`;
-        this.item__price.innerText = `R$ ${element.price}`;
-        // this.item__priceCurrent.innerText = `R$ ${element.currentPrice}`;
-        this.item__addCartBtn.innerText = `${this.textCartBtn}`;
-        this.item__buyNowBtn.innerText = `${this.textBuyNowBtn}`;
-      }
-
-      appendChildren() {
-
-        this.main__products.appendChild(this.products__item);
-
-        this.products__item.appendChild(this.item__imgContainer);
-        this.item__imgContainer.appendChild(this.item__img);
-
-        this.products__item.appendChild(this.item__info);
-        this.item__info.appendChild(this.item__title);
-        this.item__info.appendChild(this.item__description);
-        this.item__info.appendChild(this.item__price);
-        this.item__info.appendChild(this.item__priceCurrent);
-        this.item__info.appendChild(this.item__addCartBtn);
-        this.item__info.appendChild(this.item__buyNowBtn);
-
-      }
-
-      renderProducts() {
-        this.dataBase.products.forEach(element => {
-          this.createElements();
-          this.addAttributes(element);
-          this.addText(element);
-          this.appendChildren();
-        });
-      }
-
-    };
-
-    let className = "main__products";
-    let addCartBtn = "add carrinho";
-    let buyNowBtn = "comprar agora";
-    const listProducts = new RenderProducts(dataBase, className, addCartBtn, buyNowBtn);
-
-  </script>
   <script type="module">
     import { MenuHeaderController } from "../../../components/MenuDropdown/controllers/MenuHeaderController.js";
     new MenuHeaderController('.header', false, 'cart-page');
@@ -292,9 +177,13 @@
     new FooterController('.footer-wrapper', 'cart-page');
     import { ScrollToTop } from "../../../components/buttonScrollToTop/ScrollToTop.js";
     new ScrollToTop('generic');
+    import { StoreController } from "../controller/StoreController.js";
+    new StoreController('main__products', 'add carrinho', 'comprar agora');
   </script>
+
   <script type="module" src="../../../components/MenuDropdown/controllers/search/SearchController.js"></script>
   <script>
+
     const priceSlider = document.getElementById("priceSlider");
     const sliderValue = document.getElementById("sliderValue");
 

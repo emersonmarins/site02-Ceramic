@@ -60,6 +60,17 @@ footer {
   grid-area: footer;
 }
 
+@media (min-width:540px) {
+
+   header,
+   main,
+   footer {
+    width: 95%;
+    margin: auto;
+  
+  }
+}
+
 h1,
 h2,
 h3,

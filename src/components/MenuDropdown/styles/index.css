@@ -66,11 +66,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 999;
   }
   .logo {
-    /* flex-grow: 0; */
     text-align: left;
   }
   .menu {
@@ -80,24 +77,24 @@
     margin: 0;
     padding: 0;
   }
-  .menu li {
+  .menu > .dropdown {
     position: relative;
   }
-  .menu .dropdown-menu {
+  .menu > .dropdown > .dropdown-menu {
+    display: none;
+    position: absolute;
+  }
+  .menu > .dropdown:hover > .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 14px;
-    display: none;
+    display: block;
     list-style: none;
     margin: 0;
     padding: 0;
     background-color: #fff;
-    border: 1px solid #ccc;
     border-top: none;
     z-index: 1999;
-  }
-  .menu .dropdown:hover .dropdown-menu {
-    display: block;
   }
   .icons {
     display: flex;

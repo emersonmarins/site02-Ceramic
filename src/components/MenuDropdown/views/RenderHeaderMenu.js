@@ -82,7 +82,7 @@ class RenderHeaderMenu {
     dropdown.dataset.statemenu = "close";
   };
   changeVisibility(dropdown, menu, menuToggle) {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth <= 800) {
       document.documentElement.style.setProperty('--field-search-width', `300px`);
       dropdown.dataset.statemenu = "close";
       menu.classList.add('hidden');
