@@ -72,9 +72,11 @@ class StoreController {
 
     });
     this.openFilterMenu.addEventListener('click', () => {
+      if (window.innerWidth <= 580) {
       this.filterListElement.classList.toggle('hidden');
       this.filterPriceElement.classList.toggle('hidden');
       this.stateMenuOpen = !this.stateMenuOpen;
+      }
     })
 
     document.addEventListener('DOMContentLoaded', () => {
