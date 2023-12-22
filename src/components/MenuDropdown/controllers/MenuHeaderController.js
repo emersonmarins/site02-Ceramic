@@ -51,5 +51,4 @@ class MenuHeaderController {
      this.renderHeaderMenu.openDropdown(this.dropdown,this.iconDropdown); 
   };
 };
-// const menuHeaderController = new MenuHeaderController();
 export { MenuHeaderController };

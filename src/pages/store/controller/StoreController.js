@@ -3,6 +3,29 @@ import { RenderProducts } from "../view/RenderProducts.js";
 
 class StoreController {
   constructor(className, addCartBtn, buyNowBtn) {
+      this.categoryInputElements;
+      this.categoryItemsElement;
+      this.buttonFilterElement;
+      this.maxPriceFilterElement;
+      this.selectAllCategoryElement;
+      this.filterListElement;
+      this.filterPriceElement;
+      this.openFilterMenu;
+      this.categoryItems = [];
+      this.productsNewArray = { products: [] };
+      this.maxPriceFilter;
+      this.stateMenuOpen = false;
+  
+      this.wordSearch = localStorage.getItem('category');
+      this.className = "main__products";
+      this.addCartBtn = "add carrinho";
+      this.buyNowBtn = "comprar agora";
+      this.renderProducts;
+  
+
+  };
+
+  initController(){
     this.categoryInputElements = document.querySelectorAll('.js-category__input')
     this.categoryItemsElement = document.querySelectorAll('.category__items')
     this.buttonFilterElement = document.querySelector('.price__btn-filter');
@@ -11,18 +34,10 @@ class StoreController {
     this.filterListElement = document.querySelector('.filter__list');
     this.filterPriceElement = document.querySelector('.filter__price');
     this.openFilterMenu = document.querySelector('.filter__title');
-    this.categoryItems = [];
-    this.productsNewArray = { products: [] };
-    this.maxPriceFilter;
-    this.stateMenuOpen = false;
-
-    this.className = "main__products";
-    this.addCartBtn = "add carrinho";
-    this.buyNowBtn = "comprar agora";
     this.renderProducts = new RenderProducts(dataBase, this.className, this.addCartBtn, this.buyNowBtn);
     this.initEventListener(this.categoryInputElements);
+  }
 
-  };
   deleteProducts() {
     this.renderProducts.deleteProducts();
   }
@@ -31,19 +46,35 @@ class StoreController {
     this.renderProducts.dataBase = this.productsNewArray;
     this.renderProducts.renderProducts();
   }
-  filterProducts() {
+  removeAccents(text) {
+    // Remove os acentos das strings
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  };
+  filterProducts(btnSearch = false) {
     this.productsNewArray.products = [];
-    dataBase.products.forEach(element => {
-      for (let index = 0; index < this.categoryItems.length; index++) {
-        const regexString = this.categoryItems[index] + '.+';
-
-        if (new RegExp(regexString, 'i').test(element.category) && Number(element.price) <= this.maxPriceFilter) {
+    if (btnSearch) {
+      dataBase.products.forEach(element => {
+        for (let index = 0; index < this.categoryItems.length; index++) {
+          const regexString = this.categoryItems[index] + '.+';
+  
+          if (new RegExp(regexString, 'i').test(element.category) && Number(element.price) <= this.maxPriceFilter) {
+            this.productsNewArray.products.push(element);
+          };
+        };
+      });
+  
+      this.renderProductsInit();      
+    } else {
+      this.wordSearch = this.removeAccents(localStorage.getItem('category'));
+      dataBase.products.forEach(element => {
+        const regexString = this.wordSearch + '\.*';
+        if (new RegExp(regexString, 'i').test(this.removeAccents(element.title))) {
           this.productsNewArray.products.push(element);
         };
-      };
-    });
-
-    this.renderProductsInit();
+      });
+  
+      this.renderProductsInit();  
+    }
   };
   initEventListener(categoryInputElements) {
 
@@ -56,7 +87,7 @@ class StoreController {
       });
 
       this.maxPriceFilter = Number(this.maxPriceFilterElement.value.replace('R$', '').trim());
-      this.filterProducts();
+      this.filterProducts(true);
     });
 
     this.selectAllCategoryElement.addEventListener('change', function () {
@@ -87,6 +118,9 @@ class StoreController {
         this.filterListElement.classList.remove('hidden');
         this.filterPriceElement.classList.remove('hidden');
       }
+      if (this.wordSearch) {
+        this.filterProducts();
+      }
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth > 580) {
@@ -100,4 +134,6 @@ class StoreController {
   };
 
 };
-export { StoreController };
+
+const storeController = new StoreController('main__products', 'add carrinho', 'comprar agora');
+export { storeController };

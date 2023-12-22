@@ -177,11 +177,16 @@
     new FooterController('.footer-wrapper', 'cart-page');
     import { ScrollToTop } from "../../../components/buttonScrollToTop/ScrollToTop.js";
     new ScrollToTop('generic');
-    import { StoreController } from "../controller/StoreController.js";
-    new StoreController('main__products', 'add carrinho', 'comprar agora');
+    import { storeController } from "../controller/StoreController.js";
+    storeController. initController();
+    
   </script>
 
-  <script type="module" src="../../../components/MenuDropdown/controllers/search/SearchController.js"></script>
+  <script type="module" >
+      import { searchController } from "../../../components/MenuDropdown/controllers/search/SearchController.js";
+      searchController.pageProduct = true;
+
+  </script>
   <script>
 
     const priceSlider = document.getElementById("priceSlider");

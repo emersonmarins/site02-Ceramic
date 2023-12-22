@@ -1,5 +1,7 @@
 import { dataBase } from "../../../../pages/store/model/db_product.js";
 import { RenderSearch } from "../../views/RenderSearch.js";
+import { storeController } from "../../../../pages/store/controller/StoreController.js";
+
 class SearchController {
   constructor(database) {
     this.renderSearch = new RenderSearch();
@@ -12,10 +14,17 @@ class SearchController {
     this.stateMenu = true;
     this.newDataBase;
     this.suggestionsElementsList;
+    this.isPageProduct = false;
     
 
     this.initEventListeners();
   };
+  set pageProduct(value){
+    this.isPageProduct = value;
+  };
+  get pageProduct(){
+    return this.isPageProduct;
+  }
   initEventListeners() {
     /**
      * 1 - Add o evento de click no icon de search
@@ -93,6 +102,12 @@ class SearchController {
           regExp = new RegExp(`${this.removeAccents(this.textSearch)}.*`, 'i');
           link.innerText = regExp.exec(this.removeAccents(this.newDataBase[index].title));
           this.fieldSuggest.appendChild(link);
+          link.addEventListener('click', (e) => {
+            localStorage.setItem("category",`${e.target.innerText}`);
+            if (this.isPageProduct) {
+              storeController.filterProducts();
+            }
+          })
         };
 
       } else {
