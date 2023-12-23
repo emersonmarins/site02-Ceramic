@@ -1,20 +1,32 @@
-import { MenuFooter } from  "../../../pages/informations/index.js";
+import { MenuFooter } from "../../../pages/informations/index.js";
 import { ContactForm } from "../../../components/ContactForm/ContactForm.js";
 
 class FooterModel extends MenuFooter {
-  constructor(className) {
+  constructor(className, classNameContainer, path) {
     super();
     this.mainContent = document.querySelector('.mainContent');
-    this.mainContainer = document.querySelector('.mainContainer');
+    this.mainContainer = document.querySelector(classNameContainer);
     this.containerFooter = document.querySelector(className);
     this.menuFooter = document.querySelectorAll('.js-footer__text')
     this.text;
     this.title;
-    this.contactForm = new ContactForm();
+    this.contactForm = new ContactForm(path);
+    this._path;
+    this.pathCurrent = path;
     this.showMenuFooter()
-    
-  }
 
+  }
+  get pathCurrent(){
+    return this._path;
+  }
+  set pathCurrent(pathPage) {
+    if (pathPage === 'cart-page') {
+      this._path = '../../../../';
+
+    } else if (pathPage === 'home') {
+      this._path = './';
+    }
+  }
   createSection(formName = false) {
     if (document.querySelector('.infoWrapper')) {
       document.querySelector('.infoWrapper').remove();
@@ -32,7 +44,7 @@ class FooterModel extends MenuFooter {
 
       this.divWrapperImg.classList.add('infoWrapper__wrapper-img', 'js-infoWrapper__wrapper-img');
       this.img.classList.add('infoWrapper__img', 'js-infoWrapper__img');
-      this.img.src = '/src/assets/banners/banner01.png';
+      this.img.src = `${this.pathCurrent}src/assets/banners/banner01.png`;
       title.classList.add('infoWrapper__title');
       text.classList.add('infoWrapper__text');
       title.innerHTML = this.title;
@@ -44,7 +56,7 @@ class FooterModel extends MenuFooter {
       divWrapper.appendChild(text);
 
     } else {
-      this.contactForm.renderizarFormulario("infoWrapper");
+      this.contactForm.renderizarFormulario("infoWrapper",);
     };
   };
   scrollToTop() {
@@ -65,7 +77,26 @@ class FooterModel extends MenuFooter {
       scrollToTop();
     }
   }
-  
+  showAboutUs(headerClick = false) {
+    if (headerClick) {
+      if (this.mainContent.className !== "mainContent hiddenPageMain") {
+        this.mainContent.classList.toggle("hiddenPageMain");
+      }
+    }
+    this.title = this.aboutUs.title;
+    this.text = this.aboutUs.text;
+    this.scrollToTop();
+    setTimeout(() => { this.createSection() }, 200);
+  }
+  contactUs(headerClick = false) {
+    if (headerClick) {
+      if (this.mainContent.className !== "mainContent hiddenPageMain") {
+        this.mainContent.classList.toggle("hiddenPageMain");
+      }
+    }
+    this.createSection(true);
+    this.scrollToTop();
+  }
   showMenuFooter(showPage) {
     this.menuFooter.forEach((element, index) => {
       element.addEventListener('click', e => {
@@ -78,24 +109,7 @@ class FooterModel extends MenuFooter {
 
         switch (className) {
           case 'aboutUs':
-
-          this.executeFunction = () => {
-            this.title = this.aboutUs.title;
-            this.text = this.aboutUs.text;
-            this.createSection();
-            this.scrollToTop();
-
-          }
-            if (document.querySelector('.infoWrapper')){
-              if (document.querySelector('.infoWrapper').className === 'infoWrapper showPageMain') {
-                this.executeFunction();                
-              }
-            } else {
-              this.executeFunction();
-              document.querySelector('.infoWrapper').classList.add('showPageMain');
-            };
-
-
+            this.showAboutUs();
             break;
           case 'cookiePolicy':
             this.title = this.cookiePolicy.title;
@@ -133,9 +147,7 @@ class FooterModel extends MenuFooter {
 
             break;
           case 'contactUs':
-            this.createSection(true);
-            this.scrollToTop();
-
+            this.contactUs();
             break;
           default:
             break;
@@ -152,5 +164,4 @@ class FooterModel extends MenuFooter {
   };
 };
 let footer = null;
-// const footer = new FooterModel('footer-container');
 export { footer, FooterModel };

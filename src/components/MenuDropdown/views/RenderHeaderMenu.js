@@ -39,15 +39,15 @@ class RenderHeaderMenu {
       <li class="dropdown">
         <a href="#">PRODUTOS <i class="fa-solid fa-chevron-right"></i></a>
         <ul class="dropdown-menu">
-          <li><a href="#">PRATOS</a></li>
-          <li><a href="#">XÍCARAS</a></li>
-          <li><a href="#">DECORAÇÃO</a></li>
-          <li><a href="#">TIGELAS</a></li>
+          <li><a class="nav__link js-nav__link" href="#" data-category="pratos">PRATOS</a></li>
+          <li><a class="nav__link js-nav__link" href="#" data-category="xicara">XÍCARAS</a></li>
+          <li><a class="nav__link js-nav__link" href="#" data-category="decoracao">DECORAÇÃO</a></li>
+          <li><a class="nav__link js-nav__link" href="#" data-category="tigela">TIGELAS</a></li>
         </ul>
       </li>
       <li><a href="${this._path}src/pages/store/html/index.html">LOJA</a></li>
-      <li><a href="#">QUEM SOMOS</a></li>
-      <li><a href="#">CONTATO</a></li>
+      <li><a class="nav__link-about-us js-nav__link-about-us" href="#">QUEM SOMOS</a></li>
+      <li><a class="nav__link-contact js-nav__link-contact" href="#">CONTATO</a></li>
     `;
     this.nav.appendChild(this.menu);
     this.header.appendChild(this.nav);

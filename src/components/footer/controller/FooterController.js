@@ -2,25 +2,31 @@ import { CreateFooter } from "../views/CreateFooter.js";
 import { FooterModel } from "../model/FooterModel.js";
 
 class FooterController {
-  constructor(className, path){
+  constructor(className, path, classNameContainer) {
     this._className = className;
-    this.createFooter = new CreateFooter(className,path);
+    this.createFooter = new CreateFooter(className, path);
     this.startCreateFooter();
+    this.footerModel = new FooterModel(className, classNameContainer, path);
+    this.navLinksElementAboutUs = document.querySelector('.js-nav__link-about-us');
+    this.navLinksElementContact = document.querySelector('.js-nav__link-contact');
     this.initEventListeners();
-    this.footerModel = new FooterModel(className);
-  };
-  set className(className){
+   };
+  set className(className) {
     this._className = className;
   };
-  get className(){
+  get className() {
     return this._className;
   };
-  startCreateFooter(){
+  startCreateFooter() {
     this.createFooter.createFooter();
   };
-  initEventListeners(){  
-    
+  initEventListeners() {
+    this.navLinksElementAboutUs.addEventListener('click', (e) => {
+      this.footerModel.showAboutUs(true);
+    });
+    this.navLinksElementContact.addEventListener('click', (e) => {
+      this.footerModel.contactUs(true);
+    });
   };
 };
-// const footerController = new FooterController();
-export {FooterController}
+export { FooterController }

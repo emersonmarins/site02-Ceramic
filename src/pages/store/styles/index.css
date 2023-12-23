@@ -1,4 +1,4 @@
-.main {
+.main .mainContent {
   display: grid;
   margin: 0 auto 51px;
   padding-top: 50px;
@@ -269,7 +269,7 @@
   }
 }
 @media (max-width: 580px) {
-  .main {
+  .main .mainContent {
     grid-template-areas: "filter" "products";
     grid-template-columns: 79vw;
     justify-content: center;
