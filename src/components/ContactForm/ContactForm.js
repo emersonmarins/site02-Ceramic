@@ -1,7 +1,10 @@
 class ContactForm {
-  constructor() {
+  constructor(path) {
     this.formulario = document.createElement('form');
     this.formulario.id = 'contactForm';
+    this.pathCall = path;
+    this._path;
+    this.pathCurrent = path;
 
     this.adicionarCampo('Nome:', 'text', 'name', true);
     this.adicionarCampo('E-mail:', 'email', 'email', true);
@@ -13,7 +16,15 @@ class ContactForm {
 
     submitButton.addEventListener('click', this.enviarFormulario.bind(this));
   }
+  set pathCurrent(pathPage) {
+    if (pathPage === 'cart-page') {
+      this._path = '../../../../';
 
+    } else if (pathPage === 'home') {
+      this._path = './';
+
+    }
+  }
   adicionarCampo(labelText, inputType, inputName, required) {
     let div = document.createElement('div');
     div.classList.add('form-group');
@@ -38,7 +49,7 @@ class ContactForm {
     event.preventDefault();
     let formData = new FormData(this.formulario);
     for (let [key, value] of formData.entries()) {
-      
+
     }
     // Aqui você pode adicionar a lógica para enviar os dados do formulário para o backend ou fazer outras operações com eles
   }
@@ -49,11 +60,11 @@ class ContactForm {
     this.addCss();
   }
 
-  addCss(){
+  addCss() {
     let head = document.head;
     let linkCss = document.createElement('link');
     linkCss.setAttribute("rel", "stylesheet");
-    linkCss.setAttribute("href", "./src/components/ContactForm/style.css");
+    linkCss.setAttribute("href", `${this._path}src/components/ContactForm/style.css`);
     head.appendChild(linkCss);
   }
 }

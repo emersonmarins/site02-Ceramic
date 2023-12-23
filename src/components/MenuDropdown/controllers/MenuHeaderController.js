@@ -1,19 +1,36 @@
 import { RenderHeaderMenu } from "../views/RenderHeaderMenu.js";
+import { storeController } from "../../../pages/store/controller/StoreController.js";
+
+
 class MenuHeaderController {
   constructor(className, hideCartModal, path) {
-    this.renderHeaderMenu = new RenderHeaderMenu(className,path);
+    this.renderHeaderMenu = new RenderHeaderMenu(className, path);
     this.menuToggle = document.querySelector('.menu-toggle');
     this.menu = document.querySelector('.menu');
     this.dropdown = document.querySelector('.dropdown');
     this.iconDropdown = document.querySelector('.fa-solid.fa-chevron-right');
+    this.navLinksElements = document.querySelectorAll('.js-nav__link');
+
     this.eventLeave = false;
     this.menuOpenHeight = 0;
+    this.pathCall = path;
+    this._path;
+    this.pathCurrent = path;
     this.initEventListeners();
     this.hideCartModal(hideCartModal);
-      
+
   };
-  hideCartModal(hideCartModal){
-    
+  set pathCurrent(pathPage) {
+    if (pathPage === 'cart-page') {
+      this._path = '../../../../';
+
+    } else if (pathPage === 'home') {
+      this._path = './';
+
+    }
+  }
+  hideCartModal(hideCartModal) {
+
     if (hideCartModal) {
       this.iconHide = document.querySelector('.cart-icon.header__cart');
       this.iconHide.remove();
@@ -22,7 +39,7 @@ class MenuHeaderController {
   initEventListeners() {
     this.menuToggle.addEventListener('click', () => {
       this.toggleMenu();
-      
+
     });
 
     window.addEventListener('resize', () => {
@@ -34,21 +51,35 @@ class MenuHeaderController {
     });
     this.dropdown.addEventListener('click', (e) => {
       if (window.innerWidth <= 800) {
-        this.dropdown.dataset.statemenu === "close" ? this.openDropdown() : this.closeDropdown(); 
+        this.dropdown.dataset.statemenu === "close" ? this.openDropdown() : this.closeDropdown();
       }
     });
+    this.navLinksElements.forEach((element) => {
+      element.addEventListener('click', (navLink) => {
+
+        console.log(navLink.target.dataset.category)
+        localStorage.setItem('category', navLink.target.dataset.category)
+        if (this.pathCall === 'home') {
+          window.location.href = './src/pages/store/html/index.html';
+        } else {
+            storeController.filterProducts();
+        }
+      });
+    });
+
+
   };
   toggleMenu() {
-    this.renderHeaderMenu.toggleMenu(this.dropdown,this.iconDropdown,this.menu);
+    this.renderHeaderMenu.toggleMenu(this.dropdown, this.iconDropdown, this.menu);
   };
   changeVisibility() {
-    this.renderHeaderMenu.changeVisibility(this.dropdown,this.menu,this.menuToggle);
+    this.renderHeaderMenu.changeVisibility(this.dropdown, this.menu, this.menuToggle);
   };
   closeDropdown() {
-    this.renderHeaderMenu.closeDropdown(this.dropdown,this.iconDropdown);    
+    this.renderHeaderMenu.closeDropdown(this.dropdown, this.iconDropdown);
   };
   openDropdown() {
-     this.renderHeaderMenu.openDropdown(this.dropdown,this.iconDropdown); 
+    this.renderHeaderMenu.openDropdown(this.dropdown, this.iconDropdown);
   };
 };
 export { MenuHeaderController };

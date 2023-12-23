@@ -106,6 +106,8 @@ class SearchController {
             localStorage.setItem("category",`${e.target.innerText}`);
             if (this.isPageProduct) {
               storeController.filterProducts();
+            }else {
+              window.location.href = "./src/pages/store/html/index.html";
             }
           })
         };

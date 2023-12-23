@@ -1,13 +1,15 @@
 .main {
-  display: grid;
-  margin: 0 auto 51px;
-  padding-top: 50px;
-  grid-template-areas:
-    "filter products"
-  ;
-  grid-template-columns: var(--width-filter) auto;
-  gap: var(--space-s);
-  border-top: 1px solid rgba(37, 37, 37, 0.11);
+  .mainContent {
+    display: grid;
+    margin: 0 auto 51px;
+    padding-top: 50px;
+    grid-template-areas:
+      "filter products"
+    ;
+    grid-template-columns: var(--width-filter) auto;
+    gap: var(--space-s);
+    border-top: 1px solid rgba(37, 37, 37, 0.11);
+  }
 
   &__filter {
     grid-area: filter;
@@ -332,14 +334,17 @@
 
 @media (max-width:580px) {
   .main {
-    grid-template-areas:
-      "filter" "products"
-    ;
-    grid-template-columns: 79vw;
-    justify-content: center;
-    border-top: none;
-    margin: 0;
-    padding: 0;
+    
+    .mainContent {
+      grid-template-areas:
+        "filter" "products"
+      ;
+      grid-template-columns: 79vw;
+      justify-content: center;
+      border-top: none;
+      margin: 0;
+      padding: 0;
+    }
 
     &__filter {
 
