@@ -38,7 +38,7 @@
             <div class="mainContent">
                 <section class="section02">
                     <div class="section02__left">
-                        <img src="img/section/imagem23.png" alt="" class="img-left" href="#">
+                        <img src="./src/assets/section/imagem23.png" alt="" class="img-left" href="#">
                         <div class="section02__content">
                             <p class="section02__left__text">Ofertas Imperdíveis Confira!</p>
                             <h1 class="section02__left__title">Jogos de Cerâmica</h1>
@@ -47,14 +47,14 @@
                     </div>
                     <div class="section02__right">
                         <div class="content-top">
-                            <img src="img/section/imagem24.png" alt="" class="img-right01">
+                            <img src="./src/assets/section/imagem24.png" alt="" class="img-right01">
                             <div class="section02__content">
                                 <h5>Itens para Jantar</h3>
                                     <a class="section02__right__btn" href="#">Compre Agora</a>
                             </div>
                         </div>
                         <div class="content-bottom">
-                            <img src="img/section/imagem25.png" alt="" class="img-right02">
+                            <img src="./src/assets/section/imagem25.png" alt="" class="img-right02">
                             <div class="section02__content">
                                 <h5>Conjuntos de Porcelana</h3>
                                     <a class="section02__right__btn" href="#">Compre Agora</a>
@@ -97,7 +97,7 @@
                 <section class="section05">
                     <div class="section05__left">
                         <div class="left-top is-relative is-scale">
-                            <a href="#" class="section05__logo"><img src="img/section/imagem09.jpg"
+                            <a href="#" class="section05__logo"><img src="./src/assets/section/imagem09.jpg"
                                     alt="imagem porcelana"></a>
                             <div class="section05__info">
                                 <span>Novidade</span>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="left-bottom is-relative">
                             <div class="is-relative is-scale">
-                                <a class="section05__logo" href="#"><img src="img/section/imagem07.jpg"
+                                <a class="section05__logo" href="#"><img src="./src/assets/section/imagem07.jpg"
                                         alt="imagem porcelana"></a>
                                 <div class="section05__info">
                                     <span>Novidade</span>
@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                             <div class="is-relative is-scale">
-                                <a class="section05__logo" href=""><img src="img/section/imagem03.jpg"
+                                <a class="section05__logo" href=""><img src="./src/assets/section/imagem03.jpg"
                                         alt="imagem porcelana"></a>
                                 <div class="section05__info">
                                     <span>Novidade</span>
@@ -125,14 +125,14 @@
                     </div>
                     <div class="section05__right">
                         <div class="section05__right-top is-relative is-scale">
-                            <a href="#" class="section05__logo"><img src="img/section/imagem05.jpg" alt=""></a>
+                            <a href="#" class="section05__logo"><img src="./src/assets/section/imagem05.jpg" alt=""></a>
                             <div class="section05__info">
                                 <span>Novidade</span>
                                 <p>Compre Agora</p>
                             </div>
                         </div>
                         <div class="section05__right-bottom is-relative is-scale">
-                            <a class="section05__logo" href="#"><img src="img/section/imagem06.jpg"
+                            <a class="section05__logo" href="#"><img src="./src/assets/section/imagem06.jpg"
                                     alt="imagem porcelana"></a>
                             <div class="section05__info">
                                 <span>Novidade</span>
@@ -148,7 +148,7 @@
                     <div class="section07__content-wrapper">
                         <div class="section07__content">
                             <div class="section07__img">
-                                <a href="#"><img src="img/section/imagem04.jpg" alt=""></a>
+                                <a href="#"><img src="./src/assets/section/imagem04.jpg" alt=""></a>
                             </div>
                             <div class="section07__info">
                                 <div class="section07__icon">
@@ -163,7 +163,7 @@
                         </div>
                         <div class="section07__content">
                             <div class="section07__img">
-                                <a href="#"><img src="img/section/imagem05.jpg" alt=""></a>
+                                <a href="#"><img src="./src/assets/section/imagem05.jpg" alt=""></a>
                             </div>
                             <div class="section07__info">
                                 <div class="section07__icon">
@@ -178,7 +178,7 @@
                         </div>
                         <div class="section07__content">
                             <div class="section07__img">
-                                <a href="#"><img src="img/section/imagem06.jpg" alt=""></a>
+                                <a href="#"><img src="./src/assets/section/imagem06.jpg" alt=""></a>
                             </div>
                             <div class="section07__info">
                                 <div class="section07__icon">
@@ -199,12 +199,16 @@
     </div>
 
     <script type="module">
+        import { store } from "./src/config/config.js";
+        window.Store = store;
+        import { setPath } from './src/components/ShoppingCarts/views/RenderCartProducts.js';
+        setPath.path = 'home';
         import { MenuHeaderController } from "./src/components/MenuDropdown/controllers/MenuHeaderController.js";
-        new MenuHeaderController('.header', false, 'home');
+        new MenuHeaderController('.header', false);
         import { CarouselController } from "./src/components/Carousel/Controller/CarouselController.js";
         new CarouselController('container-carousel');
         import { FooterController } from "./src/components/footer/controller/FooterController.js";
-        new FooterController('.footer-wrapper','home', '.mainContainer');
+        new FooterController('.footer-wrapper', '.mainContainer');
         import { ScrollToTop } from "./src/components/buttonScrollToTop/ScrollToTop.js";
         new ScrollToTop('main');
         

@@ -1,4 +1,22 @@
 // import { cartController } from "../Controller/CartController.js";
+class SetPath {
+    constructor() {
+        this.currentPath = null;
+    }
+    set path(path) {
+        if (path === 'home') {
+            this.currentPath = './src/';
+        } else {
+            this.currentPath = '../../../';
+        }
+    };
+    get path() {
+        return this.currentPath;
+    }
+};
+
+const setPath = new SetPath();
+
 class RenderCartProducts {
     constructor(containerCart) {
         this.body = document.querySelector(containerCart);
@@ -12,6 +30,9 @@ class RenderCartProducts {
 
     renderProducts(id, priceValue, imgUrl, quantityItems, title, dataBaseLS) {
 
+        if (!setPath) {
+            return
+        }
         const cart = document.querySelector('.cart');
 
         // Main products 
@@ -43,19 +64,22 @@ class RenderCartProducts {
 
         // IMAGE
         productImg.classList.add('cart__img');
-        productImg.src = imgUrl;
+        const pathRegex = /(\.+\/)*(src\/)?/i;
+        productImg.src = imgUrl.replace(pathRegex, setPath.path);
+        
+
         productImg.setAttribute('alt', 'imagem do produto');
 
         divWrapperProductInfo.classList.add('cart__product__info-wrapper');
         InfoTitle.innerText = title;
 
         btnWrapper.classList.add('cart__product__quantity');
-        minus.classList.add('cart__product__minus','fa-solid','fa-circle-minus');
+        minus.classList.add('cart__product__minus', 'fa-solid', 'fa-circle-minus');
         value.classList.add('cart__product__value');
         value.setAttribute('value', quantityItems);
         value.setAttribute('type', 'text');
         value.setAttribute('id', id);
-        plus.classList.add('cart__product__plus','fa-solid','fa-circle-plus');
+        plus.classList.add('cart__product__plus', 'fa-solid', 'fa-circle-plus');
 
 
         priceWrapper.classList.add('cart__product__price');
@@ -154,7 +178,7 @@ class RenderCartProducts {
         });
         if (total < 0) {
             return
-        } else{
+        } else {
             subTotalValue.innerText = 'R$ ' + total.toFixed(2);
             total = 0;
         }
@@ -204,9 +228,9 @@ class RenderCartProducts {
         };
 
     };
-    deleteProduct(element){
-        let value =  parseInt(element.parentNode.parentNode.children[1].children[1].getAttribute('id'));
-        
+    deleteProduct(element) {
+        let value = parseInt(element.parentNode.parentNode.children[1].children[1].getAttribute('id'));
+
         this.dataBaseLS.forEach((el, index) => {
             if (el.id === value) {
 
@@ -214,12 +238,12 @@ class RenderCartProducts {
                 localStorage.setItem('user', JSON.stringify(this.dataBaseLS));
                 this.reloadCart('remove');
                 // this.renderCartProducts.reloadCart('remove', this.dataBaseProductsLocalStorage.dataBase); // Verifica o que é necessário!!!
-                
+
                 // Delete subtotal and price if the empty cart
                 if (this.dataBaseLS.length === 0) {
                     this.cartPurchase = document.querySelector('.cart__purchase');
                     let cartEmpty = document.querySelector('.cart__emptyCart');
-                    
+
                     this.cartPurchase.remove();
                     cartEmpty.classList.toggle('hidden');
                     localStorage.removeItem('user');
@@ -231,7 +255,7 @@ class RenderCartProducts {
         });
         return
     };
-    addProductUnit(el){
+    addProductUnit(el) {
         let num = el.previousSibling.getAttribute("value");
         let idNum = el.previousSibling.getAttribute("id");
         el.previousSibling.setAttribute("value", ++num);
@@ -240,11 +264,11 @@ class RenderCartProducts {
                 element.quantityItems++;
                 localStorage.setItem('user', JSON.stringify(this.dataBaseLS));
                 this.renderSubTotal();
-                    
+
             };
         });
     };
-    removeProductUnit(el){
+    removeProductUnit(el) {
         let num = el.nextSibling.getAttribute("value");
         let idNum = el.nextSibling.getAttribute("id");
         el.nextSibling.setAttribute("value", --num);
@@ -253,7 +277,7 @@ class RenderCartProducts {
                 element.quantityItems--;
                 localStorage.setItem('user', JSON.stringify(this.dataBaseLS));
                 this.renderSubTotal();
-                    
+
             }
         })
     };
@@ -261,4 +285,4 @@ class RenderCartProducts {
 };
 
 const renderCartProducts = new RenderCartProducts('.header');
-export { renderCartProducts };
+export { renderCartProducts, setPath };

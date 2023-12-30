@@ -36,4 +36,15 @@
   --width-filter: clamp(15rem, 3.1579rem + 21.0526vw, 20rem);
   /* Width line filter 580px */
   --width-line-filter: clamp(0rem, -10.3125rem + 75vw, 16.875rem);
+
+  /* Margin-Padding */
+  --margin-padding-3xs: clamp(0.3125rem, -0.1401rem + 1.0345vw, 0.6875rem);
+  --margin-padding-2xs: clamp(0.6875rem, -0.0668rem + 1.7241vw, 1.3125rem);
+  --margin-padding-xs: clamp(1rem, -0.2069rem + 2.7586vw, 2rem);
+  --margin-padding-s: clamp(1.3125rem, -0.2716rem + 3.6207vw, 2.625rem);
+  --margin-padding-m: clamp(1.625rem, -0.4116rem + 4.6552vw, 3.3125rem);
+  --margin-padding-l: clamp(2rem, -0.3384rem + 5.3448vw, 3.9375rem);
+  --margin-padding-xl: clamp(2.3125rem, -0.4784rem + 6.3793vw, 4.625rem);
+  --margin-padding-2xl: clamp(2.625rem, -0.5431rem + 7.2414vw, 5.25rem);
+  --margin-padding-3xl: clamp(3.9375rem, -0.8147rem + 10.8621vw, 7.875rem);
 }

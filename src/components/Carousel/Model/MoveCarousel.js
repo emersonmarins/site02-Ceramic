@@ -108,7 +108,7 @@ class MoveCarousel {
     let mvn = this.movement_point; // mvp = moviment point negative
     let width = this.productList[0].offsetWidth; // product item width
 
-    if (mvp <= width && mvn < -40) {
+    if (mvp > 100 && mvn < -40) {
       this.nextSlide(1)
     } else if (mvp <= (width * 2) && mvn < -40) {
       this.nextSlide(2)
@@ -126,10 +126,10 @@ class MoveCarousel {
       this.previouSlide(3)
 
     } else {
-
       this.setVisibleSlide(this.salved_position);
 
     }
+    this.movement_point = 0;
   }// ok
 
   touchStart(event) {

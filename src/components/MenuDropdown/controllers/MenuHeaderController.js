@@ -3,8 +3,8 @@ import { storeController } from "../../../pages/store/controller/StoreController
 
 
 class MenuHeaderController {
-  constructor(className, hideCartModal, path) {
-    this.renderHeaderMenu = new RenderHeaderMenu(className, path);
+  constructor(className, hideCartModal) {
+    this.renderHeaderMenu = new RenderHeaderMenu(className);
     this.menuToggle = document.querySelector('.menu-toggle');
     this.menu = document.querySelector('.menu');
     this.dropdown = document.querySelector('.dropdown');
@@ -13,22 +13,11 @@ class MenuHeaderController {
 
     this.eventLeave = false;
     this.menuOpenHeight = 0;
-    this.pathCall = path;
-    this._path;
-    this.pathCurrent = path;
+    this._path = window.Store.ALTERNATIVE_PATH;
     this.initEventListeners();
     this.hideCartModal(hideCartModal);
 
   };
-  set pathCurrent(pathPage) {
-    if (pathPage === 'cart-page') {
-      this._path = '../../../../';
-
-    } else if (pathPage === 'home') {
-      this._path = './';
-
-    }
-  }
   hideCartModal(hideCartModal) {
 
     if (hideCartModal) {
@@ -56,10 +45,8 @@ class MenuHeaderController {
     });
     this.navLinksElements.forEach((element) => {
       element.addEventListener('click', (navLink) => {
-
-        console.log(navLink.target.dataset.category)
         localStorage.setItem('category', navLink.target.dataset.category)
-        if (this.pathCall === 'home') {
+        if (this._path === './') {
           window.location.href = './src/pages/store/html/index.html';
         } else {
             storeController.filterProducts();

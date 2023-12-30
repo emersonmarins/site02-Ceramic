@@ -1,21 +1,11 @@
 class CreateFooter {
-  constructor(className,path) {
+  constructor(className) {
     this._divWrapper;
     this.divWrapper = className;
-    this._path;
-    this.pathCurrent = path;
+    this._path =  window.Store.FOOTER_PATH;
   };
   set divWrapper(className) {
     className ? this._divWrapper = document.querySelector(className) : document.querySelector('body');
-  }
-  set pathCurrent(pathPage){
-    if (pathPage === 'cart-page') {
-      this._path = '../../../';
-      
-    } else if (pathPage === 'home') {
-      this._path = './src/';
-
-    }
   }
   get divWrapper() {
     return this._divWrapper;

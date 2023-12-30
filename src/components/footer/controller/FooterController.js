@@ -2,11 +2,11 @@ import { CreateFooter } from "../views/CreateFooter.js";
 import { FooterModel } from "../model/FooterModel.js";
 
 class FooterController {
-  constructor(className, path, classNameContainer) {
+  constructor(className, classNameContainer) {
     this._className = className;
-    this.createFooter = new CreateFooter(className, path);
+    this.createFooter = new CreateFooter(className);
     this.startCreateFooter();
-    this.footerModel = new FooterModel(className, classNameContainer, path);
+    this.footerModel = new FooterModel(className, classNameContainer);
     this.navLinksElementAboutUs = document.querySelector('.js-nav__link-about-us');
     this.navLinksElementContact = document.querySelector('.js-nav__link-contact');
     this.initEventListeners();

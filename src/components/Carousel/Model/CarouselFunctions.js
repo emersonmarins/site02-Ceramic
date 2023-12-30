@@ -1,5 +1,5 @@
 import { renderCartProducts } from '../../ShoppingCarts/views/RenderCartProducts.js';
-import { CartController } from "../../ShoppingCarts/Controller/CartController.js";
+import { cartController } from "../../ShoppingCarts/Controller/CartController.js";
 import { effects } from "../Views/effects.js";
 
 class CarouselFunctions {
@@ -9,7 +9,7 @@ class CarouselFunctions {
     this.objectProduct = [];
     this.cart;
     this.renderCartProducts;
-    this.cartController = new CartController();
+    this.cartController = cartController;
     this.renderCartProducts = renderCartProducts;
 
     this.initListener();

@@ -21,6 +21,7 @@ $cart-items: 'cart';
     &__img {
         width: 110px;
         height: 130px;
+        object-fit: scale-down;
     }
 
     &__title {

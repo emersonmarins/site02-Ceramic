@@ -23,6 +23,7 @@ class CartController {
     setDataBaseLS && ( this._dataBaseLS = JSON.parse(localStorage.getItem('user')) );
   };
   renderCart(className){
+    
     renderCart.dataBaseLS = this._dataBaseLS;
     renderCart.initRender(className);
     this.updateEventListeners();
@@ -51,6 +52,9 @@ class CartController {
         element.addEventListener('click', e => this.deleteProduct(element))
         
       });//OK
+    window.addEventListener('DOMContentLoaded', () => {
+      this.deleteShoppingCartTab();
+    })
   };
   addDiscountCoupon(){
 
@@ -69,6 +73,11 @@ class CartController {
   calculateDeliveryPrice(){
 
   };
+  deleteShoppingCartTab(){
+    const cartTab = document.querySelector('.header >.cart');
+    cartTab.remove();
+    
+  }
 };
 const cartController = new CartController();
 export { cartController };
