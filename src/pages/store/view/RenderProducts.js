@@ -18,7 +18,7 @@ class RenderProducts {
     this._dataBase = dataBase;
     this.newTitle;
     this.productsItemsAll;
-    this.renderProducts();
+    // this.renderProducts();
 
   }
   set dataBase(dataBase){
@@ -73,6 +73,7 @@ class RenderProducts {
 
     // ADD ATTRIBUTES
 
+    this.products__item.setAttribute('data-id', `${element.id}`);
     this.item__img.setAttribute('src', `${element.url}`);
     this.item__img.setAttribute('alt', `${element.title}`);
 

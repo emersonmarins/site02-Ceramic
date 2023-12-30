@@ -83,12 +83,14 @@ class RenderCart {
     divWrapperTotal.classList.add('cart-wrapper__total', 'js-cart-wrapper__total');
     const labelDiscount = document.createElement('label');
     labelDiscount.innerText = 'Cupom de desconto';
+    labelDiscount.setAttribute('for', 'codigo');
     btnCalcFrete.setAttribute('for', 'codigo');
     const divWrapperDiscount = document.createElement('div');
     const inputDiscount = document.createElement('input');
     inputDiscount.classList.add('cart-wrapper__total__input', 'js-cart-wrapper__total__input');
     inputDiscount.type = 'text';
     inputDiscount.id = 'codigo';
+    inputDiscount.name = `name_codigo`;
     inputDiscount.placeholder = 'Código';
     const buttonDiscount = document.createElement('button');
     buttonDiscount.classList.add('cart-wrapper__total__button', 'js-cart-wrapper__total__button', 'btn');
@@ -201,12 +203,14 @@ class RenderCart {
       const tdInfoProduct = document.createElement('td');
       tdInfoProduct.classList.add('cart__info', 'js-cart__info');
       const img = document.createElement('img');
-      img.setAttribute('src', '../../../assets/products/'+/[0-9]+.+/ig.exec(element.url)[0]); // Implementar DB
+
+      
+      img.setAttribute('src', element.url.replace(/.*assets/i, '../../../assets')); // Implementar DB
       const div = document.createElement('div');
       const h5 = document.createElement('h5');
       h5.innerText = element.title; // Implementar DB
       const p = document.createElement('p');
-      p.innerText = element.description; // Implementar DB
+      p.innerText = element.description !== null ? /(.){0,50}/i.exec(element.description)[0]+'...' : ''; // Implementar DB
       // tag [td] => Delivery and Price
       const tdDelivery = document.createElement('td');
       const pDelivery = document.createElement('p');
@@ -225,6 +229,7 @@ class RenderCart {
       inputQuantity.setAttribute('type', 'text');
       inputQuantity.setAttribute('value', `${element.quantityItems}`);
       inputQuantity.id = element.id;
+      inputQuantity.name = `name_value_${element.id}`;
       const btnPlus = document.createElement('span');
       btnPlus.classList.add('fa-solid', 'fa-circle-plus', 'cart__product__quantity__plus', 'js-cart__product__quantity__plus');
       // total Price

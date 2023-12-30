@@ -1,6 +1,6 @@
 .main .mainContent {
   display: grid;
-  margin: 0 auto 51px;
+  margin-bottom: 50px;
   padding-top: 50px;
   grid-template-areas: "filter products";
   grid-template-columns: var(--width-filter) auto;
@@ -275,6 +275,7 @@
     justify-content: center;
     border-top: none;
     margin: 0;
+    margin-bottom: 50px;
     padding: 0;
   }
   .main__filter .filter__title {

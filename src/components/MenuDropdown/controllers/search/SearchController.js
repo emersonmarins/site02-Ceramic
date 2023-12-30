@@ -15,6 +15,7 @@ class SearchController {
     this.newDataBase;
     this.suggestionsElementsList;
     this.isPageProduct = false;
+    this.closeClickFieldSearch;
     
 
     this.initEventListeners();
@@ -39,13 +40,21 @@ class SearchController {
 
       if (!this.stateMenu) { // Close Field Search
         this.renderSearch.closeSearchField(this.fieldSuggest,this.seachContainer);
-        
       } else if (this.stateMenu) { // Open Field Search
         this.renderSearch.openSearchField(this.seachContainer,this.suggestionsElementsList,this.fieldSuggest);
+        
       }
-      this.stateMenu = !this.stateMenu;
 
-    }); // ok
+    });
+    this.closeClickFieldSearch = document.body.addEventListener('click', (e) => { 
+
+      if (!this.stateMenu && e.target.className  !== 'search-input') { // Close Field Search
+        this.renderSearch.closeSearchField(this.fieldSuggest,this.seachContainer);
+        this.stateMenu = !this.stateMenu;
+      } else if (this.stateMenu && e.target.className  !== 'search-input'){
+        this.stateMenu = !this.stateMenu;
+      }
+    });
 
     /**
      * 1 - Add o evento de keyup no campo de busca
@@ -102,6 +111,8 @@ class SearchController {
           regExp = new RegExp(`${this.removeAccents(this.textSearch)}.*`, 'i');
           link.innerText = regExp.exec(this.removeAccents(this.newDataBase[index].title));
           this.fieldSuggest.appendChild(link);
+          
+          // Redirection when clicking on a suggestion
           link.addEventListener('click', (e) => {
             localStorage.setItem("category",`${e.target.innerText}`);
             if (this.isPageProduct) {

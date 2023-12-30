@@ -16,12 +16,13 @@ class CartController {
     this.renderCartProducts = renderCartProducts;
     this.dataBaseProductsLocalStorage = new DataBaseProductsLocalStorage();
     this.dataBaseLS;
-    this.creatCart();
-    this.updateElements();
-    this.initEventListeners();
+    document.addEventListener('DOMContentLoaded', e => {
+      this.creatCart();
+      this.updateElements();
+      this.initEventListeners();
+    })
   };
   get dataBaseLocalStorage(){
-    // this.dataBaseLocalStorage.dataBase = true
     return  this.dataBaseLS = JSON.parse(localStorage.getItem('user'));
   };
   set dataBaseLocalStorage(dataBase){
@@ -59,7 +60,7 @@ class CartController {
      *     e mostrar o carrinho de compras retirando a classe hidde.
      * 
      */
-    this.buttonCartOpen.addEventListener('click', () => {
+    this.buttonCartOpen && this.buttonCartOpen.addEventListener('click', () => {
     this.updateElements();
       
       if (this.cartPurchase === null) {
@@ -117,7 +118,7 @@ class CartController {
   };
   addProductUnit(element){
     this.renderCartProducts.addProductUnit(element);
-  }; // OK
+  };
   removeProductUnit(element){
     this.renderCartProducts.removeProductUnit(element);
   };
@@ -125,5 +126,5 @@ class CartController {
     this.renderCartProducts.deleteProduct(element);
   };
 };
-
-export { CartController };
+const cartController = new CartController();
+export { cartController };

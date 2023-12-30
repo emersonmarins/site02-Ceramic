@@ -1,4 +1,4 @@
-import dataBase from '../../../data/products/db_product.js';
+import { dataBaseCarousel } from '../Model/db.js';
 import { MoveCarousel } from "../Model/MoveCarousel.js";
 import { Animations } from "../Model/Animations.js";
 import { RenderCarousel } from "../Views/RenderCarousel.js";
@@ -46,7 +46,7 @@ class CarouselController {
 
   constructor(className) {
     this.className = className
-    this.dataBase = dataBase;
+    this.dataBase = dataBaseCarousel;
     this.containerWrapper = document.querySelector(`.${className}`);
     this.containerWrapperList;
     this.renderCarouselObject;

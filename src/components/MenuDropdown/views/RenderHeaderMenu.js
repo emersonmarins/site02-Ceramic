@@ -1,19 +1,9 @@
 class RenderHeaderMenu {
   constructor(className = 'body',path) {
     this.containerWrapper = document.querySelector(`${className}`);
-    this._path;
-    this.pathCurrent = path;
+    this._path = window.Store.ALTERNATIVE_PATH;
     this.initMenu();
   };
-  set pathCurrent(pathPage){
-    if (pathPage === 'cart-page') {
-      this._path = '../../../../';
-      
-    } else if (pathPage === 'home') {
-      this._path = './';
-
-    }
-  }
   initMenu() {
     this.renderMenu();
   };
@@ -58,7 +48,7 @@ class RenderHeaderMenu {
       <a href="#" class="search-icon">
         <div class="search-container">
           <i class="bi bi-search"></i>
-          <input class="search-input" type="text" placeholder="Search...">
+          <input class="search-input" type="text" placeholder="Search..." name="search">
           <div class="textareaSearch hidden"></div>
         </div>
         <i class="bi bi-search"></i>

@@ -1,10 +1,8 @@
 class ContactForm {
-  constructor(path) {
+  constructor() {
     this.formulario = document.createElement('form');
     this.formulario.id = 'contactForm';
-    this.pathCall = path;
-    this._path;
-    this.pathCurrent = path;
+    this._path = window.Store.ALTERNATIVE_PATH;
 
     this.adicionarCampo('Nome:', 'text', 'name', true);
     this.adicionarCampo('E-mail:', 'email', 'email', true);
@@ -16,15 +14,7 @@ class ContactForm {
 
     submitButton.addEventListener('click', this.enviarFormulario.bind(this));
   }
-  set pathCurrent(pathPage) {
-    if (pathPage === 'cart-page') {
-      this._path = '../../../../';
 
-    } else if (pathPage === 'home') {
-      this._path = './';
-
-    }
-  }
   adicionarCampo(labelText, inputType, inputName, required) {
     let div = document.createElement('div');
     div.classList.add('form-group');

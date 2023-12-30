@@ -2,7 +2,7 @@ import { MenuFooter } from "../../../pages/informations/index.js";
 import { ContactForm } from "../../../components/ContactForm/ContactForm.js";
 
 class FooterModel extends MenuFooter {
-  constructor(className, classNameContainer, path) {
+  constructor(className, classNameContainer) {
     super();
     this.mainContent = document.querySelector('.mainContent');
     this.mainContainer = document.querySelector(classNameContainer);
@@ -10,22 +10,10 @@ class FooterModel extends MenuFooter {
     this.menuFooter = document.querySelectorAll('.js-footer__text')
     this.text;
     this.title;
-    this.contactForm = new ContactForm(path);
-    this._path;
-    this.pathCurrent = path;
+    this.contactForm = new ContactForm();
+    this._path = window.Store.ALTERNATIVE_PATH;
     this.showMenuFooter()
 
-  }
-  get pathCurrent(){
-    return this._path;
-  }
-  set pathCurrent(pathPage) {
-    if (pathPage === 'cart-page') {
-      this._path = '../../../../';
-
-    } else if (pathPage === 'home') {
-      this._path = './';
-    }
   }
   createSection(formName = false) {
     if (document.querySelector('.infoWrapper')) {
@@ -44,7 +32,7 @@ class FooterModel extends MenuFooter {
 
       this.divWrapperImg.classList.add('infoWrapper__wrapper-img', 'js-infoWrapper__wrapper-img');
       this.img.classList.add('infoWrapper__img', 'js-infoWrapper__img');
-      this.img.src = `${this.pathCurrent}src/assets/banners/banner01.png`;
+      this.img.src = `${this._path}src/assets/banners/banner01.png`;
       title.classList.add('infoWrapper__title');
       text.classList.add('infoWrapper__text');
       title.innerHTML = this.title;

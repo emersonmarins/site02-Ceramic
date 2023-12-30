@@ -1,0 +1,324 @@
+.product-main {
+  display: grid;
+  grid-template-areas: " gallery info  "
+    " details details";
+  grid-auto-columns: 1fr 1fr;
+  width: 100%;
+  gap: 21px;
+
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    grid-area: gallery;
+    gap: var(--space-2xs);
+
+    .product-gallery {
+
+      &__main-image {
+        width: 100%;
+        object-fit: cover;
+        background: #dbdbdb;
+        padding: 10%;
+        border-radius: 14px;
+        box-shadow: 0 0 3px 1px #3e3e3e4f;
+      }
+
+      &__thumbnails {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &__thumbnail {
+        width: 21%;
+        object-fit: contain;
+        background: #dbdbdb;
+        padding: 2%;
+        border-radius: 14px;
+        box-shadow: 0 0 3px 1px #3e3e3e4f;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    display: grid;
+    grid-template-areas: " gallery gallery " "info info"
+      " details details";
+    grid-auto-columns: 1fr 1fr;
+    width: 100%;
+    gap: 21px;
+
+    &__gallery {
+      display: flex;
+      flex-direction: row;
+      grid-area: gallery;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 21px;
+      gap: 0;
+  
+      .product-gallery {
+  
+        &__main-image {
+          width: 75%;
+          object-fit: contain;
+          background: #dbdbdb;
+          padding: 7%;
+          border-radius: 14px;
+          box-shadow: 0 0 3px 1px #3e3e3e4f;
+        }
+  
+        &__thumbnails {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 21px;
+          width: 20%;
+          height: 100%;
+        }
+  
+        &__thumbnail {
+          width: auto;
+          height: 21%;
+          object-fit: contain;
+          background: #dbdbdb;
+          padding: 5%;
+          border-radius: 14px;
+          box-shadow: 0 0 3px 1px #3e3e3e4f;
+        }
+      }
+    }
+  }
+  @media (max-width: 400px) {
+
+    &__gallery {
+      flex-direction: column;
+      gap: 21px;
+  
+      .product-gallery {
+  
+        &__main-image {
+          width: 100%;
+        }
+  
+        &__thumbnails {
+          flex-direction: row;
+          gap:0;
+          width: 100%;
+        }
+  
+        &__thumbnail {
+          width: 21%;
+          height: auto;
+          padding: 0;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
+
+
+
+  &__info {
+    // padding-left: 70px;
+    display: flex;
+    flex-direction: column;
+    grid-area: info;
+    padding: 0 21px;
+
+    .product-info {
+      &__name {
+        font-size: var(--step-2);
+        font-family: var(--font-family-montsserat);
+        text-transform: capitalize;
+        font-weight: 600;
+      }
+
+      &__price-block {}
+
+      &__price {
+        font-size: var(--step-11);
+        display: flex;
+        gap: 11px;
+        align-items: baseline;
+        color: #364d56;
+        font-weight: 600;
+
+        span {
+          font-size: var(--step-0);
+        }
+      }
+
+      &__descont {
+        &--green {
+          color: green;
+        }
+      }
+
+      &__installment {
+        strong {
+          font-weight: 700;
+          color: var(--color-font03-dark);
+        }
+      }
+
+      &__current-price {
+        font-size: var(--step-5);
+        text-decoration: line-through;
+        color: var(--color-font01);
+        font-weight: 400;
+        margin-top: var(--margin-padding-s);
+      }
+
+      &__text {
+        font-weight: 700;
+        color: var(--color-font03-dark);
+      }
+
+      &__quantity-title {
+        padding: var(--margin-padding-s) 0 14px 0;
+      }
+
+      &__quantity {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 0 var(--margin-padding-s);
+        padding: var(--step--3) 0;
+        box-shadow: 0 0 1px 1px #2e2e2e85;
+        border-radius: 7px;
+        width: 140px;
+        // height: 42px;
+
+        &-decrease,
+        &-increase {
+          border: none;
+          background: none;
+
+          i {
+            font-size: var(--step-5);
+            color: #364d56;
+          }
+        }
+
+        .product-main__quantity-input {
+          width: 42px;
+          height: 100%;
+          text-align: center;
+          font-size: var(--step-0);
+          border: none;
+          border-left: 1px solid #00000070;
+          border-right: 1px solid #00000070;
+        }
+      }
+
+      &__button {
+        background: #364d56;
+        padding: 14px 21px;
+        border: none;
+        color: white;
+        display: flex;
+        gap: 14px;
+        font-size: var(--step-0);
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: darken(#000, 10%);
+        }
+
+        &--addCart {
+
+          .product-info__icon--cart {
+            font-size: 1.4rem;
+
+          }
+        }
+      }
+
+      &__frete-calc {
+        padding-top: var(--margin-padding-s);
+        font-size: var(--step-0);
+
+        &__frete-input {
+          height: 37px;
+        }
+      }
+
+    }
+  }
+
+  &__details {
+    padding: 21px 0;
+    margin: var(--margin-padding-s) 0;
+    grid-area: details;
+
+    .product-details {
+      &__description {
+        padding: 0 21px;
+
+        &-title {
+          font-size: var(--step-4);
+          font-weight: 600;
+          margin-bottom: 21px;
+        }
+
+        p {
+          font-size: var(--step-0);
+          font-weight: 400;
+        }
+      }
+
+      &__specifications {
+        margin-top: 21px;
+        padding: 0 21px;
+
+
+        &-title {
+          font-size: var(--step-4);
+          font-weight: 600;
+          margin-bottom: 21px;
+        }
+
+      }
+
+      &__table {
+        width: 100%;
+        height: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #00000033;
+      }
+
+      &__row {
+        box-shadow: 0 0 0 1px #3a3a3a30;
+
+        &:last-child {
+          border-bottom: 0; // ou 'none'
+        }
+
+        &--pair {}
+      }
+
+      &__field-name,
+      &__field-value {
+        padding: 8px 12px;
+        background-color: #fff;
+      }
+
+      &__field-name {
+        font-size: var(--step-1);
+        text-align: left;
+        font-weight: 600;
+      }
+
+      &__field-value {
+        font-size: var(--step--1);
+        font-weight: 400;
+
+      }
+
+    }
+  }
+}
