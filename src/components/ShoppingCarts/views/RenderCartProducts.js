@@ -150,7 +150,7 @@ class RenderCartProducts {
         subtotalTitle.innerText = 'SUBTOTAL';
         // subtotalPrice.innerText = priceValue;
         purchaseBtnWrapper.classList.add('cart__purchase__btn-wrapper');
-        purchaseBtnWrapper.setAttribute('href', './src/pages/shopping-cart/html/cart-page.html');
+        purchaseBtnWrapper.setAttribute('href', `${window.Store.CARTPAGE_PATH}src/pages/shopping-cart/html/cart-page.html`);
         purchaseIcon.classList.add('bi', 'bi-cart3', 'cart__purchase__btn');
         purchaseBtn.classList.add('cart__purchase__text');
         purchaseBtn.innerText = 'FINALIZAR COMPRA';

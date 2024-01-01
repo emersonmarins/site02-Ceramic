@@ -3,6 +3,7 @@ class Store {
     this._current_path = './';
     this._alternative_path = './';
     this._footer_path = './src';
+    this._cartpage_path = './';
 
   }
   get CURRENT_PATH() {
@@ -13,6 +14,16 @@ class Store {
       this._current_path = './';
     } else {
       this._current_path = '../../../';
+    }
+  }
+  get CARTPAGE_PATH() {
+    return this._cartpage_path;
+  }
+  set CARTPAGE_PATH(path) {
+    if (path === 'home') {
+      this._cartpage_path = './';
+    } else {
+      this._cartpage_path = '../../../../';
     }
   }
   get ALTERNATIVE_PATH() {

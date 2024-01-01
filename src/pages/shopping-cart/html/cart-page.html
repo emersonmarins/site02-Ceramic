@@ -38,19 +38,18 @@
         <footer class="footer-container"></footer>
     </div>
 
-    <script type="module" src="../../../components/MenuDropdown/controllers/MenuHeaderController.js"></script>
     <script type="module">
         import { store } from "../../../config/config.js";
         window.Store = store;
         window.Store.CURRENT_PATH = 'Store';
-        window.Store.ALTERNATIVE_PATH = './';
+        window.Store.ALTERNATIVE_PATH = '../../../../';
 
         import { MenuHeaderController } from "../../../components/MenuDropdown/controllers/MenuHeaderController.js";
         new MenuHeaderController('.header', true, 'cart-page');
         import { cartController } from "../controller/CartController.js";
         cartController.renderCart('.mainContent');
         import { FooterController } from "../../../components/footer/controller/FooterController.js";
-        new FooterController('.footer-container', 'cart-page');
+        new FooterController('.footer-container', '.mainContainer');
         import { ScrollToTop } from "../../../components/buttonScrollToTop/ScrollToTop.js";
         new ScrollToTop('generic');
     </script>
