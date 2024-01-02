@@ -1,7 +1,7 @@
 const dataBase = {
     "products": [
         {
-            "url": "../../../assets/products/img01.png",
+            "url": "../../../assets/products/1010101.png",
             "sku": 1010101,
             "id": 1010101,
             "title": 'xicara de cafe',
@@ -14,7 +14,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img02.png",
+            "url": "../../../assets/products/1010201.png",
             "sku": 1010201,
             "id": 1010201,
             "title": "vaso",
@@ -27,7 +27,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img03.png",
+            "url": "../../../assets/products/1010301.png",
             "sku": 1010301,
             "id": 1010301,
             "title": "xícara",
@@ -40,7 +40,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img04.png",
+            "url": "../../../assets/products/1010401.png",
             "sku": 1010401,
             "id": 1010401,
             "title": "xícara",
@@ -53,7 +53,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img05.png",
+            "url": "../../../assets/products/1010501.png",
             "sku": 1010501,
             "id": 1010501,
             "title": "xícara",
@@ -66,7 +66,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img06.png",
+            "url": "../../../assets/products/1010601.png",
             "sku": 1010601,
             "id": 1010601,
             "title": "xícara music",
@@ -79,7 +79,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img07.png",
+            "url": "../../../assets/products/1010701.png",
             "sku": 1010701,
             "id": 1010701,
             "title": "xícara",
@@ -92,7 +92,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img08.png",
+            "url": "../../../assets/products/1010801.png",
             "sku": 1010801,
             "id": 1010801,
             "title": "Vaso cerâmico",
@@ -105,7 +105,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img09.png",
+            "url": "../../../assets/products/1010901.png",
             "sku": 1010901,
             "id": 1010901,
             "title": "Vaso cerâmico oco circular",
@@ -118,7 +118,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img10.png",
+            "url": "../../../assets/products/1011001.png",
             "sku": 1011001,
             "id": 1011001,
             "title": 'xicara de cafe',
@@ -131,7 +131,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img11.png",
+            "url": "../../../assets/products/1011101.png",
             "sku": 1011101,
             "id": 1011101,
             "title": "vaso",
@@ -144,7 +144,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img12.png",
+            "url": "../../../assets/products/1011201.png",
             "sku": 1011201,
             "id": 1011201,
             "title": "xícara",
@@ -157,7 +157,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img13.png",
+            "url": "../../../assets/products/1011301.png",
             "sku": 1011301,
             "id": 1011301,
             "title": "xícara",
@@ -170,7 +170,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img14.png",
+            "url": "../../../assets/products/1011401.png",
             "sku": 1011401,
             "id": 1011401,
             "title": "xícara",
@@ -183,7 +183,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img15.png",
+            "url": "../../../assets/products/1011501.png",
             "sku": 1011501,
             "id": 1011501,
             "title": "xícara music",
@@ -196,7 +196,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img16.png",
+            "url": "../../../assets/products/1011601.png",
             "sku": 1011601,
             "id": 1011601,
             "title": "xícara",
@@ -209,7 +209,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img17.png",
+            "url": "../../../assets/products/1011701.png",
             "sku": 1011701,
             "id": 1011701,
             "title": "Vaso cerâmico",
@@ -222,7 +222,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img18.png",
+            "url": "../../../assets/products/1011801.png",
             "sku": 1011801,
             "id": 1011801,
             "title": "Vaso cerâmico oco circular",
@@ -235,7 +235,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img19.png",
+            "url": "../../../assets/products/1011901.png",
             "sku": 1011901,
             "id": 1011901,
             "title": "Vaso cerâmico oco circular",
@@ -248,7 +248,7 @@ const dataBase = {
 
         },
         {
-            "url": "../../../assets/products/img20.png",
+            "url": "../../../assets/products/1012001.png",
             "sku": 1012001,
             "id": 1012001,
             "title": "Vaso cerâmico oco circular",
@@ -266,7 +266,7 @@ const dataBase = {
 const dataBaseCarousel = {
     "products":[
         {
-            "url": "./src/assets/products/0101.png",
+            "url": "./src/assets/products/10101.png",
             "sku": 10101,
             "id": 10101,
             "title": 'xicara de cafe',
