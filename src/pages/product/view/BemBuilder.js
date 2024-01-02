@@ -1,4 +1,22 @@
 class BemBuilder {
+  constructor(){
+    this.urlImg01;
+    this.urlImg02;
+    this.urlImg03;
+    this.urlImg04;
+    this.setConstructor();
+  }
+  setConstructor(url = {
+    img01: "1010701",
+    img02: "1010601",
+    img03: "1010801",
+    img04: "1010501"
+  }){
+    this.urlImg01 = url.img01;
+    this.urlImg02 = url.img02;
+    this.urlImg03 = url.img03;
+    this.urlImg04 = url.img04;
+  }
   createElement(tag, classNames, attributes, textContent) {
     const element = document.createElement(tag);
     this.applyClasses(element, classNames);
@@ -60,10 +78,10 @@ class BemBuilder {
 
     // Product Main Gallery - for demonstration, sample image URLs are used
     const gallery = this.buildProductMainGallery([
-      `${element.url}`,
-      `${element.url.replace(/[0-9]+/i, '01')}`,
-      `${element.url.replace(/[0-9]+/i, '02')}`,
-      `${element.url.replace(/[0-9]+/i, '03')}`
+      `${element.url.replace(/[0-9]+/i, element.id)}`,
+      `${element.url.replace(/[0-9]+/i, this.urlImg02)}`,
+      `${element.url.replace(/[0-9]+/i, this.urlImg03)}`,
+      `${element.url.replace(/[0-9]+/i, this.urlImg04)}`
     ]);
     productMain.appendChild(gallery);
 
@@ -91,8 +109,11 @@ class BemBuilder {
     infoPriceBlock.appendChild(infoInstalltment);
     infoInstalltment.innerHTML = `ou <strong>3x</strong> de <strong>R$ ${(Number(element.price) / 3).toFixed(2)}</strong> | Total parcelado: <strong>R$ ${element.price}</strong>`
 
-    const infoCurrentPrice = this.createElement('p', 'product-info__current-price', null, `R$ ${element.currentPrice}`)
+    if(element.currentPrice) {
+    const infoCurrentPrice = this.createElement('p', 'product-info__current-price', null, `R$ ${element.currentPrice}`);
     infoPriceBlock.appendChild(infoCurrentPrice);
+    };
+
     const infoText = this.createElement('p', 'product-info__text', null, 'no boleto ou em 1x no cartão crédito/débito')
     infoPriceBlock.appendChild(infoText);
     const infoDescontCard = this.createElement('p', ['product-info__descont', 'is-green'], null, '5% de desconto')

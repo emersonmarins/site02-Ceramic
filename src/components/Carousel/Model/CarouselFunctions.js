@@ -1,5 +1,7 @@
 import { renderCartProducts } from '../../ShoppingCarts/views/RenderCartProducts.js';
 import { cartController } from "../../ShoppingCarts/Controller/CartController.js";
+import { bemBuilder } from "../../../pages/product/view/BemBuilder.js";
+import { productController } from "../../../pages/product/controller/ProductController.js";
 import { effects } from "../Views/effects.js";
 
 class CarouselFunctions {
@@ -11,10 +13,13 @@ class CarouselFunctions {
     this.renderCartProducts;
     this.cartController = cartController;
     this.renderCartProducts = renderCartProducts;
-
+    this.handleShowProduct = this.showProduct.bind(this);
+    this.handleHideProduct = this.hideProduct.bind(this);
+    this.stateClickWapper = false;
+    this.divProduct;
+    this.mainWrapper = document.querySelector('.wrapper');
     this.initListener();
   };
-
   addProductLocalStorage(element) {
     let userid = {
       url: element.url,
@@ -33,8 +38,7 @@ class CarouselFunctions {
 
     localStorage.setItem(`user`, JSON.stringify(this.objectProduct));
     this.objectProduct = [];
-  }
-
+  };
   async dbGet(id) {
     /**
      * 1 - Armazenar na variável this.objectProduct um objeto que guarda os 
@@ -83,18 +87,14 @@ class CarouselFunctions {
       };
     });
 
-  } // ok
-
+  };
   clearEmptyCart() {
     // como add um produto ele esconde a mensagem carrinho vazio, 
     // essa função deve ser passada para o componente ShoppingCart,
     // pois não se trata da competencia do carrosel definir isso.
     const message = document.querySelector('.cart__emptyCart');
     message.classList.add('hidden');
-  } // ok
-  // Verificar qual comportamento não esperado, pois apresenta um sintoma de loop
-  // por ser necessário fazer um this.callFunctionId = false impedindo de entrar no
-  // carrinho novamente em 0.2 milisegundos!!!
+  };
   shoppingCarts(event) {
     event.preventDefault();
     if (this.callFunctionId) {
@@ -106,21 +106,70 @@ class CarouselFunctions {
         this.callFunctionId = true;
         let dataBaseLS = JSON.parse(localStorage.getItem("user"));
         if (dataBaseLS.length === 0) {
-          
+
         }
         console.log(dataBaseLS)
-        this.renderCartProducts.reloadCart('remove',dataBaseLS);
-        this.cartController.updateEventListeners(); 
+        this.renderCartProducts.reloadCart('remove', dataBaseLS);
+        this.cartController.updateEventListeners();
       }, 400);
     }
   };
+  showProduct(event) {
+    event.preventDefault();
+    const element = event.target;
+    console.log(event.target);
+    this.dataBase.products.forEach((e) => {
+      if (Number(e.id) === Number(element.parentElement.firstChild.id)) {
+        const url = {
+          img01: e.id,
+          img02: "10102",
+          img03: "10103",
+          img04: "10104"
+        }
+        bemBuilder.setConstructor(url);
+        this.divProduct = bemBuilder.build(e);
+        const divWrapper = document.querySelector('.model-product');
+        const wrapper = document.querySelector('.wrapper');
+        const body = document.querySelector('body');
+        divWrapper.classList.toggle('hidde');
+        body.classList.add('overflow-none');
+        wrapper.classList.add('blur');
+        divWrapper.appendChild(this.divProduct);
 
+        console.log('entrou')
+        productController.productId = e.id;
+        productController.dataBase = this.dataBase;
+        
+        console.log(productController.filterProduct())
+        productController.initEventListenner();
+        // productController.handleControlQuantityItems();
+        // productController.handleAddToCart();
+      }
+    });
+    this.mainWrapper.addEventListener('click', this.handleHideProduct);
+  };
+  hideProduct() {
+    if (this.stateClickWapper) {
+      console.log('remover product')
+      const divWrapper = document.querySelector('.model-product');
+      const wrapper = document.querySelector('.wrapper');
+      const body = document.querySelector('body');
+      divWrapper.classList.toggle('hidde');
+      body.classList.remove('overflow-none');
+      wrapper.classList.remove('blur');
+      this.divProduct.remove();
+      this.mainWrapper.removeEventListener('click', this.handleHideProduct);
+      this.stateClickWapper = !this.stateClickWapper;
+    } else {
+      this.stateClickWapper = !this.stateClickWapper;
+    }
+  };
   initListener() {
     /**
      * 1 - Primeiro salvar os buttons de adicionar ao carrinho em uma variável 
      * 2 - fazer um for em todos os buttons e add um evento de click
      */
-    this.cart = document.querySelectorAll('.bi-cart3');
+    this.cart = document.querySelectorAll('.container-carousel-nav > .bi-cart3');
 
     this.cart.forEach((element) => {
       element.addEventListener('click', (event) => {
@@ -128,8 +177,13 @@ class CarouselFunctions {
         effects.scale1X(event);
       });
     });
+
+    this.showProductCarousel = document.querySelectorAll('.container-carousel-nav > .bi-eye');
+
+    this.showProductCarousel.forEach((element) => {
+      element.addEventListener('click', this.handleShowProduct);
+    });
+
   };
-
-
 };
 export { CarouselFunctions }

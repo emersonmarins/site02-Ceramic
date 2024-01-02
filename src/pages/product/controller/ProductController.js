@@ -7,19 +7,27 @@ import { cartController } from '../../../components/ShoppingCarts/Controller/Car
 
 class ProductController {
   constructor() {
-    this.dataBase = dataBase;
+    this._dataBase = dataBase;
     this.currentProduct;
     this.productLocalStorage;
     this._productId;
     this.repeatedId = false;
     this.buttonsArray;
+    this.handleAddToCart = this.addToCart.bind(this);
+    this.handleControlQuantityItems = this.controlQuantityItems.bind(this);
 
   };
   get productId() {
-    return this.productId;
+    return this._productId;
   };
   set productId(id) {
     this._productId = id;
+  };
+  get dataBase() {
+    return this._dataBase;
+  };
+  set dataBase(db) {
+    this._dataBase = db;
   };
   addProductToCart(quantity = false){
     if (JSON.parse(localStorage.getItem('user')) === null) {
@@ -38,23 +46,22 @@ class ProductController {
       };
     };
     if (!this.repeatedId) {
+      
       this.currentProduct.quantityItems = quantity ? quantity : Number(this.buttonsArray[2].value);
       this.productLocalStorage.push(this.currentProduct);
       localStorage.setItem('user', JSON.stringify(this.productLocalStorage));
       this.repeatedId = false;
     };
   };
-  initEventListenner() {
-
+  addToCart() {
+    this.addProductToCart();
+  };
+  controlQuantityItems(){
     this.buttonsArray = [
       document.querySelector('.product-info__quantity-decrease'),
       document.querySelector('.product-info__quantity-increase'),
       document.querySelector('.product-main__quantity-input'),
     ];
-    // ADD TO CART
-    document.querySelector('.product-info__button--addCart').addEventListener('click', () => {
-      this.addProductToCart();
-    });
 
     for (let index = 0; index < (this.buttonsArray.length - 1); index++) {
       const element = this.buttonsArray[index];
@@ -72,6 +79,15 @@ class ProductController {
       })
     };
   };
+  initEventListenner() {
+
+    // ADD TO CART
+    document.querySelector('.product-info__button--addCart').addEventListener('click', this.handleAddToCart);
+    
+    // CONTROL QUANTITY ITEMS
+    this.handleControlQuantityItems();
+
+  };
   renderProduct(className, currentProduct) {
     const productMainContent = bemBuilder.build(currentProduct);
     document.querySelector(`${className}`).appendChild(productMainContent);
@@ -79,8 +95,8 @@ class ProductController {
     this.initEventListenner();
   };
   filterProduct() {
-    for (let index = 0; index < dataBase.products.length; index++) {
-      let element = dataBase.products[index];
+    for (let index = 0; index < this.dataBase.products.length; index++) {
+      let element = this.dataBase.products[index];
       if (Number(element.id) === Number(this._productId)) {
         this.currentProduct = element;
         break
