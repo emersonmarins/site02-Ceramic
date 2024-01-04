@@ -1,5 +1,5 @@
-import { renderCartProducts} from "../views/RenderCartProducts.js";
-import { DataBaseProductsLocalStorage } from "../Model/DataBaseProductsLocalStorage.js";
+import { renderCartProducts} from "../view/RenderCartProducts.js";
+import { DataBaseProductsLocalStorage } from "../model/DataBaseProductsLocalStorage.js";
 
 
 class CartController {

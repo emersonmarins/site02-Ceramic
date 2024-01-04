@@ -1,5 +1,5 @@
 import { MenuFooter } from "../../../pages/informations/index.js";
-import { ContactForm } from "../../../components/ContactForm/ContactForm.js";
+import { ContactForm } from "../../../components/contactForm/ContactForm.js";
 
 class FooterModel extends MenuFooter {
   constructor(className, classNameContainer) {

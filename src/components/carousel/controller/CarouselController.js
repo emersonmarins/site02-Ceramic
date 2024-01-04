@@ -1,9 +1,9 @@
-import { dataBaseCarousel } from '../Model/db.js';
-import { MoveCarousel } from "../Model/MoveCarousel.js";
-import { Animations } from "../Model/Animations.js";
-import { RenderCarousel } from "../Views/RenderCarousel.js";
-import { CarouselFunctions } from "../Model/CarouselFunctions.js";
-import { effects } from "../Views/effects.js";
+import { dataBaseCarousel } from '../model/db.js';
+import { MoveCarousel } from "../model/MoveCarousel.js";
+import { Animations } from "../model/Animations.js";
+import { RenderCarousel } from "../view/RenderCarousel.js";
+import { CarouselFunctions } from "../model/CarouselFunctions.js";
+import { effects } from "../view/Effects.js";
 
 /**
  *                           +----------------+

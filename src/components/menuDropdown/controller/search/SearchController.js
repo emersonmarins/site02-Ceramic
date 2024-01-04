@@ -1,5 +1,5 @@
 import { dataBase } from "../../../../pages/store/model/db_product.js";
-import { RenderSearch } from "../../views/RenderSearch.js";
+import { RenderSearch } from "../../view/RenderSearch.js";
 import { storeController } from "../../../../pages/store/controller/StoreController.js";
 
 class SearchController {

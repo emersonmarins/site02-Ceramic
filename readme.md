@@ -66,3 +66,10 @@ git commit -m "Corrigir estilo da página"
 git push origin style-fix
 
 git branch -d style
+
+git checkout <outra-branch>
+git submodule deinit -f -- Site\ Android
+git rm -f Site\ Android
+git commit -m "Remover submódulo Site Android"
+git push origin <outra-branch>
+

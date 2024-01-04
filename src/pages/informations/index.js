@@ -1,9 +1,9 @@
-import { AboutUs } from "./AboutUs/AboutUs.js";
-import { CookiePolicy } from "./CookiePolicy/CookiePolicy.js";
-import { Orders } from "./Orders/Orders.js";
-import { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy.js";
-import { RefundPolicy } from "./RefundPolicy/RefundPolicy.js";
-import { ShippingPolicy } from "./ShippingPolicy/ShippingPolicy.js";
+import { AboutUs } from "./aboutUs/AboutUs.js";
+import { CookiePolicy } from "./cookiePolicy/CookiePolicy.js";
+import { Orders } from "./orders/Orders.js";
+import { PrivacyPolicy } from "./privacyPolicy/PrivacyPolicy.js";
+import { RefundPolicy } from "./refundPolicy/RefundPolicy.js";
+import { ShippingPolicy } from "./shippingPolicy/ShippingPolicy.js";
 
 class MenuFooter {
   constructor(){

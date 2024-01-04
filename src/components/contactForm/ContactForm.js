@@ -54,7 +54,7 @@ class ContactForm {
     let head = document.head;
     let linkCss = document.createElement('link');
     linkCss.setAttribute("rel", "stylesheet");
-    linkCss.setAttribute("href", `${this._path}src/components/ContactForm/style.css`);
+    linkCss.setAttribute("href", `${this._path}src/components/contactForm/style.css`);
     head.appendChild(linkCss);
   }
 }

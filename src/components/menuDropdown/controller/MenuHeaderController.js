@@ -1,4 +1,4 @@
-import { RenderHeaderMenu } from "../views/RenderHeaderMenu.js";
+import { RenderHeaderMenu } from "../view/RenderHeaderMenu.js";
 import { storeController } from "../../../pages/store/controller/StoreController.js";
 
 
@@ -48,7 +48,10 @@ class MenuHeaderController {
         localStorage.setItem('category', navLink.target.dataset.category)
         if (this._path === './') {
           window.location.href = './src/pages/store/html/index.html';
-        } else {
+        } else if(this._path === '../../../../') {
+          window.location.href = this._path+'src/pages/store/html/index.html';
+        } 
+        else {
             storeController.filterProducts();
         }
       });

@@ -1,4 +1,4 @@
-import { CreateFooter } from "../views/CreateFooter.js";
+import { CreateFooter } from "../view/CreateFooter.js";
 import { FooterModel } from "../model/FooterModel.js";
 
 class FooterController {

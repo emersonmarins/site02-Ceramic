@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../../../styles/index.css">
-  <link rel="stylesheet" href="../../../components/MenuDropdown/styles/index.css">
-  <link rel="stylesheet" href="../../../components/ShoppingCarts/styles/index.css">
-  <link rel="stylesheet" href="../styles/index.css">
-  <link rel="stylesheet" href="../../../components/footer/styles/index.css">
+  <link rel="stylesheet" href="../../../components/menuDropdown/style/index.css">
+  <link rel="stylesheet" href="../../../components/shoppingCart/style/index.css">
+  <link rel="stylesheet" href="../style/index.css">
+  <link rel="stylesheet" href="../../../components/footer/style/index.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
@@ -17,7 +17,7 @@
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../../product/styles/index.css">
+  <link rel="stylesheet" href="../../product/style/index.css">
   <script type="module">
     import { store } from "../../../config/config.js";
     window.Store = store; 
@@ -183,7 +183,7 @@
     window.Store.ALTERNATIVE_PATH = '../../../../';
     window.Store.FOOTER_PATH = '../../../';
     window.Store.CARTPAGE_PATH = 'Store';
-    import { MenuHeaderController } from "../../../components/MenuDropdown/controllers/MenuHeaderController.js";
+    import { MenuHeaderController } from "../../../components/menuDropdown/controller/MenuHeaderController.js";
     new MenuHeaderController('.header', false, 'cart-page');
   </script>
 
@@ -194,7 +194,7 @@
   </script>
 
   <script type="module">
-    import { searchController } from "../../../components/MenuDropdown/controllers/search/SearchController.js";
+    import { searchController } from "../../../components/menuDropdown/controller/search/SearchController.js";
     searchController.pageProduct = true;
   </script>
 

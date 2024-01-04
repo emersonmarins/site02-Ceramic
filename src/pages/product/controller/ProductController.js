@@ -1,8 +1,8 @@
 import { dataBase } from "../model/db.js";
 import { bemBuilder } from "../view/BemBuilder.js";
-import { setPath } from '../../../components/ShoppingCarts/views/RenderCartProducts.js';
+import { setPath } from '../../../components/shoppingCart/view/RenderCartProducts.js';
 setPath.path = 'product';
-import { cartController } from '../../../components/ShoppingCarts/Controller/CartController.js';
+import { cartController } from '../../../components/shoppingCart/controller/CartController.js';
 
 
 class ProductController {

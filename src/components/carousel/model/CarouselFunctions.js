@@ -1,8 +1,8 @@
-import { renderCartProducts } from '../../ShoppingCarts/views/RenderCartProducts.js';
-import { cartController } from "../../ShoppingCarts/Controller/CartController.js";
+import { renderCartProducts } from '../../shoppingCart/view/RenderCartProducts.js';
+import { cartController } from "../../shoppingCart/controller/CartController.js";
 import { bemBuilder } from "../../../pages/product/view/BemBuilder.js";
 import { productController } from "../../../pages/product/controller/ProductController.js";
-import { effects } from "../Views/effects.js";
+import { effects } from "../view/Effects.js";
 
 class CarouselFunctions {
   constructor(dataBase) {
